@@ -6,6 +6,8 @@ import Carousel from "../../landing/Carousel/Carousel";
 import Partner from "../../landing/Partner/Partner";
 import Service from "../../landing/Service/Service";
 import Banner from "../../landing/Banner/Banner";
+import Doctor from "../../landing/Doctor/Doctor";
+import DoctorData from "../../components/doctorData/doctorData";
 
 const HomeLanding: React.FC = () => {
   return (
@@ -14,6 +16,7 @@ const HomeLanding: React.FC = () => {
       <Partner />
       <Service />
       <Banner />
+      <Doctor doctors={DoctorData} />
     </div>
   );
 };
