@@ -10,7 +10,7 @@ const PatnerData = [
 
 const Partner: React.FC = () => {
   return (
-    <div className="bg-smgreen dark:bg-gray-dark dark:text-white p-8 mb-12">
+    <div className="bg-emerald-50 dark:bg-gray-dark dark:text-white p-8 mb-12">
       <div className="container mx-auto">
         {/* Header section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
@@ -31,7 +31,7 @@ const Partner: React.FC = () => {
               key={data.id}
               className="space-y-3"
             >
-              <img src={data.img} alt={`partner-${data.id}`} className="h-16 w-auto object-contain" />
+              <img src={data.img} alt={`partner-${data.id}`} className="h-16 w-auto object-contain mb-3" />
             </div>
           ))}
         </div>
