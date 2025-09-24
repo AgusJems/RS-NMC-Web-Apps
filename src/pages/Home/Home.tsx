@@ -9,6 +9,7 @@ import Banner from "../../landing/Banner/Banner";
 import Doctor from "../../landing/Doctor/Doctor";
 import DoctorData from "../../components/doctorData/doctorData";
 import Contact from "../../landing/Contact/Contact";
+import News from "../../landing/News/News";
 
 const HomeLanding: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const HomeLanding: React.FC = () => {
       <Banner />
       <Doctor doctors={DoctorData} />
       <Contact />
+      <News />
     </div>
   );
 };

@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
       <div className="container px-4">
         <div
           className="w-full bg-gradient-to-r from-primary to-lightgreen
-                     text-white py-10 sm:min-h-[350px] rounded-3xl
+                     text-white py-10 sm:min-h-[300px] rounded-3xl
                      shadow-xl grid place-items-center"
         >
           <div className="space-y-6 max-w-xl text-center px-4">
