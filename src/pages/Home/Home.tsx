@@ -8,6 +8,7 @@ import Service from "../../landing/Service/Service";
 import Banner from "../../landing/Banner/Banner";
 import Doctor from "../../landing/Doctor/Doctor";
 import DoctorData from "../../components/doctorData/doctorData";
+import Contact from "../../landing/Contact/Contact";
 
 const HomeLanding: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const HomeLanding: React.FC = () => {
       <Service />
       <Banner />
       <Doctor doctors={DoctorData} />
+      <Contact />
     </div>
   );
 };

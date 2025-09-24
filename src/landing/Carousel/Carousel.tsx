@@ -8,7 +8,7 @@ const bgStyle: React.CSSProperties = {
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
-  height: "650px",
+  height: "750px",
   width: "100vw",
 };
 
@@ -64,7 +64,7 @@ const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
 
   return (
     <div style={bgStyle}>
-      <div className="dark:bg-dark/60 bg-white/60 backdrop-blur-sm dark:text-white duration-300 h-[650px] flex justify-center items-center">
+      <div className="dark:bg-dark/60 bg-white/10 backdrop-blur-sm dark:text-white duration-300 h-[750px] flex justify-center items-center">
         <div className="container pb-8 sm:pb-0">
           <Slider {...settings}>
             {ImageList.map((data) => (
