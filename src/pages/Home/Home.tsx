@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Carousel from "../../landing/Carousel/Carousel";
 import Partner from "../../landing/Partner/Partner";
 import Service from "../../landing/Service/Service";
+import Banner from "../../landing/Banner/Banner";
 
 const HomeLanding: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const HomeLanding: React.FC = () => {
       <Carousel handleOrderPopup={() => console.log("Popup dibuka")} />
       <Partner />
       <Service />
+      <Banner />
     </div>
   );
 };
