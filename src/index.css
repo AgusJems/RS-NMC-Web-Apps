@@ -132,6 +132,16 @@ layer(base);
   --color-warning-800: #93370d;
   --color-warning-900: #7a2e0e;
   --color-warning-950: #4e1d09;
+  
+  --color-primary: #10B981;
+  --color-secondary: #28a745;
+  --color-smgreen: #f0fff6;
+  --color-dark: #111111;
+  --color-gdone: #D5B400;
+  --color-gdtwo: #FFD971;
+  --color-lightgreen: #58CE93;
+  --color-footer: #124f31;
+
 
   --color-theme-pink-500: #ee46bc;
 

@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
 
         {/* Bottom text */}
         <div className="text-center py-10 border-t-2 border-gray-300/50 text-white">
-          Copyright @2025, Oilos.id | All Rights Reserved
+          Copyright @2025, agus | All Rights Reserved
         </div>
       </div>
     </div>
