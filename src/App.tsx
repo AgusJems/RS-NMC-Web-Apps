@@ -22,6 +22,8 @@ import VisionMissionPage from "./components/SubNavbar/Profile/VisionMission";
 import QualityIndicatorPage from "./components/SubNavbar/Profile/QualityIndicator";
 import DoctorPage from "./components/SubNavbar/Doctor/DoctorPage";
 import DoctorDetailPage from "./components/SubNavbar/Doctor/DoctorDetailPage";
+import NewsPage from "./components/SubNavbar/News/NewsPage";
+import NewsDetailPage from "./components/SubNavbar/News/NewsDetailPage";
 
 export default function App() {
   useEffect(() => {
@@ -58,6 +60,8 @@ export default function App() {
             <Route path="/profile/quality-indicators" element={<QualityIndicatorPage />} />
             <Route path="/doctorpage" element={<DoctorPage />} />
             <Route path="/doctorpage/:id" element={<DoctorDetailPage/>} />
+            <Route path="/newspage" element={<NewsPage />} />
+            <Route path="/newspage/:id" element={<NewsDetailPage />} />
           </Route>
 
           {/* Fallback Route */}
