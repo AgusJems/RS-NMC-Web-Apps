@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="py-12 sm:py-0 justify-items-center">
+    <div className="py-12 sm:py-5 justify-items-center">
       <div className="container px-4">
         <div
           className="w-full bg-gradient-to-r from-primary to-lightgreen
