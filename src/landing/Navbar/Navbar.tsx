@@ -30,13 +30,13 @@ const Navbar: React.FC = () => {
                   {!submenu ? (
                     <a
                       href={link}
-                      className="text-sm font-medium text-black dark:text-white py-2 px-4 rounded-full hover:bg-emerald-500 hover:text-white duration-300 inline-block"
+                      className="text-sm font-medium text-gray-600 dark:text-white py-2 px-4 rounded-full hover:bg-emerald-500 hover:text-white duration-300 inline-block"
                     >
                       {name}
                     </a>
                   ) : (
                     <div className="group inline-block text-left">
-                      <button className="text-sm font-medium text-black dark:text-white py-2 px-4 rounded-full hover:bg-emerald-500 hover:text-white duration-300">
+                      <button className="text-sm font-medium text-gray-600 dark:text-white py-2 px-4 rounded-full hover:bg-emerald-500 hover:text-white duration-300">
                         {name}
                       </button>
                       <ul className="absolute z-20 hidden group-hover:block min-w-[200px] bg-white dark:bg-gray-900 text-black dark:text-white rounded-md shadow-lg mt-2">

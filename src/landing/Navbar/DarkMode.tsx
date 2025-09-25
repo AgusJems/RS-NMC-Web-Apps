@@ -28,9 +28,9 @@ const DarkMode: React.FC = () => {
   return (
     <>
       {theme === "dark" ? (
-        <BiSolidSun onClick={toggleTheme} className="text-2xl cursor-pointer" />
+        <BiSolidSun onClick={toggleTheme} className="text-2xl cursor-pointer text-white" />
       ) : (
-        <BiSolidMoon onClick={toggleTheme} className="text-2xl cursor-pointer" />
+        <BiSolidMoon onClick={toggleTheme} className="text-2xl cursor-pointer text-gray-600" />
       )}
     </>
   );
