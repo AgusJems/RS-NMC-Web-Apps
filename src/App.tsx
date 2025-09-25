@@ -24,6 +24,10 @@ import DoctorPage from "./components/SubNavbar/Doctor/DoctorPage";
 import DoctorDetailPage from "./components/SubNavbar/Doctor/DoctorDetailPage";
 import NewsPage from "./components/SubNavbar/News/NewsPage";
 import NewsDetailPage from "./components/SubNavbar/News/NewsDetailPage";
+import OutPatientPage from "./components/SubNavbar/Service/OutPatientPage";
+import InPatientPage from "./components/SubNavbar/Service/InPatientPage";
+import EmergencyCarePage from "./components/SubNavbar/Service/EmergencyCarePage";
+import SupportPage from "./components/SubNavbar/Service/SupportPage";
 
 export default function App() {
   useEffect(() => {
@@ -62,6 +66,10 @@ export default function App() {
             <Route path="/doctorpage/:id" element={<DoctorDetailPage/>} />
             <Route path="/newspage" element={<NewsPage />} />
             <Route path="/newspage/:id" element={<NewsDetailPage />} />
+            <Route path="/service/outpatient" element={<OutPatientPage />} />
+            <Route path="/service/inpatient" element={<InPatientPage />} />
+            <Route path="/service/emergency-care" element={<EmergencyCarePage />} />
+            <Route path="/service/support" element={<SupportPage />} />
           </Route>
 
           {/* Fallback Route */}
