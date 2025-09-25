@@ -24,9 +24,9 @@ const Doctor: React.FC<DoctorProps> = ({ doctors }) => {
           </p>
         </div>
 
-        {/* Grid Card */}
+        {/* Grid Card - hanya tampilkan 5 doctor */}
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
-          {doctors.map((doctor) => (
+          {doctors.slice(0, 5).map((doctor) => (
             <div
               data-aos="zoom-in"
               data-aos-delay="200"
