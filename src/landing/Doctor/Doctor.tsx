@@ -15,7 +15,7 @@ const Doctor: React.FC<DoctorProps> = ({ doctors }) => {
           <p data-aos="fade-up" className="text-sm text-primary">
             Our Doctor
           </p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold">
+          <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white mb-4">
             Dokter Kami
           </h1>
           <p data-aos="fade-up" className="text-xs text-gray-400">

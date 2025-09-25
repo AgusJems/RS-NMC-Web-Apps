@@ -18,7 +18,7 @@ const Banner = () => {
 
           {/* text details section */}
           <div className="flex flex-col justify-center gap-6 sm:pt-0">
-            <h1 data-aos="fade-up" className="text-3xl sm:text-3xl font-bold">
+            <h1 data-aos="fade-up" className="text-3xl sm:text-3xl font-bold text-gray-500 dark:text-white">
               Pelayanan terbaik dari para Ahli Medis
             </h1>
             <p

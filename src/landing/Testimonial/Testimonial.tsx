@@ -81,7 +81,7 @@ const Testimonial: React.FC = () => {
           <p data-aos="fade-up" className="text-sm text-primary">
             What our patient are saying
           </p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold">
+          <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white mb-4">
             Testimonial by Pasien
           </h1>
           <p data-aos="fade-up" className="text-xs text-gray-400">

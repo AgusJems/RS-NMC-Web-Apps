@@ -49,7 +49,7 @@ const Service: React.FC = () => {
           <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
             Our Services
           </p>
-          <h1 className="text-3xl font-bold mb-2">Layanan Kami</h1>
+          <h1 className="text-3xl font-bold text-gray-500 dark:text-white mb-2">Layanan Kami</h1>
           <p className="text-md text-gray-400">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
             asperiores modi Sit asperiores modi

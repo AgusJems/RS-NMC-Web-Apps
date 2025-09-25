@@ -17,7 +17,7 @@ const Partner: React.FC = () => {
           <p data-aos="fade-up" className="text-sm text-primary">
             Our Partner
           </p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold dark:text-white">
+          <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white">
             Partner & Friend
           </h1>
         </div>

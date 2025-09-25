@@ -51,7 +51,7 @@ const News: React.FC = () => {
           <p data-aos="fade-up" className="text-sm text-primary">
             Our News
           </p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold">
+          <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white mb-2">
             Berita
           </h1>
           <p data-aos="fade-up" className="text-xs text-gray-400">
