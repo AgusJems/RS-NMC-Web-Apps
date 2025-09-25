@@ -6,6 +6,7 @@ export interface DoctorList {
   education: string;
   experience: string[];
   schedule: Record<string, string>;
+  aosDelay?: number | string;
   img: string; // <-- pakai string, jangan fixed literal
 }
 
