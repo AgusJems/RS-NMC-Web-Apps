@@ -16,12 +16,12 @@ const HomeLanding: React.FC = () => {
   return (
     <div className="dark:bg-black dark:text-white overflow-x-hidden">
       <Carousel handleOrderPopup={() => console.log("Popup dibuka")} />
-      <Partner />
       <Service />
       <Banner />
       <Doctor doctors={DoctorData} />
       <Contact />
       <News />
+      <Partner />
       <Testimonial />
     </div>
   );

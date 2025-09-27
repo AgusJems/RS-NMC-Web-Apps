@@ -22,7 +22,7 @@ export const NavLinks: NavLink[] = [
       { name: "Indikator Mutu", link: "/profile/quality-indicators" },
     ],
   },
-  { id: 3, name: "Dokter", link: "/doctorpage" },
+  { id: 3, name: "Jadwal Dokter", link: "/doctorpage" },
   {
     id: 4,
     name: "Layanan",
@@ -35,7 +35,7 @@ export const NavLinks: NavLink[] = [
       { name: "Anni`mah Resto", link: "/service/annimah-resto" },
     ],
   },
-  { id: 5, name: "Berita", link: "/newspage" },
+  { id: 5, name: "NMC Update", link: "/newspage" },
   { id: 6, name: "Hubungi Kami", link: "/contact" },
   {
     id: 7,
