@@ -349,7 +349,7 @@ const DoctorData: DoctorList[] = [
   },
   {
     id: 13,
-    name: "Agus Jems S.Kom, M.Kom, Ph.D",
+    name: "Prof. Daffa S.Kom, M.Kom, Ph.D",
     specialist: "Dokter Spesialis Anak",
     profile: `
       dr. Muhammad Hidayat, M.Ked(Ped)., Sp.A merupakan seorang Dokter Anak. 
