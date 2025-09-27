@@ -1,8 +1,8 @@
 // src/landing/News/News.tsx
 import React from "react";
 import Slider from "react-slick";
-import NewsData from "../../components/newsData/newsData";
-import type { NewsItem } from "../../components/newsData/newsData";
+import NewsData from "../../components/newsData/NewsData";
+import type { NewsItem } from "../../components/newsData/NewsData";
 
 const News: React.FC = () => {
   const settings = {

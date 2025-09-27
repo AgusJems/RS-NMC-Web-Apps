@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import NewsData from "../../newsData/newsData";
+import NewsData from "../../newsData/NewsData";
 
 const NewsDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
