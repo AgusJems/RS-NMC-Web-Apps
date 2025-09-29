@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
             
             <div className="py-8">
               <h1 className="sm:text-xl text-lg font-bold sm:text-left text-justify mb-3 ml-10 sm:ml-20">
-                Layanan
+                Tentang Kami
               </h1>
               <ul className="flex flex-col gap-3">
                 {ContactUs.map((item) => (
