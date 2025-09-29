@@ -1,28 +1,52 @@
 import React from 'react';
 import {
+  FaAmbulance,
   FaFacebook,
   FaInstagram,
   FaLinkedin,
   FaLocationArrow,
-  FaMobileAlt,
+  FaPhoneVolume,
+  FaRegEnvelope,
+  FaTiktok,
+  FaWhatsapp,
 } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
-const FooterLinks = [
+const ContactUs = [
   {
-    title: "Home",
+    title: "Kenapa RSU An ni`mah",
     link: "/#",
   },
   {
-    title: "About",
-    link: "/#about",
+    title: "Sejarah Rumah Sakit",
+    link: "story",
   },
   {
-    title: "Contact",
-    link: "/#contact",
+    title: "Visi $ Misi",
+    link: "visi-misi",
   },
   {
     title: "Blog",
     link: "/#blog",
+  },
+];
+
+const Service = [
+  {
+    title: "Rawat Jalan",
+    link: "outpatient",
+  },
+  {
+    title: "Rawat Inap",
+    link: "inpatient",
+  },
+  {
+    title: "Rawat Darurat",
+    link: "emergency-care",
+  },
+  {
+    title: "Penunjang",
+    link: "support",
   },
 ];
 
@@ -45,7 +69,7 @@ const Footer: React.FC = () => {
               beatae ea recusandae blanditiis veritatis.
             </p>
             <div className="flex items-center gap-3 mt-6">
-                <a href="#">
+                <a href="https://www.instagram.com/rsuannimah/">
                   <FaInstagram className="text-3xl cursor-pointer hover:text-pink-700 hover:translate-x-1 duration-300 text-gray-200" />
                 </a>
                 <a href="#">
@@ -54,63 +78,83 @@ const Footer: React.FC = () => {
                 <a href="#">
                   <FaLinkedin className="text-3xl cursor-pointer hover:text-blue-400 hover:translate-x-1 duration-300 text-gray-200" />
                 </a>
+                <a href="#">
+                  <FaTiktok className="text-3xl cursor-pointer hover:text-white hover:translate-x-1 duration-300 text-gray-200" />
+                </a>
               </div>
               <div className="mt-6">
-                <div className="flex items-center gap-3">
-                  <FaLocationArrow />
-                  <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200">Noida, Uttar Pradesh</p>
-                </div>
-                <div className="flex items-center gap-3 mt-3">
-                  <FaMobileAlt />
-                  <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200" >+91 123456789</p>
+                <div className="flex gap-4">
+                  <a href="https://www.google.com/maps/place/RSU+An+Ni'mah/@-7.5180652,109.0596968,17z/data=!3m1!4b1!4m6!3m5!1s0x2e65658e05cf188b:0xda6cc3063704668a!8m2!3d-7.5180652!4d109.0622717!16s%2Fg%2F11b6pwr_9h?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D">
+                    <FaLocationArrow className='mt-1.5' />
+                  </a>
+                  <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 200 text-sm sm:text-sm md:text-base">
+                    Jl. Raya Wangon-Ci, Klapagading, Kec. Wangon, Kabupaten Banyumas, Jawa Tengah 53176
+                  </p>
                 </div>
               </div>
-          </div>
+            </div>
 
           {/* Footer Links */}
           <div className="grid grid-cols-2 sm:grid-cols-3 col-span-2 md:pl-10">
-            <div className="py-8 px-4">
-              <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                Resources
+            <div className="py-8">
+              <h1 className="sm:text-xl text-lg font-bold sm:text-left text-justify mb-3">
+                Hubungi Kami
               </h1>
-              <ul className="flex flex-col gap-3">
-                {FooterLinks.map((link) => (
-                  <li
-                    className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200"
-                    key={link.title}
-                  >
-                    <span>{link.title}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex items-center gap-4 mt-3">
+                <FaAmbulance />
+                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base"> Ambulans & Gawat Darurat (0281) 513267</p>
+              </div>
+              <div className="flex items-center gap-4 mt-3">
+                <FaPhoneVolume />
+                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">Pusat Panggilan (0281) 513267</p>
+              </div>
+              <div className="flex items-center gap-4 mt-3">
+                <FaWhatsapp />
+                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">Whatshapp (0281) 513267</p>
+              </div>
+              <div className="flex items-center gap-4 mt-3">
+                <FaRegEnvelope />
+                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">rsu.annimah@gmail.com</p>
+              </div>
             </div>
 
-            <div className="py-8 px-4">
-              <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                Link Penting
+            <div className="py-8">
+              <h1 className="sm:text-xl text-lg font-bold sm:text-left text-justify mb-3 ml-10 sm:ml-20">
+                Layanan
               </h1>
               <ul className="flex flex-col gap-3">
-                {FooterLinks.map((link) => (
+                {Service.map((item) => (
                   <li
-                    className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200"
-                    key={link.title + '-2'}
+                    key={item.title}
+                    className="ml-10 sm:ml-20"
                   >
-                    <span>{link.title}</span>
+                    <Link
+                      to={`/service/${item.link}`}
+                      className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base"
+                    >
+                      {item.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="py-8 px-4">
-              <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
-                Perusahaan
+            
+            <div className="py-8">
+              <h1 className="sm:text-xl text-lg font-bold sm:text-left text-justify mb-3 ml-10 sm:ml-20">
+                Layanan
               </h1>
               <ul className="flex flex-col gap-3">
-                {FooterLinks.map((link) => (
+                {ContactUs.map((item) => (
                   <li
-                    className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200"
-                    key={link.title + '-2'}
+                    key={item.title}
+                    className="ml-10 sm:ml-20"
                   >
-                    <span>{link.title}</span>
+                    <Link
+                      to={`/profile/${item.link}`}
+                      className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base"
+                    >
+                      {item.title}
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -78,7 +78,7 @@ const Service: React.FC = () => {
                 <p className="text-gray-500 group-hover:text-white duration-300 text-sm mb-3">
                   {description}
                 </p>
-                <Link to={`/ourservice/${link}`} className="text-center">
+                <Link to={`/service/${link}`} className="text-center">
                   <button className="bg-gradient-to-r from-gdtwo to-gdone text-white px-6 py-3 rounded-full hover:scale-105 duration-200">
                     Read More
                   </button>
