@@ -28,3 +28,4 @@ const NewsData: NewsItem[] = [
 ];
 
 export default NewsData;
+export type { NewsItem };
