@@ -22,7 +22,7 @@ const ServiceData = [
   },
   {
     id: 3,
-    img: "/images/service-logo/ranap.svg",
+    img: "/images/service-logo/rawat-inap.svg",
     name: "Rawat Inap",
     description:
       "Rawat Darurat merupakan layanan untuk memberikan pertolongan pertama pada pasien-pasien gawat darurat.",
@@ -31,7 +31,7 @@ const ServiceData = [
   },
   {
     id: 4,
-    img: "/images/service-logo/penunjang.svg",
+    img: "/images/service-logo/penunjang1.svg",
     name: "Penunjang",
     description:
       "Rawat Darurat merupakan layanan untuk memberikan pertolongan pertama pada pasien-pasien gawat darurat.",

@@ -1,5 +1,5 @@
 import React from "react";
-import Image1 from "../../../public/images/user/owner.png";
+import Image1 from "../../../public/images/service-logo/dr-hidayat.png";
 import bgRs from "../../../public/images/carousel/rs-depan.svg";
 import Slider, { Settings } from "react-slick";
 
@@ -111,7 +111,7 @@ const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
                       <img
                         src={data.img}
                         alt={data.title}
-                        className="w-[300px] h-[300px] sm:h-[450px] sm:w-[450px] sm:scale-105 lg:scale-120 object-contain mx-auto"
+                        className="w-[300px] h-[300px] sm:h-[450px] sm:w-[400px] sm:scale-105 lg:scale-120 object-contain mx-auto"
                       />
                     </div>
                   </div>
