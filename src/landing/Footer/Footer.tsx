@@ -3,12 +3,12 @@ import {
   FaAmbulance,
   FaFacebook,
   FaInstagram,
-  FaLinkedin,
   FaLocationArrow,
   FaPhoneVolume,
   FaRegEnvelope,
   FaTiktok,
   FaWhatsapp,
+  FaYoutube,
 } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
@@ -72,13 +72,13 @@ const Footer: React.FC = () => {
                 <a href="https://www.instagram.com/rsuannimah/">
                   <FaInstagram className="text-3xl cursor-pointer hover:text-pink-700 hover:translate-x-1 duration-300 text-gray-200" />
                 </a>
-                <a href="#">
+                <a href="https://www.facebook.com/share/1GdHsE5K4m/">
                   <FaFacebook className="text-3xl cursor-pointer hover:text-blue-600 hover:translate-x-1 duration-300 text-gray-200" />
                 </a>
-                <a href="#">
-                  <FaLinkedin className="text-3xl cursor-pointer hover:text-blue-400 hover:translate-x-1 duration-300 text-gray-200" />
+                <a href="https://youtube.com/@rsuannimah?si=elvP_lleyzUQeOSs">
+                  <FaYoutube className="text-3xl cursor-pointer hover:text-blue-400 hover:translate-x-1 duration-300 text-gray-200" />
                 </a>
-                <a href="#">
+                <a href="https://www.tiktok.com/@rsuannimah?_t=ZS-90ut6qt1EG8&_r=1">
                   <FaTiktok className="text-3xl cursor-pointer hover:text-white hover:translate-x-1 duration-300 text-gray-200" />
                 </a>
               </div>
@@ -102,19 +102,19 @@ const Footer: React.FC = () => {
               </h1>
               <div className="flex items-center gap-4 mt-3">
                 <FaAmbulance />
-                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base"> Ambulans & Gawat Darurat (0281) 513267</p>
+                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base"> Ambulans (0811 2922 444)</p>
               </div>
               <div className="flex items-center gap-4 mt-3">
                 <FaPhoneVolume />
-                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">Pusat Panggilan (0281) 513267</p>
+                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">Pusat Panggilan  (0811 2922 444)</p>
               </div>
               <div className="flex items-center gap-4 mt-3">
                 <FaWhatsapp />
-                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">Whatshapp (0281) 513267</p>
+                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">Whatshapp  (0811 2922 444)</p>
               </div>
               <div className="flex items-center gap-4 mt-3">
                 <FaRegEnvelope />
-                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">rsu.annimah@gmail.com</p>
+                <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 text-xs sm:text-sm md:text-base">annimah_hospital@yahoo.com</p>
               </div>
             </div>
 
