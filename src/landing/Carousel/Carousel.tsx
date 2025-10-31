@@ -23,23 +23,23 @@ const ImageList: ImageItem[] = [
   {
     id: 1,
     img: Image1,
-    title: "RS Anni'mah Healthcare Center",
+    title: "RS An Ni’mah Healthcare Center",
     description:
-      "Rumah sakit adalah bagian integral dari suatu organisasi sosial dan kesehatan dengan fungsi menyediakan pelayanan paripurna (komprehensif).",
+      "Menyediakan layanan kesehatan menyeluruh dengan fasilitas modern dan tenaga medis profesional untuk memberikan perawatan terbaik bagi setiap pasien.",
   },
   {
     id: 2,
     img: Image1,
-    title: "RS Anni'mah Emergency Care",
+    title: "RS An Ni’mah Emergency Care",
     description:
-      "Rumah sakit adalah bagian integral dari suatu organisasi sosial dan kesehatan dengan fungsi menyediakan pelayanan paripurna (komprehensif).",
+      "Unit Gawat Darurat siap siaga 24 jam dengan tim dokter dan perawat berpengalaman, serta dilengkapi peralatan emergensi terkini untuk penanganan cepat dan tepat.",
   },
   {
     id: 3,
     img: Image1,
-    title: "RS Anni'mah Healthcare Outpatient",
+    title: "RS An Ni’mah Outpatient Clinic",
     description:
-      "Rumah sakit adalah bagian integral dari suatu organisasi sosial dan kesehatan dengan fungsi menyediakan pelayanan paripurna (komprehensif).",
+      "Layanan rawat jalan yang nyaman dan efisien, memudahkan pasien dalam mendapatkan konsultasi, pemeriksaan, serta pengobatan sesuai kebutuhan medisnya.",
   },
 ];
 
@@ -84,7 +84,7 @@ const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
                       data-aos="fade-up"
                       data-aos-duration="500"
                       data-aos-delay={100}
-                      className="text-sm text-white"
+                      className="text-lg text-white"
                     >
                       {data.description}
                     </p>

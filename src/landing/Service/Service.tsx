@@ -7,7 +7,7 @@ const ServiceData = [
     img: "/images/service-logo/radar.svg",
     name: "Rawat Darurat",
     description:
-      "Rawat Darurat merupakan layanan untuk memberikan pertolongan pertama pada pasien-pasien gawat darurat.",
+      "Layanan gawat darurat 24 jam dengan penanganan cepat dan profesional bagi pasien kritis.",
     link: "emergency-care",
     aosDelay: "300",
   },
@@ -16,7 +16,7 @@ const ServiceData = [
     img: "/images/service-logo/rajal.svg",
     name: "Rawat Jalan",
     description:
-      "Rawat Darurat merupakan layanan untuk memberikan pertolongan pertama pada pasien-pasien gawat darurat.",
+      "Layanan konsultasi dan pemeriksaan dokter spesialis tanpa perlu rawat inap dengan pelayanan cepat.",
     link: "outpatient",
     aosDelay: "300",
   },
@@ -25,16 +25,16 @@ const ServiceData = [
     img: "/images/service-logo/rawat-inap.svg",
     name: "Rawat Inap",
     description:
-      "Rawat Darurat merupakan layanan untuk memberikan pertolongan pertama pada pasien-pasien gawat darurat.",
+      "Perawatan pasien 24 jam dengan fasilitas nyaman dan tenaga medis berpengalaman.",
     link: "inpatient",
     aosDelay: "300",
   },
   {
     id: 4,
-    img: "/images/service-logo/penunjang1.svg",
+    img: "/images/service-logo/penunjang.svg",
     name: "Penunjang",
     description:
-      "Rawat Darurat merupakan layanan untuk memberikan pertolongan pertama pada pasien-pasien gawat darurat.",
+      "Didukung layanan laboratorium, radiologi, dan farmasi yang lengkap.",
     link: "support",
     aosDelay: "300",
   },
@@ -51,8 +51,7 @@ const Service: React.FC = () => {
           </p>
           <h1 className="text-3xl font-bold text-gray-500 dark:text-white mb-2">Layanan Kami</h1>
           <p className="text-md text-gray-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
+            RS An Ni’mah menghadirkan layanan kesehatan terpadu yang didukung oleh tenaga medis berkompeten, <br></br> fasilitas modern, serta komitmen untuk memberikan perawatan terbaik bagi setiap pasien.
           </p>
         </div>
 
@@ -63,7 +62,7 @@ const Service: React.FC = () => {
               key={id}
               data-aos="fade-up"
               data-aos-delay={aosDelay}
-              className="max-w-[300px] group rounded-2xl bg-white dark:bg-gray-800 dark:hover:bg-primary hover:bg-primary hover:text-white duration-300 shadow-xl"
+              className="max-w-[300px] min-h-[380px] group rounded-2xl bg-white dark:bg-gray-800 dark:hover:bg-primary hover:bg-primary hover:text-white duration-300 shadow-xl"
             >
               {/* Image section */}
               <div className="p-4 text-center">
@@ -75,7 +74,7 @@ const Service: React.FC = () => {
                 <h1 className="text-xl font-bold text-gray-500 group-hover:text-white duration-300 mb-2">
                   {name}
                 </h1>
-                <p className="text-gray-500 group-hover:text-white duration-300 text-sm mb-3">
+                <p className="text-gray-500 group-hover:text-white duration-300 text-sm mb-3 line-clamp-3">
                   {description}
                 </p>
                 <Link to={`/service/${link}`} className="text-center">
