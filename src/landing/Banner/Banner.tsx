@@ -1,6 +1,8 @@
-import { GrSecure } from "react-icons/gr";
-import { IoFastFood } from "react-icons/io5";
-import { GiFoodTruck } from "react-icons/gi";
+import { MdHealthAndSafety } from "react-icons/md";
+import { RiFirstAidKitFill } from "react-icons/ri";
+import { AiOutlineCreditCard } from "react-icons/ai";
+import { FaHeartbeat } from "react-icons/fa";
+
 
 const Banner = () => {
   return (
@@ -23,7 +25,7 @@ const Banner = () => {
             </h1>
             <p
               data-aos="fade-up"
-              className="text-sm text-gray-500 tracking-wide leading-5"
+              className="text-md text-gray-500"
             >
               Rumah sakit adalah bagian integral dari suatu organisasi sosial
               dan kesehatan dengan fungsi menyediakan pelayanan paripurna
@@ -31,20 +33,23 @@ const Banner = () => {
             </p>
             <div className="flex flex-col gap-4">
               <div data-aos="fade-up" className="flex items-center gap-4">
-                <GrSecure className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
-                <p>Quality Products</p>
+                <MdHealthAndSafety className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
+                <p>Pelayanan Medis Aman & Terpercaya</p>
               </div>
+
               <div data-aos="fade-up" className="flex items-center gap-4">
-                <IoFastFood className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
-                <p>Fast Delivery</p>
+                <RiFirstAidKitFill className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
+                <p>Tindakan Cepat & Tepat</p>
               </div>
+
               <div data-aos="fade-up" className="flex items-center gap-4">
-                <GiFoodTruck className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
-                <p>Easy Payment method</p>
+                <AiOutlineCreditCard className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
+                <p>Proses Pendaftaran & Pembayaran Mudah</p>
               </div>
+
               <div data-aos="fade-up" className="flex items-center gap-4">
-                <GiFoodTruck className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
-                <p>Get Offers</p>
+                <FaHeartbeat className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
+                <p>Program & Layanan Promotif Kesehatan</p>
               </div>
             </div>
           </div>

@@ -25,13 +25,13 @@ const DoctorPage: React.FC = () => {
     <>
         <div className="py-10 mb-10 justify-items-center">
             <div className="container min-h-screen px-4 py-6 dark:bg-black dark:text-white">
-                <div className="text-center mb-10 max-w-[800px] mx-auto">
+                <div className="text-center mb-10 max-w-[700px] mx-auto">
                     <h1 data-aos="fade-up" className="text-2xl font-bold text-center mb-6">
                         Cari Jadwal Dokter di RSU Anni`mah
                     </h1>
-                    <p data-aos="fade-up" className="text-sm text-gray-400 mb-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Eaque reiciendis inventore iste ratione ex alias quis magni at optio.
+                    <p data-aos="fade-up" className="text-md text-gray-400 mb-4">
+                        Jadwal dokter RSU An Ni’mah kini dapat diakses secara mudah.
+                        Pilih dokter sesuai kebutuhan Anda dan temukan waktu praktik terbaik.
                     </p>
                     <div data-aos="fade-up" className="flex justify-center">
                         <input

@@ -18,9 +18,8 @@ const Doctor: React.FC<DoctorProps> = ({ doctors }) => {
           <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white mb-4">
             Dokter Kami
           </h1>
-          <p data-aos="fade-up" className="text-xs text-gray-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
+          <p data-aos="fade-up" className="text-md text-gray-400">
+            Dukung kesehatan Anda bersama dokter-dokter terbaik kami yang siap memberikan pelayanan profesional dan penuh dedikasi.
           </p>
         </div>
 

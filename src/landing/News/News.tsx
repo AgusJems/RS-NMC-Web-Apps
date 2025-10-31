@@ -54,9 +54,8 @@ const News: React.FC = () => {
           <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white mb-2">
             Berita
           </h1>
-          <p data-aos="fade-up" className="text-xs text-gray-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
+          <p data-aos="fade-up" className="text-md text-gray-400">
+            Dapatkan informasi terbaru seputar kegiatan, inovasi layanan, serta edukasi kesehatan dari RS An Ni’mah untuk mendukung hidup sehat Anda dan keluarga.
           </p>
         </div>
 

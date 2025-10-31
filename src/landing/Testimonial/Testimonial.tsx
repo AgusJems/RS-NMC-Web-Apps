@@ -84,9 +84,8 @@ const Testimonial: React.FC = () => {
           <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white mb-4">
             Testimonial by Pasien
           </h1>
-          <p data-aos="fade-up" className="text-xs text-gray-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
+          <p data-aos="fade-up" className="text-md text-gray-400">
+            Ulasan dan pengalaman nyata dari pasien yang telah merasakan pelayanan RS An Ni’mah. Komitmen kami adalah memberikan perawatan terbaik dengan sentuhan kepedulian.
           </p>
         </div>
 
