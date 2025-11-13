@@ -37,7 +37,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 2,
@@ -65,7 +65,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 3,
@@ -93,7 +93,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 4,
@@ -121,7 +121,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 5,
@@ -149,7 +149,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 6,
@@ -177,7 +177,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 7,
@@ -205,7 +205,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 8,
@@ -233,7 +233,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 9,
@@ -261,7 +261,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 10,
@@ -289,7 +289,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 11,
@@ -317,7 +317,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 12,
@@ -345,7 +345,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
   {
     id: 13,
@@ -373,7 +373,7 @@ const DoctorData: DoctorList[] = [
       Kamis: "09.00-11.00",
       Jumat: "09.00-11.00",
     },
-    img: "/images/user/owner.png", // path relatif ke public/
+    img: "/images/service-logo/dr-hidayat.png", // path relatif ke public/
   },
 ];
 

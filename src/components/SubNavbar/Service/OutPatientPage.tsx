@@ -14,61 +14,61 @@ const OutPatientData: OutPatientItem[] = [
     id: 1,
     name: "Poli Anak",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 2,
     name: "Poli Bedah",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 3,
     name: "Poli Bedah Anak",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 4,
     name: "Poli Dalam",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 5,
     name: "Poli Jantung",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 6,
     name: "Poli Jiwa",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 7,
     name: "Poli Mata",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 8,
     name: "Poli Obgyn",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 9,
     name: "Poli Orthopedi",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
   {
     id: 10,
     name: "Poli Paru",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "/images/user/owner.png",
+    img: "/images/berita.png",
   },
 ];
 
@@ -100,7 +100,7 @@ const OutPatientPage: React.FC = () => {
         >
           {OutPatientData.map((data) => (
             <div key={data.id} className="cursor-pointer">
-              <div className="flex flex-col gap-4 shadow-lg py-8 px-4 rounded-xl dark:bg-gray-800">
+              <div className="flex flex-col gap-4 shadow-lg py-8 px-3 rounded-xl dark:bg-gray-800">
                 <div className="w-full h-[153px] rounded-lg overflow-hidden mb-2">
                   <img
                     src={data.img}

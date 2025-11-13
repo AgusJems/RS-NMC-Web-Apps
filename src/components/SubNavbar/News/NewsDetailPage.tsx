@@ -33,7 +33,7 @@ const NewsDetailPage: React.FC = () => {
                 className="w-full h-full object-cover object-top"
                 />
             </div>
-                <p className="text-gray-300 leading-relaxed">{news.text}</p>
+                <p className="text-gray-500 leading-relaxed">{news.text}</p>
             </div>
         </div>
     </div>
