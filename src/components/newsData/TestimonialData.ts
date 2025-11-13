@@ -8,8 +8,8 @@ export interface NewsItem {
 const TestimonialData: NewsItem[] = [
   {
     id: 1,
-    name: "Testimoni 1",
-    text: "Pengalaman sunat sangat nyaman dan aman, terima kasih dokter!",
+    name: "Testimoni 2",
+    text: "Pelayanan sangat baik, anak saya jadi tidak takut.",
     img: "/images/user/owner.png",
   },
   {
@@ -26,8 +26,8 @@ const TestimonialData: NewsItem[] = [
   },
   {
     id: 4,
-    name: "Testimoni 1",
-    text: "Pengalaman sunat sangat nyaman dan aman, terima kasih dokter!",
+    name: "Testimoni 2",
+    text: "Pelayanan sangat baik, anak saya jadi tidak takut.",
     img: "/images/user/owner.png",
   },
   {

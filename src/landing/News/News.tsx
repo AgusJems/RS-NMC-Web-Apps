@@ -64,7 +64,7 @@ const News: React.FC = () => {
           <Slider {...settings}>
             {NewsData.map((data: NewsItem) => (
               <div key={data.id} className="my-6 cursor-pointer">
-                <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 relative">
+                <div className="flex flex-col gap-2 shadow-lg py-8 px-3 mx-4 rounded-xl dark:bg-gray-800 relative">
                   <div className="relative w-full h-[153px] rounded-lg overflow-hidden mb-2">
                     <img
                       src={data.img}

@@ -14,25 +14,25 @@ const StoryData: StoryItem[] = [
     id: 1,
     name: "Awal Berdiri tahun 1999",
     text: "Pada Awalnya Rumah Sakit Umum AN NI`MAH adalah sebuah klinik bersalin AN NI`MAH. Saat pertama kali beroperasi, layanan yang ada meluputi poliklinik umum, poliklink kesehatan ibu dan anak, dan poliklinik keluarga berencana",
-    img: "/images/user/owner.png",
+    img: "/images/story/story1.jpg",
   },
   {
     id: 2,
     name: "Pengembangan RSIA (Rumah Sakit Ibu dan Anak) tahun 2005",
     text: "Seiring perkembangan jaman dan jumlah kunjungan yang terus meningkat serta kebutuhan masyarakat Wangon pada khususnya dan masyarakat sekitarnya pada umumnya akan sarana dan prasarana serta pelayanan kesehatan yang terus meningkat maka status Klinik Bersalin meningkat menjadi Rumah Sakit Ibu dan Anak AN NI’MAH ...",
-    img: "/images/user/owner.png",
+    img: "/images/story/story1.jpg",
   },
   {
     id: 3,
     name: "Kerjasama dengan BPJS Kesehatan tahun 2020",
     text: "Berdasarkan Surat Rekomendasi dari Dinas Kesehatan Kabupaten Banyumas ... memberikan izin operasional Rumah Sakit Kelas D pada Rumah Sakit Umum AN NI’MAH.",
-    img: "/images/user/owner.png",
+    img: "/images/story/story2.jpg",
   },
   {
     id: 4,
     name: "Akreditasi LULUS TINGKAT PERDANA tahun 2022",
     text: "Selain itu peningkatan pelayanan juga diupayakan melalui assesment akreditasi rumah sakit ... dengan status terakreditasi: LULUS TINGKAT PERDANA.",
-    img: "/images/user/owner.png",
+    img: "/images/story/story2.jpg",
   },
 ];
 

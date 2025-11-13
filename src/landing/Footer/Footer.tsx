@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
                   <FaFacebook className="text-3xl cursor-pointer hover:text-blue-600 hover:translate-x-1 duration-300 text-gray-200" />
                 </a>
                 <a href="https://youtube.com/@rsuannimah?si=elvP_lleyzUQeOSs">
-                  <FaYoutube className="text-3xl cursor-pointer hover:text-blue-400 hover:translate-x-1 duration-300 text-gray-200" />
+                  <FaYoutube className="text-3xl cursor-pointer hover:text-red-500 hover:translate-x-1 duration-300 text-gray-200" />
                 </a>
                 <a href="https://www.tiktok.com/@rsuannimah?_t=ZS-90ut6qt1EG8&_r=1">
                   <FaTiktok className="text-3xl cursor-pointer hover:text-white hover:translate-x-1 duration-300 text-gray-200" />

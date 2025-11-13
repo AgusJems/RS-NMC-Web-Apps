@@ -11,7 +11,7 @@ import TipsData from "../../newsData/TipsData";
 const tabs = ["Testimoni", "Promo Spesial", "Berita Menarik", "Tips Kesehatan"];
 
 const NewsPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("Testimoni");
+  const [activeTab, setActiveTab] = useState("Promo Spesial");
   const [visibleCount, setVisibleCount] = useState(4);
 
   useEffect(() => {
