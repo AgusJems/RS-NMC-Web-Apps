@@ -165,7 +165,22 @@ const Footer: React.FC = () => {
 
         {/* Bottom text */}
         <div className="text-center py-10 border-t-2 border-gray-300/50 text-white">
-          Copyright @2025, agus | All Rights Reserved
+          <div className="text-lg font-semibold mb-1">
+            RSU An Ni&apos;mah
+          </div>
+
+          <div className="text-sm opacity-80">
+            Created by{" "}
+            <a
+              href="https://www.linkedin.com/in/agus-safrudin-b11a8b37b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-green-300 transition"
+            >
+              agus
+            </a>{" "}
+            ©2025 | All Rights Reserved
+          </div>
         </div>
       </div>
     </div>

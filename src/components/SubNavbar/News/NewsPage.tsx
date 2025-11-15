@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-
-import TestimoniData, { NewsItem } from "../../newsData/TestimonialData";
+import { NewsItem } from "../../newsData/TestimonialData";
 import PromoData from "../../newsData/PromoData";
 import NewsData from "../../newsData/NewsData";
 import TipsData from "../../newsData/TipsData";
 
-const tabs = ["Testimoni", "Promo Spesial", "Berita Menarik", "Tips Kesehatan"];
+const tabs = ["Promo Spesial", "Berita Menarik", "Tips Kesehatan"];
 
 const NewsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Promo Spesial");
@@ -20,8 +19,6 @@ const NewsPage: React.FC = () => {
 
   const getTabData = (tab: string): NewsItem[] => {
     switch (tab) {
-      case "Testimoni":
-        return TestimoniData;
       case "Promo Spesial":
         return PromoData;
       case "Berita Menarik":
@@ -44,7 +41,7 @@ const NewsPage: React.FC = () => {
             {activeTab}
           </h1>
           <p data-aos="fade-up" className="text-sm text-gray-400">
-            Pilih kategori berita, promo, testimoni, atau tips kesehatan kami.
+            Pilih kategori berita, promo dan tips kesehatan kami.
           </p>
         </div>
 
