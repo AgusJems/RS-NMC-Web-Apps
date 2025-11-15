@@ -60,14 +60,14 @@ const DoctorDetailPage: React.FC = () => {
               </div>
 
               {/* Pengalaman */}
-              <div data-aos="fade-up">
+              {/* <div data-aos="fade-up">
                 <h3 className="text-xl font-bold text-green-700 mb-2">PENGALAMAN</h3>
                 {doctor.experience.map((exp, i) => (
                   <p key={i} className="text-gray-700 dark:text-gray-300">
                     {exp}
                   </p>
                 ))}
-              </div>
+              </div> */}
 
               {/* Jadwal Praktik */}
               <div data-aos="fade-up">
