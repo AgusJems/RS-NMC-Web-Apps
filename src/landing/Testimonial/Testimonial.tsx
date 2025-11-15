@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 const TestimonialData = [
@@ -88,6 +89,18 @@ const Testimonial: React.FC = () => {
             Ulasan dan pengalaman nyata dari pasien yang telah merasakan pelayanan RS An Ni’mah. Komitmen kami adalah memberikan perawatan terbaik dengan sentuhan kepedulian.
           </p>
         </div>
+
+        <div className="flex justify-center md:justify-end mb-4">
+          <Link to="/testimoni">
+            <button
+              data-aos="fade-up"
+              className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:scale-105 duration-200"
+            >
+              Tambah Testimoni
+            </button>
+          </Link>
+        </div>
+
 
         {/* Testimonial cards */}
         <div data-aos="zoom-in">
