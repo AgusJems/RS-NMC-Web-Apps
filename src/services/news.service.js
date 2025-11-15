@@ -1,97 +1,126 @@
 import pool from '../../config/db.js';
 
 const newsService = {
+
+    /* ================================
+       GET ALL NEWS
+    ================================ */
     getAllNews: async () => {
-        if (!pool) {
-            throw new Error("Database pool not initialized in getAllNews.");
-        }
-
         try {
-            const query = 'SELECT * FROM berita';
-            const result = await pool.query(query);
-            return result;
-        } catch (error) {
-            console.error('Error fetching news:', error);
-            throw error; // Re-throw the error for the controller to handle
-        }
-    },
-
-    getActiveNews: async () => {
-        if (!pool) {
-            throw new Error("Database pool not initialized in getActiveNews.");
-        }
-
-        try {
-            const query = 'SELECT * FROM berita WHERE status = 1';
-            const result = await pool.query(query);
-            return result;
+            const query = `
+                SELECT b.*, j.nama AS jenis_nama, j.kode AS jenis_kode
+                FROM berita b
+                LEFT JOIN jenis_berita j ON j.id = b.jenis_id
+                ORDER BY b.id DESC
+            `;
+            return await pool.query(query);
         } catch (error) {
             console.error('Error fetching news:', error);
             throw error;
         }
     },
-    
-    insertDetailNews: async (jenis_id, nama_berita, deskripsi, image) => {
-        if (!pool) throw new Error("Database pool not initialized in insertDetailNews.");
 
+    /* ================================
+       GET ACTIVE NEWS
+    ================================ */
+    getActiveNews: async () => {
         try {
             const query = `
-            INSERT INTO berita (jenis_id, nama_berita, deskripsi, image)
-            VALUES (?, ?, ?, ?)
+                SELECT b.*, j.nama AS jenis_nama
+                FROM berita b
+                LEFT JOIN jenis_berita j ON j.id = b.jenis_id
+                WHERE b.status = 1
+                ORDER BY b.id DESC
             `;
-            await pool.query(query, [jenis_id, nama_berita, deskripsi, image]);
+            return await pool.query(query);
+        } catch (error) {
+            console.error('Error fetching active news:', error);
+            throw error;
+        }
+    },
+
+    /* ================================
+       GET JENIS BERITA (dropdown)
+    ================================ */
+    getJenisBerita: async () => {
+        try {
+            const query = `SELECT id, nama, kode FROM jenis_berita ORDER BY nama ASC`;
+            return await pool.query(query);
+        } catch (error) {
+            console.error('Error fetching jenis berita:', error);
+            throw error;
+        }
+    },
+
+    /* ================================
+       INSERT NEWS
+    ================================ */
+    insertDetailNews: async (jenis_id, nama_berita, deskripsi, image) => {
+        try {
+            const query = `
+                INSERT INTO berita (jenis_id, nama_berita, deskripsi, image)
+                VALUES (?, ?, ?, ?)
+            `;
+            return await pool.query(query, [jenis_id, nama_berita, deskripsi, image]);
         } catch (error) {
             console.error('Error inserting news:', error);
             throw error;
         }
     },
 
+    /* ================================
+       UPDATE NEWS
+    ================================ */
     updateNews: async (id, updateData) => {
         try {
-            // Build the SET part of the SQL query dynamically based on updateData
-            const setClauses = Object.keys(updateData).map(key => `${key} = ?`).join(', ');
-            const values = Object.values(updateData);
-            values.push(id); // Add id to the end of values for the WHERE clause
+            const setClauses = Object.keys(updateData)
+                .map(key => `${key} = ?`)
+                .join(', ');
 
-            await pool.query(`UPDATE berita SET ${setClauses} WHERE Id = ?`, values);
-            return true; // Indicate success
+            const values = [...Object.values(updateData), id];
+
+            const query = `UPDATE berita SET ${setClauses} WHERE id = ?`;
+
+            await pool.query(query, values);
+
+            return true;
         } catch (error) {
             console.error(`Error updating news with ID ${id}:`, error);
             throw error;
         }
     },
 
+    /* ================================
+       DELETE NEWS
+    ================================ */
     deleteNews: async (id) => {
-        if (!pool) {
-            throw new Error("Database pool not initialized in deleteNews.");
-        }
-
         try {
-            const query = `
-                DELETE FROM berita
-                WHERE Id = ?
-            `;
-            await pool.query(query, [id]);
+            const query = `DELETE FROM berita WHERE id = ?`;
+            return await pool.query(query, [id]);
         } catch (error) {
-            console.error('Error fetching news:', error);
-            throw error; // Re-throw the error for the controller to handle
+            console.error('Error deleting news:', error);
+            throw error;
         }
     },
 
+    /* ================================
+       GET NEWS BY ID
+    ================================ */
     getNewsById: async (id) => {
-        if (!pool) {
-            throw new Error("Database pool not initialized in getNewsById.");
-        }
-
         try {
-            const query = 'SELECT * FROM berita WHERE Id = ?';
+            const query = `
+                SELECT b.*, j.nama AS jenis_nama
+                FROM berita b
+                LEFT JOIN jenis_berita j ON j.id = b.jenis_id
+                WHERE b.id = ?
+            `;
             const [result] = await pool.query(query, [id]);
             return result;
         } catch (error) {
-            console.error('Error fetching news:', error);
-            throw error; // Re-throw the error for the controller to handle
+            console.error('Error fetching news by ID:', error);
+            throw error;
         }
-    },
-}
+    }
+};
 
 export default newsService;

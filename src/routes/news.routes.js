@@ -1,7 +1,26 @@
 import express from 'express';
-import {getAllNews, insertDetailNews, updateNews, getActiveNews, deleteNews, getNewsById} from '../controllers/news.controller.js';
+import {
+  getAllNews,
+  getActiveNews,
+  getNewsById,
+  insertDetailNews,
+  updateNews,
+  deleteNews,
+  getJenisBerita
+} from '../controllers/news.controller.js';
+
 const router = express.Router();
 
+/**
+ * @swagger
+ * tags:
+ *   name: News
+ *   description: API for managing news articles
+ */
+
+/* =============================
+   SCHEMA DEFINITIONS
+============================= */
 
 /**
  * @swagger
@@ -9,54 +28,64 @@ const router = express.Router();
  *   schemas:
  *     News:
  *       type: object
- *       required:
- *         - nama_berita
- *         - deskripsi
- *         - image
  *       properties:
  *         id:
  *           type: integer
- *           deskripsi: The auto-generated ID of the news.
+ *         jenis_id:
+ *           type: integer
  *         nama_berita:
  *           type: string
- *           deskripsi: The nama_berita of the news article.
  *         deskripsi:
  *           type: string
- *           deskripsi: A brief deskripsi of the news article.
  *         image:
  *           type: string
- *           deskripsi: The image associated with the news article, encoded in Base64.
+ *         tanggal:
+ *           type: string
+ *           format: date
  *       example:
- *         id: 12
- *         nama_berita: "test nama_berita"
- *         deskripsi: "This is a test deskripsi for the news article."
- *         image: "Base64 encoded image string"
+ *         id: 1
+ *         jenis_id: 2
+ *         nama_berita: "Judul Berita"
+ *         deskripsi: "<p>Isi berita</p>"
+ *         image: "base64_string"
+ *         tanggal: "2025-01-12"
  */
 
 /**
  * @swagger
- * tags:
- *   name: News
- *   deskripsi: API for managing news articles
+ * components:
+ *   schemas:
+ *     JenisBerita:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *         nama:
+ *           type: string
+ *         kode:
+ *           type: string
+ *       example:
+ *         id: 1
+ *         nama: "Informasi"
+ *         kode: "INFO"
  */
+
+
+/* =============================
+   ROUTES
+============================= */
 
 /**
  * @swagger
  * /api/getAllNews:
  *   get:
- *     summary: Retrieve a list of all news articles
+ *     summary: Get all news
  *     tags: [News]
  *     responses:
  *       200:
- *         deskripsi: A list of news articles.
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/News'
+ *         description: List of all news
  *       500:
- *         deskripsi: Server error
+ *         description: Server error
  */
 router.get('/getAllNews', getAllNews);
 
@@ -64,88 +93,51 @@ router.get('/getAllNews', getAllNews);
  * @swagger
  * /api/getActiveNews:
  *   get:
- *     summary: Retrieve a list of active news articles
+ *     summary: Get active news (status = 1)
  *     tags: [News]
  *     responses:
  *       200:
- *         deskripsi: A list of news articles.
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/News'
- *       500:
- *         deskripsi: Server error
+ *         description: List of active news
  */
 router.get('/getActiveNews', getActiveNews);
 
 /**
- * @openapi
+ * @swagger
+ * /api/getJenisBerita:
+ *   get:
+ *     summary: Get list of Jenis Berita (dropdown)
+ *     tags: [News]
+ *     responses:
+ *       200:
+ *         description: List of news categories
+ */
+router.get('/getJenisBerita', getJenisBerita);
+
+/**
+ * @swagger
  * /api/getNewsById/{id}:
  *   get:
- *     summary: Get a news article by ID
- *     deskripsi: Retrieve a single news article by its unique ID.
- *     tags:
- *       - News
+ *     summary: Get news by ID
+ *     tags: [News]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         deskripsi: The ID of the news article to retrieve.
  *         schema:
- *           type: string
- *           example: '1a2b3c4d'
+ *           type: integer
  *     responses:
- *       '200':
- *         deskripsi: Successfully retrieved the news article.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: string
- *                   deskripsi: The news article ID.
- *                   example: '1a2b3c4d'
- *                 nama_berita:
- *                   type: string
- *                   deskripsi: The nama_berita of the news article.
- *                   example: 'Important Announcement'
- *                 content:
- *                   type: string
- *                   deskripsi: The full content of the news article.
- *                   example: 'Here is the full content of the news...'
- *       '400':
- *         deskripsi: Invalid ID supplied.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: 'Invalid ID format.'
- *       '404':
- *         deskripsi: News article not found.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: 'News article with id 1a2b3c4d not found.'
+ *       200:
+ *         description: Success
+ *       404:
+ *         description: Not found
  */
-
 router.get('/getNewsById/:id', getNewsById);
-
 
 /**
  * @swagger
  * /api/insertDetailNews:
  *   post:
- *     summary: Create a new news article
+ *     summary: Insert new news
  *     tags: [News]
  *     requestBody:
  *       required: true
@@ -154,21 +146,17 @@ router.get('/getNewsById/:id', getNewsById);
  *           schema:
  *             type: object
  *             properties:
+ *               jenis_id:
+ *                 type: integer
  *               nama_berita:
  *                 type: string
  *               deskripsi:
  *                 type: string
  *               image:
  *                 type: string
- *             required:
- *               - nama_berita
- *               - deskripsi
- *               - image
  *     responses:
  *       201:
- *         deskripsi: News created successfully.
- *       500:
- *         deskripsi: Server error
+ *         description: Created
  */
 router.post('/insertDetailNews', insertDetailNews);
 
@@ -176,35 +164,21 @@ router.post('/insertDetailNews', insertDetailNews);
  * @swagger
  * /api/updateNews/{id}:
  *   put:
- *     summary: Update an existing news article
+ *     summary: Update news by ID
  *     tags: [News]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         deskripsi: The ID of the news article to update.
  *         schema:
  *           type: integer
  *     requestBody:
  *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               nama_berita:
- *                 type: string
- *               deskripsi:
- *                 type: string
- *               image:
- *                 type: string
  *     responses:
  *       200:
- *         deskripsi: News updated successfully.
+ *         description: Updated
  *       404:
- *         deskripsi: News not found or no changes made.
- *       500:
- *         deskripsi: Internal server error.
+ *         description: Not found
  */
 router.put('/updateNews/:id', updateNews);
 
@@ -212,20 +186,15 @@ router.put('/updateNews/:id', updateNews);
  * @swagger
  * /api/deleteNews/{id}:
  *   delete:
- *     summary: Delete a news article
+ *     summary: Delete news by ID
  *     tags: [News]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         deskripsi: The ID of the news article to delete.
- *         schema:
- *           type: integer
  *     responses:
  *       200:
- *         deskripsi: News deleted successfully.
- *       500:
- *         deskripsi: Internal server error.
+ *         description: Deleted
  */
 router.delete('/deleteNews/:id', deleteNews);
 
