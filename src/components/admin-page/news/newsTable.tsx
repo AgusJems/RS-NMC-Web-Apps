@@ -213,9 +213,9 @@ export default function NewsTable() {
           <div className="p-4 text-end">
             <Button
               onClick={openModal}
-              className="mb-4 px-4 py-2 bg-gradient-to-r from-green-500 to-green-400 hover:scale-105 duration-200 text-white"
+              className="mb-4 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
             >
-              + Tambah Berita
+              + Add News
             </Button>
           </div>
 
@@ -224,22 +224,22 @@ export default function NewsTable() {
             <TableHeader className="border-b border-gray-100 dark:border-white/[0.05]">
               <TableRow>
                 <TableCell isHeader className="px-5 text-center">
-                  Jenis
+                  Type
                 </TableCell>
                 <TableCell isHeader className="px-5 text-center">
-                  Judul
+                  Title
                 </TableCell>
                 <TableCell isHeader className="px-5 text-center">
-                  Deskripsi
+                  Description
                 </TableCell>
                 <TableCell isHeader className="px-5 text-center">
-                  Tanggal
+                  Date
                 </TableCell>
                 <TableCell isHeader className="px-5 text-center">
                   Status
                 </TableCell>
                 <TableCell isHeader className="px-5 text-center">
-                  Gambar
+                  Image
                 </TableCell>
                 <TableCell isHeader className="px-5 text-center">
                   Action
@@ -254,7 +254,7 @@ export default function NewsTable() {
                     {jenisData.find((j) => j.id === item.jenis_id)?.nama ?? "-"}
                   </TableCell>
 
-                  <TableCell className="px-4 py-4 text-center">
+                  <TableCell className="px-4 py-4">
                     <div className="prose prose-sm max-w-none dark:prose-invert line-clamp-1">
                       {item.nama_berita}
                     </div>
@@ -339,7 +339,7 @@ export default function NewsTable() {
                 onClick={() => setCurrentPage(page)}
                 className={`px-3 py-1 text-sm border rounded ${
                   currentPage === page
-                    ? "bg-green-500 text-white"
+                    ? "bg-emerald-500 text-white"
                     : "text-gray-700 dark:text-gray-300"
                 }`}
               >
