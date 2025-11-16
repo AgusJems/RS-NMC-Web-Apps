@@ -23,6 +23,7 @@ import {
   closeSwal,
 } from "../../../utils/swalFire";
 import DoctorEducationModal from "./doctorEducationModal";
+import DoctorScheduleModal from "./doctorScheduleModal";
 
 // REACT-SELECT DARK MODE
 const customStyles = {
@@ -95,6 +96,11 @@ export default function DoctorTable() {
 
   const [educationOpen, setEducationOpen] = useState(false);
   const [selectedDoctorId, setSelectedDoctorId] = useState<number | null>(null);
+
+  const [scheduleOpen, setScheduleOpen] = useState(false);
+  const [selectedScheduleId, setSelectedScheduleId] = useState<number | null>(
+    null
+  );
 
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
@@ -382,7 +388,10 @@ export default function DoctorTable() {
 
                       {/* SCHEDULE BUTTON */}
                       <button
-                        onClick={() => console.log("Schedule for:", item.id)}
+                        onClick={() => {
+                          setSelectedScheduleId(item.id);
+                          setScheduleOpen(true);
+                        }}
                         className="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs 
                           hover:bg-gradient-to-r from-purple-500 to-purple-400 hover:text-white 
                           dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
@@ -519,10 +528,17 @@ export default function DoctorTable() {
           </div>
         </div>
       </Modal>
+
       <DoctorEducationModal
         isOpen={educationOpen}
         onClose={() => setEducationOpen(false)}
         dokterId={selectedDoctorId}
+      />
+
+      <DoctorScheduleModal
+        isOpen={scheduleOpen}
+        onClose={() => setScheduleOpen(false)}
+        dokterId={selectedScheduleId}
       />
     </>
   );

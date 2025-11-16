@@ -8,6 +8,7 @@ import newsRoutes from './src/routes/news.routes.js';
 import poliRoutes from './src/routes/poly.routes.js';
 import dokterRoutes from './src/routes/doctor.routes.js';
 import educationRoutes from './src/routes/education.routes.js';
+import scheduleRoutes from './src/routes/schedule.routes.js';
 
 const app = express();
 const port = 3001;
@@ -19,6 +20,7 @@ app.use('/api', newsRoutes);
 app.use("/api", poliRoutes);
 app.use('/api', dokterRoutes);
 app.use('/api', educationRoutes);
+app.use('api', scheduleRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
