@@ -13,6 +13,7 @@ const swaggerOptions = {
     apis: [
     './server.js',
     './src/routes/news.routes.js',
+    './src/routes/poly.routes.js',
   ],
 };
 // Generate Swagger specification

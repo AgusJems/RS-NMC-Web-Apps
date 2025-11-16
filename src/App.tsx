@@ -30,6 +30,7 @@ import EmergencyCarePage from "./components/SubNavbar/Service/EmergencyCarePage"
 import SupportPage from "./components/SubNavbar/Service/SupportPage";
 import Contact from "./landing/Contact/Contact";
 import TestimoniForm from "./landing/Testimonial/TestimoniForm";
+import OutPatientDetailPage from "./components/SubNavbar/Service/OutPatientDetailPage";
 
 export default function App() {
   useEffect(() => {
@@ -69,6 +70,7 @@ export default function App() {
             <Route path="/newspage" element={<NewsPage />} />
             <Route path="/newspage/:id" element={<NewsDetailPage />} />
             <Route path="/service/outpatient" element={<OutPatientPage />} />
+            <Route path="/service/outpatient/:id" element={<OutPatientDetailPage />} />
             <Route path="/service/inpatient" element={<InPatientPage />} />
             <Route path="/service/emergency-care" element={<EmergencyCarePage />} />
             <Route path="/service/support" element={<SupportPage />} />
