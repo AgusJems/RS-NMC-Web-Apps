@@ -20,7 +20,7 @@ app.use('/api', newsRoutes);
 app.use("/api", poliRoutes);
 app.use('/api', dokterRoutes);
 app.use('/api', educationRoutes);
-app.use('api', scheduleRoutes);
+app.use('/api', scheduleRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

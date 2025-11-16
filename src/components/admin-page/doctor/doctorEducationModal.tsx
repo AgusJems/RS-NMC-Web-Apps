@@ -155,12 +155,12 @@ export default function DoctorEducationModal({
                 {educationData.length > 0 ? (
                   educationData.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell className="py-4 text-center">{item.universitas}</TableCell>
-                      <TableCell className="py-4 text-center">{item.prodi}</TableCell>
-                      <TableCell className="py-4 text-center">
+                      <TableCell className="py-2 text-center">{item.universitas}</TableCell>
+                      <TableCell className="py-2 text-center">{item.prodi}</TableCell>
+                      <TableCell className="py-2 text-center">
                         {item.tahun_mulai} - {item.tahun_selesai}
                       </TableCell>
-                      <TableCell className="text-center flex gap-2 justify-center py-4">
+                      <TableCell className="text-center flex gap-2 justify-center py-2">
                         <button
                           onClick={() => openEditModal(item)}
                           className="px-3 py-1 rounded-md bg-blue-500 text-white text-sm hover:bg-blue-600"
