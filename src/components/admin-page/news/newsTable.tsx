@@ -92,7 +92,7 @@ interface NewsItem {
   deskripsi: string;
   image: string;
   status: number;
-  tanggal: string;
+  created_at: string;
 }
 
 interface JenisBerita {
@@ -310,7 +310,7 @@ export default function NewsTable() {
                   </TableCell>
 
                   <TableCell className="px-4 py-4 text-center text-gray-500">
-                    {new Date(item.tanggal).toLocaleDateString()}
+                    {new Date(item.created_at).toLocaleDateString()}
                   </TableCell>
 
                   <TableCell className="px-4 py-4 text-center">
