@@ -3,7 +3,9 @@ import express from 'express';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from './swagger.js';
+import pool from './config/db.js';
 import newsRoutes from './src/routes/news.routes.js';
+import poliRoutes from './src/routes/poly.routes.js';
 
 const app = express();
 const port = 3001;
@@ -12,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api', newsRoutes);
+app.use("/api", poliRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
