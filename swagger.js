@@ -14,6 +14,8 @@ const swaggerOptions = {
     './server.js',
     './src/routes/news.routes.js',
     './src/routes/poly.routes.js',
+    './src/routes/doctor.routes.js',
+    './src/routes/education.routes.js',
   ],
 };
 // Generate Swagger specification

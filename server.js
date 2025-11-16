@@ -6,6 +6,8 @@ import swaggerSpec from './swagger.js';
 import pool from './config/db.js';
 import newsRoutes from './src/routes/news.routes.js';
 import poliRoutes from './src/routes/poly.routes.js';
+import dokterRoutes from './src/routes/doctor.routes.js';
+import educationRoutes from './src/routes/education.routes.js';
 
 const app = express();
 const port = 3001;
@@ -15,6 +17,8 @@ app.use(express.json());
 
 app.use('/api', newsRoutes);
 app.use("/api", poliRoutes);
+app.use('/api', dokterRoutes);
+app.use('/api', educationRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

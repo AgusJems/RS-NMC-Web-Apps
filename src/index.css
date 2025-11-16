@@ -787,6 +787,11 @@ span.flatpickr-weekday,
   @apply opacity-100;
 }
 
+/* Pastikan Swal berada paling atas */
+.swal2-container {
+  z-index: 999999 !important;
+}
+
 /* Efek blur seluruh layar */
 .swal2-blur-container {
   backdrop-filter: blur(12px);

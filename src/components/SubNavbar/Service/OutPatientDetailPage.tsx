@@ -11,9 +11,18 @@ interface PoliItem {
   status: number;
 }
 
+interface DokterItem {
+  id: number;
+  nama: string;
+  spesialis: string;
+  image: string;
+}
+
 const OutPatientDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+
   const [poli, setPoli] = useState<PoliItem | null>(null);
+  const [dokterList, setDokterList] = useState<DokterItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,6 +35,10 @@ const OutPatientDetailPage: React.FC = () => {
       const res = await fetch(`http://localhost:3001/api/getPoliById/${id}`);
       const json = await res.json();
       setPoli(json.data || null);
+
+      if (json.data?.id) {
+        fetchDokter(json.data.id);
+      }
     } catch (error) {
       console.error("Error fetching poli detail:", error);
       setPoli(null);
@@ -34,9 +47,22 @@ const OutPatientDetailPage: React.FC = () => {
     }
   };
 
+  const fetchDokter = async (poliId: number) => {
+    try {
+      const res = await fetch(
+        `http://localhost:3001/api/getDokterByPoliId/${poliId}`
+      );
+      const json = await res.json();
+      setDokterList(json.data || []);
+    } catch (error) {
+      console.error("Error fetching dokter:", error);
+      setDokterList([]);
+    }
+  };
+
   if (loading)
     return (
-      <div className="min-h-screen flex items-center justify-center text-gray-500 dark:text-gray-300">
+      <div className="min-h-screen flex items-center justify-center text-gray-500">
         Loading...
       </div>
     );
@@ -52,7 +78,6 @@ const OutPatientDetailPage: React.FC = () => {
     <div className="py-12 mb-10 justify-items-center">
       <div className="container min-h-screen px-4 py-6 dark:bg-black dark:text-white">
         <div className="max-w-4xl mx-auto">
-
           {/* TITLE */}
           <h1
             data-aos="fade-up"
@@ -80,15 +105,56 @@ const OutPatientDetailPage: React.FC = () => {
             dangerouslySetInnerHTML={{ __html: poli.deskripsi }}
           />
 
+          {/* LIST DOKTER */}
+          {/* LIST DOKTER */}
+          {dokterList.length > 0 && (
+            <div className="mt-12">
+              <h2
+                data-aos="fade-up"
+                className="text-2xl font-bold mb-6 text-gray-800 dark:text-white"
+              >
+                Dokter yang Melayani
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+                {dokterList.map((doctor) => (
+                  <div
+                    key={doctor.id}
+                    data-aos="zoom-in"
+                    className="flex flex-col items-center"
+                  >
+                    <img
+                      src={
+                        doctor.image?.startsWith("data:")
+                          ? doctor.image
+                          : `data:image/jpeg;base64,${doctor.image}`
+                      }
+                      alt={doctor.nama}
+                      className="h-[220px] w-[200px] object-cover rounded-md shadow-md"
+                    />
+
+                    <div className="text-center mt-3">
+                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                        {doctor.nama}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        {doctor.spesialis}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* BUTTON BACK */}
-          <div className="mt-10">
+          <div className="mt-12">
             <Link to="/service/outpatient">
               <button className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:scale-105 duration-200">
                 ← Kembali ke Daftar Poli
               </button>
             </Link>
           </div>
-
         </div>
       </div>
     </div>
