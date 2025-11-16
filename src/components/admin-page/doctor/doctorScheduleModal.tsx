@@ -82,7 +82,7 @@ interface Props {
 interface ScheduleItem {
   id: number;
   hari_id: number;
-  nama: string;
+  hari: string;
   jam_mulai: string;
   jam_selesai: string;
 }
@@ -141,54 +141,47 @@ export default function DoctorScheduleModal({
       body: JSON.stringify({ dokter_id: dokterId, ...form }),
     });
 
+    Swal.fire("Berhasil!", "Jadwal berhasil ditambahkan.", "success");
+
     setForm({ hari_id: 0, jam_mulai: "", jam_selesai: "" });
     fetchSchedule();
   };
 
   const updateSchedule = async () => {
     if (!editItem) return;
+
     await fetch(`http://localhost:3001/api/updateSchedule/${editItem.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
 
+    Swal.fire("Berhasil!", "Jadwal berhasil diperbarui.", "success");
+
     setEditItem(null);
+    setEditOpen(false);
     fetchSchedule();
   };
 
   const deleteSchedule = async (id: number) => {
-    Swal.fire({
+    const confirm = await Swal.fire({
       title: "Hapus Jadwal?",
-      text: "Data jadwal ini akan dihapus permanen.",
+      text: "Data jadwal ini tidak dapat dikembalikan.",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Ya, Hapus",
+      confirmButtonText: "Ya, hapus!",
       cancelButtonText: "Batal",
-      backdrop: `rgba(0,0,0,0.4)`,
-      customClass: {
-        popup: "swal2-blur-popup",
-        container: "swal2-blur-container",
-      },
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await fetch(`http://localhost:3001/api/deleteSchedule/${id}`, {
-          method: "DELETE",
-        });
-        fetchSchedule();
-        Swal.fire({
-          icon: "success",
-          title: "Berhasil dihapus",
-          timer: 1200,
-          showConfirmButton: false,
-          backdrop: "rgba(0,0,0,0.4)",
-          customClass: {
-            popup: "swal2-blur-popup",
-            container: "swal2-blur-container",
-          },
-        });
-      }
     });
+
+    if (!confirm.isConfirmed) return;
+
+    await fetch(`http://localhost:3001/api/deleteSchedule/${id}`, {
+      method: "DELETE",
+    });
+
+    Swal.fire("Dihapus!", "Jadwal berhasil dihapus.", "success");
+
+    fetchSchedule();
   };
 
   return (
@@ -207,7 +200,7 @@ export default function DoctorScheduleModal({
             </Button>
           </div>
 
-          <div className="max-w-full overflow-x-auto mb-4 border rounded-md">
+          <div className="max-w-full p-4 overflow-x-auto mb-4 border rounded-md">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -220,14 +213,14 @@ export default function DoctorScheduleModal({
                 </TableRow>
               </TableHeader>
 
-              <TableBody>
+              <TableBody className="divide-y divide-gray-100 dark:divide-white/[0.05]">
                 {scheduleData.length > 0 ? (
                   scheduleData.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell>{item.nama}</TableCell>
-                      <TableCell>{item.jam_mulai}</TableCell>
-                      <TableCell>{item.jam_selesai}</TableCell>
-                      <TableCell className="text-center flex gap-2 justify-center">
+                      <TableCell className="py-2 text-center">{item.hari}</TableCell>
+                      <TableCell className="py-2 text-center">{item.jam_mulai}</TableCell>
+                      <TableCell className="py-2 text-center">{item.jam_selesai}</TableCell>
+                      <TableCell className="text-center flex gap-2 justify-center py-2">
                         <button
                           onClick={() => {
                             setEditItem(item);
@@ -266,7 +259,11 @@ export default function DoctorScheduleModal({
       </Modal>
 
       {/* ADD MODAL */}
-      <Modal isOpen={addOpen} onClose={() => setAddOpen(false)} className="max-w-[500px]">
+      <Modal
+        isOpen={addOpen}
+        onClose={() => setAddOpen(false)}
+        className="max-w-[500px]"
+      >
         <div className="p-6">
           <h3 className="text-xl font-semibold mb-4">Tambah Jadwal</h3>
 
@@ -275,7 +272,9 @@ export default function DoctorScheduleModal({
               <Label>Hari</Label>
               <Select
                 options={hariOptions}
-                value={hariOptions.find((opt) => opt.value === form.hari_id) || null}
+                value={
+                  hariOptions.find((opt) => opt.value === form.hari_id) || null
+                }
                 onChange={(selected: any) =>
                   setForm({ ...form, hari_id: Number(selected?.value) })
                 }
@@ -290,7 +289,9 @@ export default function DoctorScheduleModal({
               <Input
                 type="time"
                 value={form.jam_mulai}
-                onChange={(e) => setForm({ ...form, jam_mulai: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, jam_mulai: e.target.value })
+                }
               />
             </div>
 
@@ -299,7 +300,9 @@ export default function DoctorScheduleModal({
               <Input
                 type="time"
                 value={form.jam_selesai}
-                onChange={(e) => setForm({ ...form, jam_selesai: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, jam_selesai: e.target.value })
+                }
               />
             </div>
           </div>
@@ -323,7 +326,11 @@ export default function DoctorScheduleModal({
       </Modal>
 
       {/* EDIT MODAL */}
-      <Modal isOpen={editOpen} onClose={() => setEditOpen(false)} className="max-w-[500px]">
+      <Modal
+        isOpen={editOpen}
+        onClose={() => setEditOpen(false)}
+        className="max-w-[500px]"
+      >
         <div className="p-6">
           <h3 className="text-xl font-semibold mb-4">Edit Jadwal</h3>
 
@@ -332,7 +339,9 @@ export default function DoctorScheduleModal({
               <Label>Hari</Label>
               <Select
                 options={hariOptions}
-                value={hariOptions.find((opt) => opt.value === form.hari_id) || null}
+                value={
+                  hariOptions.find((opt) => opt.value === form.hari_id) || null
+                }
                 onChange={(selected: any) =>
                   setForm({ ...form, hari_id: Number(selected?.value) })
                 }
@@ -347,7 +356,9 @@ export default function DoctorScheduleModal({
               <Input
                 type="time"
                 value={form.jam_mulai}
-                onChange={(e) => setForm({ ...form, jam_mulai: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, jam_mulai: e.target.value })
+                }
               />
             </div>
 
@@ -356,7 +367,9 @@ export default function DoctorScheduleModal({
               <Input
                 type="time"
                 value={form.jam_selesai}
-                onChange={(e) => setForm({ ...form, jam_selesai: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, jam_selesai: e.target.value })
+                }
               />
             </div>
           </div>

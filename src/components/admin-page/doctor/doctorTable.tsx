@@ -320,6 +320,47 @@ export default function DoctorTable() {
                   {/* ACTION */}
                   <TableCell className=" py-4 text-center">
                     <div className="flex justify-center gap-2">
+                      {/* EDUCATION BUTTON */}
+                      <button
+                        onClick={() => {
+                          setSelectedDoctorId(item.id);
+                          setEducationOpen(true);
+                        }}
+                        className="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs 
+                          hover:bg-gradient-to-r from-emerald-500 to-emerald-400 hover:text-white 
+                          dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          className="fill-current"
+                          viewBox="0 0 18 18"
+                        >
+                          <path d="M9 1L1 5l8 4 8-4-8-4zm0 6L3 5l6-3 6 3-6 3zM1 7v6l8 4 8-4V7l-8 4-8-4z" />
+                        </svg>
+                        Education
+                      </button>
+
+                      {/* SCHEDULE BUTTON */}
+                      <button
+                        onClick={() => {
+                          setSelectedScheduleId(item.id);
+                          setScheduleOpen(true);
+                        }}
+                        className="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs 
+                          hover:bg-gradient-to-r from-purple-500 to-purple-400 hover:text-white 
+                          dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          className="fill-current"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M7 2v2H5v2h14V4h-2V2h-2v2H9V2H7zm12 6H5v12h14V8zm-2 4h-5v5h5v-5z" />
+                        </svg>
+                        Schedule
+                      </button>
                       {/* EDIT BUTTON */}
                       <button
                         onClick={() => editDoctor(item)}
@@ -364,47 +405,6 @@ export default function DoctorTable() {
                           />
                         </svg>
                         Delete
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          setSelectedDoctorId(item.id);
-                          setEducationOpen(true);
-                        }}
-                        className="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs 
-                          hover:bg-gradient-to-r from-emerald-500 to-emerald-400 hover:text-white 
-                          dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
-                      >
-                        <svg
-                          width="18"
-                          height="18"
-                          className="fill-current"
-                          viewBox="0 0 18 18"
-                        >
-                          <path d="M9 1L1 5l8 4 8-4-8-4zm0 6L3 5l6-3 6 3-6 3zM1 7v6l8 4 8-4V7l-8 4-8-4z" />
-                        </svg>
-                        Education
-                      </button>
-
-                      {/* SCHEDULE BUTTON */}
-                      <button
-                        onClick={() => {
-                          setSelectedScheduleId(item.id);
-                          setScheduleOpen(true);
-                        }}
-                        className="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs 
-                          hover:bg-gradient-to-r from-purple-500 to-purple-400 hover:text-white 
-                          dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200"
-                      >
-                        <svg
-                          width="18"
-                          height="18"
-                          className="fill-current"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M7 2v2H5v2h14V4h-2V2h-2v2H9V2H7zm12 6H5v12h14V8zm-2 4h-5v5h5v-5z" />
-                        </svg>
-                        Schedule
                       </button>
                     </div>
                   </TableCell>
