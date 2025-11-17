@@ -189,7 +189,7 @@ export default function DoctorScheduleModal({
       {/* MAIN MODAL */}
       <Modal isOpen={isOpen} onClose={onClose} className="max-w-[1000px]">
         <div className="p-8">
-          <h3 className="text-xl font-semibold mb-8">Schedule</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-8">Schedule</h3>
 
           <div className="text-end mb-4">
             <Button
@@ -204,10 +204,10 @@ export default function DoctorScheduleModal({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableCell isHeader>Hari</TableCell>
-                  <TableCell isHeader>Jam Mulai</TableCell>
-                  <TableCell isHeader>Jam Selesai</TableCell>
-                  <TableCell isHeader className="text-center">
+                  <TableCell isHeader className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">Hari</TableCell>
+                  <TableCell isHeader className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">Jam Mulai</TableCell>
+                  <TableCell isHeader className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">Jam Selesai</TableCell>
+                  <TableCell isHeader className="text-center text-gray-800 text-theme-sm dark:text-gray-400">
                     Action
                   </TableCell>
                 </TableRow>
@@ -217,9 +217,9 @@ export default function DoctorScheduleModal({
                 {scheduleData.length > 0 ? (
                   scheduleData.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell className="py-2 text-center">{item.hari}</TableCell>
-                      <TableCell className="py-2 text-center">{item.jam_mulai}</TableCell>
-                      <TableCell className="py-2 text-center">{item.jam_selesai}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.hari}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.jam_mulai}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.jam_selesai}</TableCell>
                       <TableCell className="text-center flex gap-2 justify-center py-2">
                         <button
                           onClick={() => {
