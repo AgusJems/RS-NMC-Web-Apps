@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider, { Settings } from "react-slick";
-import type { DoctorList } from "../../components/doctorData/doctorData";
 
-interface DoctorProps {
-  doctors: DoctorList[];
+interface DoctorItem {
+  id: number;
+  nama: string;
+  spesialis: string;
+  image: string | null;
 }
 
-const Doctor: React.FC<DoctorProps> = ({ doctors }) => {
+const Doctor: React.FC = () => {
+  const [doctors, setDoctors] = useState<DoctorItem[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/api/getAllDokter")
+      .then((res) => res.json())
+      .then((json) => setDoctors(json.data || []))
+      .catch((err) => console.error("Error fetching doctors:", err));
+  }, []);
+
   const settings: Settings = {
     dots: false,
     arrows: false,
@@ -22,8 +33,15 @@ const Doctor: React.FC<DoctorProps> = ({ doctors }) => {
       { breakpoint: 1280, settings: { slidesToShow: 4 } },
       { breakpoint: 1024, settings: { slidesToShow: 3 } },
       { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } } // MOBILE: 1 doctor
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
+  };
+
+  const getImageSrc = (img: string | null) => {
+    if (!img) return "/default-doctor.png"; // DEFAULT FOTO
+    return img.startsWith("data:")
+      ? img
+      : `data:image/jpeg;base64,${img}`;
   };
 
   return (
@@ -40,7 +58,8 @@ const Doctor: React.FC<DoctorProps> = ({ doctors }) => {
             Dokter Kami
           </h1>
           <p data-aos="fade-up" className="text-md text-gray-400">
-            Dukung kesehatan Anda bersama dokter-dokter terbaik kami yang siap memberikan pelayanan profesional dan penuh dedikasi.
+            Dukung kesehatan Anda bersama dokter-dokter terbaik kami yang
+            siap memberikan pelayanan profesional dan penuh dedikasi.
           </p>
         </div>
 
@@ -53,13 +72,13 @@ const Doctor: React.FC<DoctorProps> = ({ doctors }) => {
                 className="space-y-3 flex flex-col items-center"
               >
                 <img
-                  src={doctor.img}
-                  alt={doctor.name}
-                  className="h-[220px] w-[200px] object-cover rounded-md"
+                  src={getImageSrc(doctor.image)}
+                  alt={doctor.nama}
+                  className="h-[220px] w-[200px] object-cover rounded-md border shadow"
                 />
                 <div className="text-center">
-                  <h3 className="font-semibold">{doctor.name}</h3>
-                  <p className="text-sm text-gray-600">{doctor.specialist}</p>
+                  <h3 className="font-semibold">{doctor.nama}</h3>
+                  <p className="text-sm text-gray-600">{doctor.spesialis}</p>
                 </div>
               </div>
             </div>

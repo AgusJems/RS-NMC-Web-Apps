@@ -2,78 +2,118 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-import DoctorData from "../../doctorData/doctorData";
+
+interface DoctorItem {
+  id: number;
+  nama: string;
+  spesialis: string;
+  image: string | null;
+}
 
 const DoctorPage: React.FC = () => {
-    const [search, setSearch] = useState("");
-    const [filteredDoctors, setFilteredDoctors] = useState(DoctorData);
+  const [search, setSearch] = useState("");
+  const [doctors, setDoctors] = useState<DoctorItem[]>([]);
+  const [filteredDoctors, setFilteredDoctors] = useState<DoctorItem[]>([]);
 
-    useEffect(() => {
-        AOS.init({ duration: 600 });
-    }, []);
+  useEffect(() => {
+    AOS.init({ duration: 600 });
+  }, []);
 
-    useEffect(() => {
-    const filtered = DoctorData.filter(
+  // Fetch doctor from backend
+  useEffect(() => {
+    fetch("http://localhost:3001/api/getAllDokter")
+      .then((res) => res.json())
+      .then((json) => {
+        setDoctors(json.data || []);
+        setFilteredDoctors(json.data || []);
+      })
+      .catch((err) => console.error("Error fetching doctor:", err));
+  }, []);
+
+  // Handle image source (base64 / null)
+  const getImageSrc = (img: string | null) => {
+    if (!img) return "/default-doctor.png";
+    return img.startsWith("data:")
+      ? img
+      : `data:image/jpeg;base64,${img}`;
+  };
+
+  // Filter
+  useEffect(() => {
+    const filtered = doctors.filter(
       (doc) =>
-        doc.name.toLowerCase().includes(search.toLowerCase()) ||
-        doc.specialist.toLowerCase().includes(search.toLowerCase())
+        doc.nama.toLowerCase().includes(search.toLowerCase()) ||
+        doc.spesialis.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredDoctors(filtered);
-  }, [search]);
+  }, [search, doctors]);
 
   return (
     <>
-        <div className="py-10 mb-10 justify-items-center">
-            <div className="container min-h-screen px-4 py-6 dark:bg-black dark:text-white">
-                <div className="text-center mb-10 max-w-[700px] mx-auto">
-                    <h1 data-aos="fade-up" className="text-2xl font-bold text-center mb-6">
-                        Cari Jadwal Dokter di RSU Anni`mah
-                    </h1>
-                    <p data-aos="fade-up" className="text-md text-gray-400 mb-4">
-                        Jadwal dokter RSU An Ni’mah kini dapat diakses secara mudah.
-                        Pilih dokter sesuai kebutuhan Anda dan temukan waktu praktik terbaik.
-                    </p>
-                    <div data-aos="fade-up" className="flex justify-center">
-                        <input
-                            type="text"
-                            placeholder="Cari nama dokter Anda disini..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            className="w-full sm:w-96 px-4 py-2 border rounded-full dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary"
-                        />
-                    </div>
-                </div>
+      <div className="py-10 mb-10 justify-items-center">
+        <div className="container min-h-screen px-4 py-6 dark:bg-black dark:text-white">
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
+          {/* Header */}
+          <div className="text-center mb-10 max-w-[700px] mx-auto">
+            <h1 data-aos="fade-up" className="text-2xl font-bold mb-6">
+              Cari Jadwal Dokter di RSU An Ni’mah
+            </h1>
+
+            <p data-aos="fade-up" className="text-md text-gray-400 mb-4">
+              Jadwal dokter RSU An Ni’mah kini dapat diakses secara mudah.
+              Pilih dokter sesuai kebutuhan Anda dan temukan waktu praktik terbaik.
+            </p>
+
+            <div data-aos="fade-up" className="flex justify-center">
+              <input
+                type="text"
+                placeholder="Cari nama dokter Anda disini..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full sm:w-96 px-4 py-2 border rounded-full dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+          </div>
+
+          {/* Card Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
             {filteredDoctors.map((data) => (
-                <div
+              <div
                 data-aos="zoom-in"
-                data-aos-delay={data.aosDelay}
                 key={data.id}
                 className="space-y-3 place-items-center"
-                >
+              >
                 <img
-                    src={data.img}
-                    alt={data.name}
-                    className="h-[220px] w-[200px] object-cover rounded-md"
+                  src={getImageSrc(data.image)}
+                  alt={data.nama}
+                  className="h-[220px] w-[200px] object-cover rounded-md border shadow"
                 />
+
                 <div className="text-center">
-                    <h3 className="font-semibold">{data.name}</h3>
-                    <p className="text-sm text-gray-600 mb-3">{data.specialist}</p>
-                    <Link to={`/doctorpage/${data.id}`}>
+                  <h3 className="font-semibold">{data.nama}</h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {data.spesialis}
+                  </p>
+
+                  {/* Button menuju detail schedule */}
+                  <Link to={`/doctorpage/${data.id}`}>
                     <button className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:scale-105 duration-200 cursor-pointer">
-                        View Schedule
+                      View Schedule
                     </button>
-                    </Link>
+                  </Link>
                 </div>
-                </div>
+              </div>
             ))}
+
             {filteredDoctors.length === 0 && (
-              <p className="col-span-full text-gray-500">Tidak ada dokter ditemukan.</p>
+              <p className="col-span-full text-gray-500">
+                Tidak ada dokter ditemukan.
+              </p>
             )}
-            </div>
+          </div>
+
         </div>
-        </div>
+      </div>
     </>
   );
 };
