@@ -127,7 +127,7 @@ export default function DoctorEducationModal({
       {/* MAIN MODAL */}
       <Modal isOpen={isOpen} onClose={onClose} className="max-w-[1000px]">
         <div className="p-8">
-          <h3 className="text-xl font-semibold mb-8">Education</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-8">Education</h3>
 
           <div className="text-end mb-4">
             <Button
@@ -142,10 +142,10 @@ export default function DoctorEducationModal({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableCell isHeader>Universitas</TableCell>
-                  <TableCell isHeader>Prodi</TableCell>
-                  <TableCell isHeader>Tahun</TableCell>
-                  <TableCell isHeader className="text-center">
+                  <TableCell isHeader className="text-center text-gray-800 text-theme-sm dark:text-gray-400">Universitas</TableCell>
+                  <TableCell isHeader className="text-center text-gray-800 text-theme-sm dark:text-gray-400">Prodi</TableCell>
+                  <TableCell isHeader className=" text-center text-gray-800 text-theme-sm dark:text-gray-400">Tahun</TableCell>
+                  <TableCell isHeader className="text-center text-gray-800 text-theme-sm dark:text-gray-400">
                     Action
                   </TableCell>
                 </TableRow>
@@ -155,9 +155,9 @@ export default function DoctorEducationModal({
                 {educationData.length > 0 ? (
                   educationData.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell className="py-2 text-center">{item.universitas}</TableCell>
-                      <TableCell className="py-2 text-center">{item.prodi}</TableCell>
-                      <TableCell className="py-2 text-center">
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.universitas}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.prodi}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">
                         {item.tahun_mulai} - {item.tahun_selesai}
                       </TableCell>
                       <TableCell className="text-center flex gap-2 justify-center py-2">
@@ -195,7 +195,7 @@ export default function DoctorEducationModal({
       {/* ADD EDUCATION MODAL */}
       <Modal isOpen={addOpen} onClose={() => setAddOpen(false)} className="max-w-[600px]">
         <div className="p-6">
-          <h3 className="text-xl font-semibold mb-4">Tambah Pendidikan</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Tambah Pendidikan</h3>
 
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div>
