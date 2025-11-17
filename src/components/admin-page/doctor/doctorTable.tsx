@@ -266,12 +266,12 @@ export default function DoctorTable() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableCell isHeader>Foto</TableCell>
-                <TableCell isHeader>Nama</TableCell>
-                <TableCell isHeader>Spesialis</TableCell>
-                <TableCell isHeader>Poli</TableCell>
-                <TableCell isHeader>Profile</TableCell>
-                <TableCell isHeader>Action</TableCell>
+                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Image</TableCell>
+                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Name</TableCell>
+                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Specialis</TableCell>
+                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Poly</TableCell>
+                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Profile</TableCell>
+                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Action</TableCell>
               </TableRow>
             </TableHeader>
 
@@ -415,14 +415,14 @@ export default function DoctorTable() {
         </div>
 
         <div className="flex justify-between items-center px-5 py-4">
-          <p>
+          <p className="text-gray-600 dark:text-gray-400 text-theme-sm">
             Page {currentPage} of {totalPages}
           </p>
 
           <div className="flex gap-1">
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              className="px-3 py-1 border rounded"
+              className="px-3 py-1 border rounded text-gray-800 text-theme-sm dark:text-gray-400"
             >
               Prev
             </button>
@@ -443,7 +443,7 @@ export default function DoctorTable() {
 
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-              className="px-3 py-1 border rounded"
+              className="px-3 py-1 border rounded text-gray-800 text-theme-sm dark:text-gray-400"
             >
               Next
             </button>
