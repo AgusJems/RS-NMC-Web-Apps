@@ -74,7 +74,7 @@ const Doctor: React.FC = () => {
                 <img
                   src={getImageSrc(doctor.image)}
                   alt={doctor.nama}
-                  className="h-[220px] w-[200px] object-cover rounded-md border shadow"
+                  className="h-[220px] w-[200px] object-cover rounded-md drop-shadow-[-10px_10px_12px_rgba(0,0,0,0.6)]"
                 />
                 <div className="text-center">
                   <h3 className="font-semibold">{doctor.nama}</h3>
