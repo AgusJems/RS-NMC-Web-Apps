@@ -195,7 +195,7 @@ export default function DoctorEducationModal({
       {/* ADD EDUCATION MODAL */}
       <Modal isOpen={addOpen} onClose={() => setAddOpen(false)} className="max-w-[600px]">
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Tambah Pendidikan</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Add Education</h3>
 
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div>
@@ -254,7 +254,7 @@ export default function DoctorEducationModal({
       {/* EDIT EDUCATION MODAL */}
       <Modal isOpen={editOpen} onClose={() => setEditOpen(false)} className="max-w-[600px]">
         <div className="p-6">
-          <h3 className="text-xl font-semibold mb-4">Edit Pendidikan</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Edit Education</h3>
 
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div>

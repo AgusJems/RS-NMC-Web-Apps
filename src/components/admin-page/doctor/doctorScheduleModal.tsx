@@ -30,6 +30,7 @@ const customStyles = {
         : "white",
 
       borderColor: state.isFocused ? "#22c55e" : isDark ? "#374151" : "#e5e7eb",
+
       boxShadow: state.isFocused
         ? "0 0 0 2px rgba(34, 197, 94, 0.3)"
         : undefined,
@@ -49,6 +50,30 @@ const customStyles = {
       color: isDark ? "#f9fafb" : "#111827",
       zIndex: 9999,
       fontSize: "14px",
+    };
+  },
+
+  singleValue: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#f9fafb" : "#111827",
+    };
+  },
+
+  input: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#f9fafb" : "#111827",
+    };
+  },
+
+  placeholder: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#9ca3af" : "#6b7280",
     };
   },
 
@@ -265,7 +290,7 @@ export default function DoctorScheduleModal({
         className="max-w-[500px]"
       >
         <div className="p-6">
-          <h3 className="text-xl font-semibold mb-4">Tambah Jadwal</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Tambah Jadwal</h3>
 
           <div className="flex flex-col gap-4 mb-4">
             <div>
@@ -332,7 +357,7 @@ export default function DoctorScheduleModal({
         className="max-w-[500px]"
       >
         <div className="p-6">
-          <h3 className="text-xl font-semibold mb-4">Edit Jadwal</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Edit Jadwal</h3>
 
           <div className="flex flex-col gap-4 mb-4">
             <div>
