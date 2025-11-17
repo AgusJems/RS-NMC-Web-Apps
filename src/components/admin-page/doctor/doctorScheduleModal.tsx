@@ -243,8 +243,8 @@ export default function DoctorScheduleModal({
                   scheduleData.map((item) => (
                     <TableRow key={item.id}>
                       <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.hari}</TableCell>
-                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.jam_mulai}</TableCell>
-                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.jam_selesai}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.jam_mulai.replace(":00", "")}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.jam_selesai.replace(":00", "")}</TableCell>
                       <TableCell className="text-center flex gap-2 justify-center py-2">
                         <button
                           onClick={() => {
