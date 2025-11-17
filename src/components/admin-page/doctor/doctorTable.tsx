@@ -25,33 +25,71 @@ import {
 import DoctorEducationModal from "./doctorEducationModal";
 import DoctorScheduleModal from "./doctorScheduleModal";
 
-// REACT-SELECT DARK MODE
 const customStyles = {
   control: (base: any, state: any) => {
     const isDark = document.documentElement.classList.contains("dark");
 
     return {
       ...base,
-      backgroundColor: isDark ? "#111827" : "white",
+      backgroundColor: isDark
+        ? state.isFocused
+          ? "#1f2937"
+          : "#111827"
+        : state.isFocused
+        ? "#f0fdf4"
+        : "white",
+
       borderColor: state.isFocused ? "#22c55e" : isDark ? "#374151" : "#e5e7eb",
+
       boxShadow: state.isFocused
         ? "0 0 0 2px rgba(34, 197, 94, 0.3)"
         : undefined,
+
       "&:hover": { borderColor: "#22c55e" },
+      color: isDark ? "#f9fafb" : "#111827",
       padding: "2px",
       fontSize: "14px",
     };
   },
+
   menu: (base: any) => {
     const isDark = document.documentElement.classList.contains("dark");
     return {
       ...base,
       backgroundColor: isDark ? "#1f2937" : "white",
+      color: isDark ? "#f9fafb" : "#111827",
       zIndex: 9999,
+      fontSize: "14px",
     };
   },
+
+  singleValue: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#f9fafb" : "#111827",
+    };
+  },
+
+  input: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#f9fafb" : "#111827",
+    };
+  },
+
+  placeholder: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#9ca3af" : "#6b7280",
+    };
+  },
+
   option: (base: any, state: any) => {
     const isDark = document.documentElement.classList.contains("dark");
+
     return {
       ...base,
       backgroundColor: state.isSelected
@@ -62,6 +100,10 @@ const customStyles = {
           : "#f0fdf4"
         : "transparent",
       color: state.isSelected ? "white" : isDark ? "#f9fafb" : "#111827",
+      "&:active": {
+        backgroundColor: "#22c55e",
+        color: "white",
+      },
     };
   },
 };
@@ -454,7 +496,7 @@ export default function DoctorTable() {
       {/* MODAL */}
       <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[700px]">
         <div className="p-6">
-          <h3 className="text-xl font-semibold mb-4">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">
             {editingId ? "Edit Doctor" : "Add Doctor"}
           </h3>
 
@@ -501,6 +543,7 @@ export default function DoctorTable() {
               value={formData.profile}
               onChange={(v) => setFormData({ ...formData, profile: v })}
               placeholder="Tulis profil dokter di sini..."
+              className="text-gray-800 text-theme-sm dark:text-gray-400"
             />
           </div>
 

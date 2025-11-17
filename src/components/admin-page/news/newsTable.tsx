@@ -33,10 +33,10 @@ const customStyles = {
       backgroundColor: isDark
         ? state.isFocused
           ? "#1f2937"
-          : "#111827" // DARK MODE
+          : "#111827"
         : state.isFocused
         ? "#f0fdf4"
-        : "white", // LIGHT MODE
+        : "white",
 
       borderColor: state.isFocused ? "#22c55e" : isDark ? "#374151" : "#e5e7eb",
 
@@ -44,10 +44,7 @@ const customStyles = {
         ? "0 0 0 2px rgba(34, 197, 94, 0.3)"
         : undefined,
 
-      "&:hover": {
-        borderColor: "#22c55e",
-      },
-
+      "&:hover": { borderColor: "#22c55e" },
       color: isDark ? "#f9fafb" : "#111827",
       padding: "2px",
       fontSize: "14px",
@@ -56,13 +53,36 @@ const customStyles = {
 
   menu: (base: any) => {
     const isDark = document.documentElement.classList.contains("dark");
-
     return {
       ...base,
       backgroundColor: isDark ? "#1f2937" : "white",
       color: isDark ? "#f9fafb" : "#111827",
       zIndex: 9999,
       fontSize: "14px",
+    };
+  },
+
+  singleValue: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#f9fafb" : "#111827",
+    };
+  },
+
+  input: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#f9fafb" : "#111827",
+    };
+  },
+
+  placeholder: (base: any) => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      ...base,
+      color: isDark ? "#9ca3af" : "#6b7280",
     };
   },
 
@@ -508,6 +528,7 @@ export default function NewsTable() {
               value={formData.deskripsi}
               onChange={(v) => setFormData({ ...formData, deskripsi: v })}
               placeholder="Write a news description here..."
+              className="text-gray-800 text-theme-sm dark:text-gray-400"
             />
           </div>
 
@@ -536,7 +557,9 @@ export default function NewsTable() {
                   defaultChecked={formData.status}
                   onChange={(v) => setFormData({ ...formData, status: v })}
                 />
-                <span>{formData.status ? "Active" : "Inactive"}</span>
+                <span className="text-gray-800 dark:text-gray-400">
+                  {formData.status ? "Active" : "Inactive"}
+                </span>
               </div>
             </div>
           )}

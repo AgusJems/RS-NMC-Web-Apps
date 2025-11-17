@@ -172,7 +172,7 @@ export default function PoliTable() {
               onClick={openModal}
               className="mb-4 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
             >
-              + Add Poli
+              + Add Poly
             </Button>
           </div>
 
@@ -370,6 +370,7 @@ export default function PoliTable() {
               value={formData.deskripsi}
               onChange={(v) => setFormData({ ...formData, deskripsi: v })}
               placeholder="Tulis deskripsi poli..."
+              className="text-gray-800 text-theme-sm dark:text-gray-400"
             />
           </div>
 
