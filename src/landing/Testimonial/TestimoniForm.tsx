@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import Input from "../../components/form/input/InputField";
+import TextArea from "../../components/form/input/TextArea";
 
 const TestimoniForm: React.FC = () => {
   const [form, setForm] = useState({
-    name: "",
-    address: "",
-    description: "",
+    nama: "",
+    alamat: "",
+    deskripsi: "",
+    rating: 0,
   });
 
   const handleChange = (
@@ -13,18 +17,43 @@ const TestimoniForm: React.FC = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleRating = (value: number) => {
+    setForm({ ...form, rating: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Untuk sementara tampilkan alert
-    alert("Terima kasih! Testimoni Anda sudah terkirim 😊");
+    if (form.rating === 0) {
+      alert("Silakan pilih rating ⭐");
+      return;
+    }
 
-    // Reset form
-    setForm({
-      name: "",
-      address: "",
-      description: "",
+    // Submit ke backend
+    const res = await fetch("http://localhost:3001/api/insertTestimoni", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nama: form.nama,
+        alamat: form.alamat,
+        deskripsi: form.deskripsi,
+        rating: form.rating,
+        status: 1,
+      }),
     });
+
+    if (res.ok) {
+      alert("Terima kasih! Testimoni Anda sudah terkirim 😊");
+
+      setForm({
+        nama: "",
+        alamat: "",
+        deskripsi: "",
+        rating: 0,
+      });
+    } else {
+      alert("Gagal mengirim testimoni");
+    }
   };
 
   return (
@@ -36,23 +65,19 @@ const TestimoniForm: React.FC = () => {
           Tambah Testimoni
         </h1>
         <p className="text-center text-gray-500 dark:text-gray-300 mb-8">
-          Silakan isi nama, alamat, dan pengalaman Anda selama di RSU An Ni’mah.
+          Silakan isi nama, alamat, rating dan pengalaman Anda selama di RSU An Ni’mah.
         </p>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
 
           {/* Nama */}
           <div>
             <label className="block text-gray-600 dark:text-white mb-1">Nama *</label>
-            <input
+            <Input
               type="text"
-              name="name"
-              required
-              value={form.name}
+              name="nama"
+              value={form.nama}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 
-                         bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-white"
               placeholder="Nama lengkap"
             />
           </div>
@@ -60,38 +85,48 @@ const TestimoniForm: React.FC = () => {
           {/* Alamat */}
           <div>
             <label className="block text-gray-600 dark:text-white mb-1">Alamat *</label>
-            <input
+            <Input
               type="text"
-              name="address"
-              required
-              value={form.address}
+              name="alamat"
+              value={form.alamat}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 
-                         bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-white"
               placeholder="Contoh: Purwokerto, Banyumas"
             />
+          </div>
+
+          {/* Rating */}
+          <div>
+            <label className="block text-gray-600 dark:text-white mb-2">Rating *</label>
+            <div className="flex gap-2 text-2xl">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <FaStar
+                  key={star}
+                  onClick={() => handleRating(star)}
+                  className={`cursor-pointer ${
+                    form.rating >= star ? "text-yellow-400" : "text-gray-400"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Deskripsi */}
           <div>
             <label className="block text-gray-600 dark:text-white mb-1">Deskripsi *</label>
-            <textarea
-              name="description"
-              required
+            <TextArea
+              name="deskripsi"
               rows={5}
-              value={form.description}
+              value={form.deskripsi}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 
-                         bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-white"
               placeholder="Tuliskan pengalaman Anda"
-            ></textarea>
+            ></TextArea>
           </div>
 
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-full 
-                       hover:scale-105 transition"
+            className="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-full
+              hover:scale-105 transition"
           >
             Kirim Testimoni
           </button>

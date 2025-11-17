@@ -130,7 +130,7 @@ const OutPatientDetailPage: React.FC = () => {
                           : `data:image/jpeg;base64,${doctor.image}`
                       }
                       alt={doctor.nama}
-                      className="h-[220px] w-[200px] object-cover rounded-md shadow-md"
+                      className="h-[220px] w-[200px] drop-shadow-[-10px_10px_12px_rgba(0,0,0,0.6)] object-cover"
                     />
 
                     <div className="text-center mt-3">
