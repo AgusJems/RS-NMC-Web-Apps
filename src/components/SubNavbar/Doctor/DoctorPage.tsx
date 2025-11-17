@@ -86,7 +86,7 @@ const DoctorPage: React.FC = () => {
                 <img
                   src={getImageSrc(data.image)}
                   alt={data.nama}
-                  className="h-[220px] w-[200px] object-cover rounded-md border shadow"
+                  className="h-[220px] w-[200px] object-cover rounded-md drop-shadow-[-10px_10px_12px_rgba(0,0,0,0.6)]"
                 />
 
                 <div className="text-center">

@@ -329,7 +329,7 @@ export default function DoctorTable() {
                             ? item.image
                             : `data:image/jpeg;base64,${item.image}`
                         }
-                        className="w-12 h-12 rounded object-cover mx-auto border shadow-sm"
+                        className="w-12 h-12 rounded object-cover mx-auto"
                       />
                     ) : (
                       <span className="text-xs text-gray-400 italic">
@@ -556,7 +556,7 @@ export default function DoctorTable() {
             {formData.image && (
               <img
                 src={formData.image}
-                className="w-24 h-24 mt-2 rounded object-cover border"
+                className="w-24 h-24 mt-2 rounded object-cover"
               />
             )}
           </div>

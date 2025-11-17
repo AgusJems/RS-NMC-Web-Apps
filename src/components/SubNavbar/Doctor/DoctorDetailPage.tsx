@@ -146,7 +146,7 @@ const DoctorDetailPage: React.FC = () => {
                   <>
                     <div className="grid grid-cols-5 text-center text-white bg-green-700 rounded-t-md overflow-hidden">
                       {schedule.map((s, idx) => (
-                        <div key={idx} className="py-2 font-semibold">
+                        <div key={idx} className="py-2 text-sm sm:text-sm md:text-base font-semibold">
                           {s.hari}
                         </div>
                       ))}
@@ -154,7 +154,7 @@ const DoctorDetailPage: React.FC = () => {
 
                     <div className="grid grid-cols-5 text-center text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 rounded-b-md">
                       {schedule.map((s, idx) => (
-                        <div key={idx} className="py-2">
+                        <div key={idx} className="p-2 text-[10px] sm:text-sm md:text-base">
                           {s.jam_mulai.replace(":00", "")} - {s.jam_selesai.replace(":00", "")}
                         </div>
                       ))}

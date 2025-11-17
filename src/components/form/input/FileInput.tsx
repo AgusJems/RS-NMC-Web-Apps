@@ -31,7 +31,7 @@ const FileInput: FC<FileInputProps> = ({ className = "", onChange }) => {
         const ctx = canvas.getContext("2d");
         if (ctx) {
           ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          const resizedBase64 = canvas.toDataURL("image/jpeg", 0.7); // quality 70%
+          const resizedBase64 = canvas.toDataURL("image/png", 0.7); // quality 70%
           onChange(resizedBase64);
         }
       };
