@@ -32,6 +32,7 @@ import TestimoniForm from "./landing/Testimonial/TestimoniForm";
 import OutPatientDetailPage from "./components/SubNavbar/Service/OutPatientDetailPage";
 import Partner from "./pages/Partner/Partner";
 import Inpatient from "./pages/Inpatient/Inpatient";
+import Emergency from "./pages/Emergency/Emergency";
 
 export default function App() {
   useEffect(() => {
@@ -55,6 +56,7 @@ export default function App() {
             <Route path="/poly" element={<Poly />} />
             <Route path="/partner" element={<Partner />} />
             <Route path="/inpatient" element={<Inpatient />} />
+            <Route path="/emergency" element={<Emergency />} />
             <Route path="/testimonial" element={<Testimonial />} />
           </Route>
 
