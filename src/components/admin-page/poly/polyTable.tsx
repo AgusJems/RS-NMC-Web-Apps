@@ -183,13 +183,13 @@ export default function PoliTable() {
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Nama Poli
+                  Poly Name
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Deskripsi
+                  Description
                 </TableCell>
                 <TableCell
                   isHeader
