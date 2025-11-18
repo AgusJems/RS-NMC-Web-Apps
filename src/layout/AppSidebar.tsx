@@ -10,7 +10,7 @@ import {
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
 import { IoBagAddOutline, IoBedOutline, IoChatboxEllipsesOutline, IoEaselOutline, IoPeopleOutline } from "react-icons/io5";
-import { FaHandshake } from "react-icons/fa";
+import { FaHandshake, FaMicroscope } from "react-icons/fa";
 import { MdLocalHospital } from "react-icons/md";
 
 type NavItem = {
@@ -50,6 +50,11 @@ const navItems: NavItem[] = [
     icon: <IoBedOutline />,
     name: "Inpatient",
     path: "/inpatient",
+  },
+  {
+    icon: <FaMicroscope />,
+    name: "Support",
+    path: "/support",
   },
   {
     icon: <FaHandshake />,
