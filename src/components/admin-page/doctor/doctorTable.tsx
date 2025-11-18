@@ -310,7 +310,7 @@ export default function DoctorTable() {
               <TableRow>
                 <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Image</TableCell>
                 <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Name</TableCell>
-                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Specialis</TableCell>
+                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Specialist</TableCell>
                 <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Poly</TableCell>
                 <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Profile</TableCell>
                 <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Action</TableCell>

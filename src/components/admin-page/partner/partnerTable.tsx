@@ -157,13 +157,13 @@ export default function PartnerTable() {
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Logo
+                  Partner Logos
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Name
+                  Partner Name
                 </TableCell>
                 <TableCell
                   isHeader

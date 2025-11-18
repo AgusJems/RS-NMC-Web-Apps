@@ -125,19 +125,19 @@ export default function TestimonialTable() {
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Nama
+                  Name
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Alamat
+                  Address
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Deskripsi
+                  Description
                 </TableCell>
                 <TableCell
                   isHeader
@@ -155,7 +155,7 @@ export default function TestimonialTable() {
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Aksi
+                  Action
                 </TableCell>
               </TableRow>
             </TableHeader>
