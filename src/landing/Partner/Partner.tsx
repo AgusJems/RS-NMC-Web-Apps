@@ -35,7 +35,7 @@ const Partner: React.FC = () => {
   };
 
   return (
-    <div className="bg-emerald-50 dark:bg-gray-dark dark:text-white p-8 mb-12">
+    <div className="bg-emerald-50 dark:bg-gray-dark dark:text-white p-8">
       <div className="container mx-auto">
 
         {/* Header */}
