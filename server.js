@@ -11,6 +11,7 @@ import educationRoutes from './src/routes/education.routes.js';
 import scheduleRoutes from './src/routes/schedule.routes.js';
 import testimonialRoutes from './src/routes/testimonial.routes.js';
 import patnerRoutes from './src/routes/patner.routes.js';
+import inpatientRoutes from './src/routes/inpatient.routes.js';
 
 const app = express();
 const port = 3001;
@@ -28,6 +29,7 @@ app.use('/api', educationRoutes);
 app.use('/api', scheduleRoutes);
 app.use('/api', testimonialRoutes);
 app.use('/api', patnerRoutes);
+app.use('/api', inpatientRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

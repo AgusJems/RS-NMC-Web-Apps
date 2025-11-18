@@ -19,6 +19,7 @@ const swaggerOptions = {
     './src/routes/schedule.routes.js',
     './src/routes/testimonial.routes.js',
     './src/routes/patner.routes.js',
+    './src/routes/inpatient.routes.js',
   ],
 };
 // Generate Swagger specification
