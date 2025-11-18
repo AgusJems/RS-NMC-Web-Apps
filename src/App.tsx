@@ -9,7 +9,6 @@ import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
 import News from "./pages/News/News";
 import Doctor from "./pages/Doctor/Doctor";
-import Complaint from "./pages/Complaint/Complaint";
 import Testimonial from "./pages/Testimonial/Testimonial";
 import Poly from "./pages/Poly/Poly";
 import LandingLayout from "./layout/LandingLayout";
@@ -54,7 +53,6 @@ export default function App() {
             <Route path="/doctor" element={<Doctor />} />
             <Route path="/poly" element={<Poly />} />
             <Route path="/partner" element={<Partner />} />
-            <Route path="/complaint" element={<Complaint />} />
             <Route path="/testimonial" element={<Testimonial />} />
           </Route>
 
