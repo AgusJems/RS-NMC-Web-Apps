@@ -7,10 +7,10 @@ export default function Poly() {
   return (
     <div>
       <PageMeta
-        title="News | RS NMC"
+        title="Poly | RS NMC"
         description="This is React.js Blank Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
       />
-      <PageBreadcrumb pageTitle="News Page" />
+      <PageBreadcrumb pageTitle="Poly Page" />
       <div className="space-y-6">
         <ComponentCard title="Poly Table">
           <PolyTable />

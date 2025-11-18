@@ -45,7 +45,7 @@ const Doctor: React.FC = () => {
   };
 
   return (
-    <div className="py-12 sm:py-0">
+    <div className="py-12 sm:py-0 mb-10">
       <div className="container mx-auto">
 
         {/* Header */}

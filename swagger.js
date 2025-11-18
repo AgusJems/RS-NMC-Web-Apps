@@ -18,6 +18,7 @@ const swaggerOptions = {
     './src/routes/education.routes.js',
     './src/routes/schedule.routes.js',
     './src/routes/testimonial.routes.js',
+    './src/routes/patner.routes.js',
   ],
 };
 // Generate Swagger specification

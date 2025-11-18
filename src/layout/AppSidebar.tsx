@@ -9,7 +9,8 @@ import {
   PlugInIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
-import { IoBagAddOutline, IoChatboxEllipsesOutline, IoEaselOutline, IoPeopleOutline, IoWarningOutline } from "react-icons/io5";
+import { IoBagAddOutline, IoChatboxEllipsesOutline, IoEaselOutline, IoPeopleOutline } from "react-icons/io5";
+import { FaHandshake } from "react-icons/fa";
 
 type NavItem = {
   name: string;
@@ -40,9 +41,9 @@ const navItems: NavItem[] = [
     path: "/poly",
   },
   {
-    icon: <IoWarningOutline />,
-    name: "Customer Complaints",
-    path: "/complaint",
+    icon: <FaHandshake />,
+    name: "Partner",
+    path: "/partner",
   },
   {
     icon: <IoChatboxEllipsesOutline />,
