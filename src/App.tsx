@@ -33,6 +33,7 @@ import OutPatientDetailPage from "./components/SubNavbar/Service/OutPatientDetai
 import Partner from "./pages/Partner/Partner";
 import Inpatient from "./pages/Inpatient/Inpatient";
 import Emergency from "./pages/Emergency/Emergency";
+import Support from "./pages/Support/Support";
 
 export default function App() {
   useEffect(() => {
@@ -57,6 +58,7 @@ export default function App() {
             <Route path="/partner" element={<Partner />} />
             <Route path="/inpatient" element={<Inpatient />} />
             <Route path="/emergency" element={<Emergency />} />
+            <Route path="/support" element={<Support />} />
             <Route path="/testimonial" element={<Testimonial />} />
           </Route>
 

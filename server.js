@@ -13,6 +13,7 @@ import testimonialRoutes from './src/routes/testimonial.routes.js';
 import patnerRoutes from './src/routes/patner.routes.js';
 import inpatientRoutes from './src/routes/inpatient.routes.js';
 import emergencyRoutes from './src/routes/emergency.routes.js';
+import supportRoutes from './src/routes/support.routes.js';
 
 const app = express();
 const port = 3001;
@@ -33,6 +34,7 @@ app.use('/api', patnerRoutes);
 app.use('/api', inpatientRoutes);
 app.use('/api', inpatientRoutes);
 app.use('/api', emergencyRoutes);
+app.use('/api', supportRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
