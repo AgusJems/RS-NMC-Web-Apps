@@ -55,7 +55,7 @@ const News: React.FC = () => {
   const stripHTML = (html: string) => html.replace(/<[^>]+>/g, "");
 
   return (
-    <div className="py-10 mb-10 justify-items-center">
+    <div className="py-10 justify-items-center bg-white dark:bg-black text-black dark:text-white">
       <div className="container">
         {/* HEADER */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
