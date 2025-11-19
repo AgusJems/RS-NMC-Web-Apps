@@ -1,7 +1,6 @@
 import pool from "../../config/db.js";
 
 const scheduleService = {
-  // Ambil semua jadwal berdasarkan dokter_id
   getByDokterId: async (dokter_id) => {
     const [rows] = await pool.query(
       `
@@ -16,7 +15,6 @@ const scheduleService = {
     return rows;
   },
 
-  // GET LIST HARI
   getAllHari: async () => {
     const [rows] = await pool.query(`
       SELECT * FROM hari ORDER BY id ASC
@@ -24,7 +22,6 @@ const scheduleService = {
     return rows;
   },
 
-  // Tambah jadwal
   insert: async (dokter_id, hari_id, jam_mulai, jam_selesai) => {
     return await pool.query(
       `
@@ -35,7 +32,6 @@ const scheduleService = {
     );
   },
 
-  // Update jadwal
   update: async (id, hari_id, jam_mulai, jam_selesai) => {
     return await pool.query(
       `
@@ -47,12 +43,8 @@ const scheduleService = {
     );
   },
 
-  // Delete jadwal
   delete: async (id) => {
-    return await pool.query(
-      `DELETE FROM jadwal_praktik WHERE id = ?`,
-      [id]
-    );
+    return await pool.query(`DELETE FROM jadwal_praktik WHERE id = ?`, [id]);
   },
 };
 

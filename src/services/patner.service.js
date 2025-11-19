@@ -15,10 +15,10 @@ const patnerService = {
     if (!name) throw new Error("Nama partner wajib diisi!");
     if (!image) throw new Error("Image wajib diisi!");
 
-    await pool.query(
-      "INSERT INTO patner (name, image) VALUES (?, ?)",
-      [name, image]
-    );
+    await pool.query("INSERT INTO patner (name, image) VALUES (?, ?)", [
+      name,
+      image,
+    ]);
   },
 
   update: async (id, updateData) => {

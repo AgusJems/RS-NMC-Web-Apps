@@ -1,7 +1,6 @@
 import pool from "../../config/db.js";
 
 const educationService = {
-  // GET ALL BY DOKTER ID
   getByDokterId: async (dokter_id) => {
     const [rows] = await pool.query(
       `SELECT * FROM pendidikan_dokter WHERE dokter_id = ? ORDER BY tahun_mulai DESC`,
@@ -10,7 +9,6 @@ const educationService = {
     return rows;
   },
 
-  // INSERT
   insert: async (dokter_id, universitas, prodi, tahun_mulai, tahun_selesai) => {
     return await pool.query(
       `
@@ -21,7 +19,7 @@ const educationService = {
     );
   },
 
-    update: async (id, universitas, prodi, tahun_mulai, tahun_selesai) => {
+  update: async (id, universitas, prodi, tahun_mulai, tahun_selesai) => {
     return await pool.query(
       `
       UPDATE pendidikan_dokter 
@@ -32,7 +30,6 @@ const educationService = {
     );
   },
 
-  // DELETE
   delete: async (id) => {
     return await pool.query(`DELETE FROM pendidikan_dokter WHERE id = ?`, [id]);
   },
