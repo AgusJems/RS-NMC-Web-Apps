@@ -254,7 +254,9 @@ export default function TestimonialTable() {
       {/* MODAL EDIT STATUS */}
       <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[500px]">
         <div className="p-6 bg-white dark:bg-gray-900 rounded-2xl">
-          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-400">Edit Status Testimoni</h3>
+          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-400">
+            Edit Status Testimoni
+          </h3>
 
           <Label>Status</Label>
           <div className="flex items-center gap-3 mb-5">
@@ -263,7 +265,9 @@ export default function TestimonialTable() {
               defaultChecked={statusValue}
               onChange={(v) => setStatusValue(v)}
             />
-            <span className="text-gray-800 dark:text-gray-400">{statusValue ? "Active" : "Inactive"}</span>
+            <span className="text-gray-800 dark:text-gray-400">
+              {statusValue ? "Active" : "Inactive"}
+            </span>
           </div>
 
           <div className="flex justify-end gap-3 mt-4">
