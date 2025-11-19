@@ -13,7 +13,7 @@ import Label from "../../form/Label";
 import Input from "../../form/input/InputField";
 import FileInput from "../../form/input/FileInput";
 import Select from "react-select";
-import QuillEditor from "../../form/input/QuillEditor"; // ✅ QUILL EDITOR
+import QuillEditor from "../../form/input/QuillEditor";
 
 import {
   showSuccess,
@@ -308,12 +308,42 @@ export default function DoctorTable() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Image</TableCell>
-                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Name</TableCell>
-                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Specialist</TableCell>
-                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Poly</TableCell>
-                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Profile</TableCell>
-                <TableCell isHeader className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400">Action</TableCell>
+                <TableCell
+                  isHeader
+                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                >
+                  Image
+                </TableCell>
+                <TableCell
+                  isHeader
+                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                >
+                  Name
+                </TableCell>
+                <TableCell
+                  isHeader
+                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                >
+                  Specialist
+                </TableCell>
+                <TableCell
+                  isHeader
+                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                >
+                  Poly
+                </TableCell>
+                <TableCell
+                  isHeader
+                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                >
+                  Profile
+                </TableCell>
+                <TableCell
+                  isHeader
+                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                >
+                  Action
+                </TableCell>
               </TableRow>
             </TableHeader>
 

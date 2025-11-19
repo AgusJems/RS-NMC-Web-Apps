@@ -125,7 +125,6 @@ export default function DoctorScheduleModal({
 
   const [editItem, setEditItem] = useState<ScheduleItem | null>(null);
 
-  // FORM pakai NUMBER agar react-select match
   const [form, setForm] = useState({
     hari_id: 0,
     jam_mulai: "",
@@ -214,7 +213,9 @@ export default function DoctorScheduleModal({
       {/* MAIN MODAL */}
       <Modal isOpen={isOpen} onClose={onClose} className="max-w-[1000px]">
         <div className="p-8">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-8">Schedule</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-8">
+            Schedule
+          </h3>
 
           <div className="text-end mb-4">
             <Button
@@ -229,10 +230,28 @@ export default function DoctorScheduleModal({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableCell isHeader className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">Hari</TableCell>
-                  <TableCell isHeader className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">Jam Mulai</TableCell>
-                  <TableCell isHeader className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">Jam Selesai</TableCell>
-                  <TableCell isHeader className="text-center text-gray-800 text-theme-sm dark:text-gray-400">
+                  <TableCell
+                    isHeader
+                    className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  >
+                    Hari
+                  </TableCell>
+                  <TableCell
+                    isHeader
+                    className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  >
+                    Jam Mulai
+                  </TableCell>
+                  <TableCell
+                    isHeader
+                    className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  >
+                    Jam Selesai
+                  </TableCell>
+                  <TableCell
+                    isHeader
+                    className="text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  >
                     Action
                   </TableCell>
                 </TableRow>
@@ -242,9 +261,15 @@ export default function DoctorScheduleModal({
                 {scheduleData.length > 0 ? (
                   scheduleData.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.hari}</TableCell>
-                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.jam_mulai.replace(":00", "")}</TableCell>
-                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.jam_selesai.replace(":00", "")}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">
+                        {item.hari}
+                      </TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">
+                        {item.jam_mulai.replace(":00", "")}
+                      </TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">
+                        {item.jam_selesai.replace(":00", "")}
+                      </TableCell>
                       <TableCell className="text-center flex gap-2 justify-center py-2">
                         <button
                           onClick={() => {
@@ -290,7 +315,9 @@ export default function DoctorScheduleModal({
         className="max-w-[500px]"
       >
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Tambah Jadwal</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">
+            Tambah Jadwal
+          </h3>
 
           <div className="flex flex-col gap-4 mb-4">
             <div>
@@ -357,7 +384,9 @@ export default function DoctorScheduleModal({
         className="max-w-[500px]"
       >
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Edit Jadwal</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">
+            Edit Jadwal
+          </h3>
 
           <div className="flex flex-col gap-4 mb-4">
             <div>
