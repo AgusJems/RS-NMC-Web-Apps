@@ -38,9 +38,6 @@ export const updateTestimoni = async (req, res) => {
   }
 };
 
-/* ===========================================
-   UPDATE STATUS SAJA
-=========================================== */
 export const updateStatusTestimoni = async (req, res) => {
   try {
     const { status } = req.body;

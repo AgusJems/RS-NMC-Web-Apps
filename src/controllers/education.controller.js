@@ -13,7 +13,8 @@ export const getEducationByDokterId = async (req, res) => {
 
 export const insertEducation = async (req, res) => {
   try {
-    const { dokter_id, universitas, prodi, tahun_mulai, tahun_selesai } = req.body;
+    const { dokter_id, universitas, prodi, tahun_mulai, tahun_selesai } =
+      req.body;
 
     await educationService.insert(
       dokter_id,
@@ -49,7 +50,6 @@ export const updateEducation = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
 
 export const deleteEducation = async (req, res) => {
   try {

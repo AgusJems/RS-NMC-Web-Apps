@@ -23,7 +23,9 @@ export const insertPatner = async (req, res) => {
     await patnerService.insert(req.body);
     res.status(201).json({ message: "Partner berhasil ditambahkan" });
   } catch (err) {
-    res.status(500).json({ message: err.message || "Gagal menambahkan partner" });
+    res
+      .status(500)
+      .json({ message: err.message || "Gagal menambahkan partner" });
   }
 };
 

@@ -1,8 +1,5 @@
 import poliService from "../services/poly.service.js";
 
-/* ===========================
-   GET ALL POLI
-=========================== */
 export const getAllPoli = async (req, res) => {
   try {
     const [rows] = await poliService.getAllPoli();
@@ -13,9 +10,6 @@ export const getAllPoli = async (req, res) => {
   }
 };
 
-/* ===========================
-   GET ACTIVE POLI (status = 1)
-=========================== */
 export const getActivePoli = async (req, res) => {
   try {
     const [rows] = await poliService.getActivePoli();
@@ -26,9 +20,6 @@ export const getActivePoli = async (req, res) => {
   }
 };
 
-/* ===========================
-   GET POLI BY ID
-=========================== */
 export const getPoliById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -45,9 +36,6 @@ export const getPoliById = async (req, res) => {
   }
 };
 
-/* ===========================
-   INSERT POLI
-=========================== */
 export const insertPoli = async (req, res) => {
   try {
     const { nama_poli, deskripsi, image } = req.body;
@@ -59,9 +47,6 @@ export const insertPoli = async (req, res) => {
   }
 };
 
-/* ===========================
-   UPDATE POLI
-=========================== */
 export const updatePoli = async (req, res) => {
   try {
     const { id } = req.params;
@@ -76,9 +61,6 @@ export const updatePoli = async (req, res) => {
   }
 };
 
-/* ===========================
-   DELETE POLI
-=========================== */
 export const deletePoli = async (req, res) => {
   try {
     const { id } = req.params;
