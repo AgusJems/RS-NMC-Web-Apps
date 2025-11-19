@@ -1,4 +1,3 @@
-// src/landing/Contact/Contact.tsx
 import React from "react";
 
 const Contact: React.FC = () => {

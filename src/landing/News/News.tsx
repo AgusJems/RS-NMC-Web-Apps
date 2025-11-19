@@ -1,4 +1,3 @@
-// src/landing/News/News.tsx
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
@@ -46,7 +45,6 @@ const News: React.FC = () => {
     fetch("http://localhost:3001/api/getAllNews")
       .then((res) => res.json())
       .then((json) => {
-        // Ambil 6 berita terbaru
         setNews((json.data || []).slice(0, 6));
       })
       .catch(console.error);

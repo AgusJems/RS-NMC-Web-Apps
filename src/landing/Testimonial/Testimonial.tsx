@@ -18,7 +18,6 @@ const Testimonial: React.FC = () => {
     fetch("http://localhost:3001/api/getAllTestimoni")
       .then((res) => res.json())
       .then((res) => {
-        // Ambil hanya testimoni yang aktif
         const activeData = (res.data || []).filter(
           (item: Testimoni) => item.status === 1
         );
@@ -69,8 +68,9 @@ const Testimonial: React.FC = () => {
             Testimonial by Pasien
           </h1>
           <p data-aos="fade-up" className="text-md text-gray-400">
-            Ulasan dan pengalaman nyata dari pasien yang telah merasakan pelayanan RS An Ni’mah. 
-            Komitmen kami adalah memberikan perawatan terbaik dengan sentuhan kepedulian.
+            Ulasan dan pengalaman nyata dari pasien yang telah merasakan
+            pelayanan RS An Ni’mah. Komitmen kami adalah memberikan perawatan
+            terbaik dengan sentuhan kepedulian.
           </p>
         </div>
 
@@ -92,7 +92,6 @@ const Testimonial: React.FC = () => {
             {testimoni.map((item) => (
               <div key={item.id} className="my-6">
                 <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative">
-
                   {/* Nama */}
                   <div className="flex justify-center">
                     <h1 className="text-xl font-bold text-black/80 dark:text-white">
@@ -103,28 +102,23 @@ const Testimonial: React.FC = () => {
                   {/* Isi Testimoni */}
                   <div className="flex flex-col items-center gap-4">
                     <div className="space-y-2 text-center">
-                      {/* Alamat */}
                       <p className="text-sm text-gray-500">{item.alamat}</p>
 
-                      {/* Deskripsi (HTML dari backend) */}
                       <div
                         className="text-xs text-gray-600 dark:text-gray-300 line-clamp-3"
                         dangerouslySetInnerHTML={{ __html: item.deskripsi }}
                       />
 
-                      {/* Rating */}
                       <p className="text-yellow-500 text-lg">
                         {"⭐".repeat(item.rating)}
                       </p>
                     </div>
                   </div>
-
                 </div>
               </div>
             ))}
           </Slider>
         </div>
-
       </div>
     </div>
   );

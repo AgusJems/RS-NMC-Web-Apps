@@ -38,19 +38,18 @@ const Doctor: React.FC = () => {
   };
 
   const getImageSrc = (img: string | null) => {
-    if (!img) return "/default-doctor.png"; // DEFAULT FOTO
-    return img.startsWith("data:")
-      ? img
-      : `data:image/jpeg;base64,${img}`;
+    if (!img) return "/default-doctor.png";
+    return img.startsWith("data:") ? img : `data:image/jpeg;base64,${img}`;
   };
 
   return (
     <div className="p-8 bg-white dark:bg-black text-black dark:text-white">
       <div className="container mx-auto">
-
         {/* Header */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
-          <p data-aos="fade-up" className="text-sm text-primary">Our Doctor</p>
+          <p data-aos="fade-up" className="text-sm text-primary">
+            Our Doctor
+          </p>
           <h1
             data-aos="fade-up"
             className="text-3xl font-bold text-gray-500 dark:text-white mb-4"
@@ -58,8 +57,8 @@ const Doctor: React.FC = () => {
             Dokter Kami
           </h1>
           <p data-aos="fade-up" className="text-md text-gray-400">
-            Dukung kesehatan Anda bersama dokter-dokter terbaik kami yang
-            siap memberikan pelayanan profesional dan penuh dedikasi.
+            Dukung kesehatan Anda bersama dokter-dokter terbaik kami yang siap
+            memberikan pelayanan profesional dan penuh dedikasi.
           </p>
         </div>
 
@@ -93,7 +92,6 @@ const Doctor: React.FC = () => {
             </button>
           </Link>
         </div>
-
       </div>
     </div>
   );
