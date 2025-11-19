@@ -37,11 +37,15 @@ const Partner: React.FC = () => {
   return (
     <div className="bg-emerald-50 dark:bg-gray-dark dark:text-white p-8">
       <div className="container mx-auto">
-
         {/* Header */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
-          <p data-aos="fade-up" className="text-sm text-primary">Our Partner</p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white">
+          <p data-aos="fade-up" className="text-sm text-primary">
+            Our Partner
+          </p>
+          <h1
+            data-aos="fade-up"
+            className="text-3xl font-bold text-gray-500 dark:text-white"
+          >
             Partner & Friend
           </h1>
         </div>
@@ -60,7 +64,6 @@ const Partner: React.FC = () => {
             </div>
           ))}
         </Slider>
-
       </div>
     </div>
   );
