@@ -127,7 +127,9 @@ export default function DoctorEducationModal({
       {/* MAIN MODAL */}
       <Modal isOpen={isOpen} onClose={onClose} className="max-w-[1000px]">
         <div className="p-8">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-8">Education</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-8">
+            Education
+          </h3>
 
           <div className="text-end mb-4">
             <Button
@@ -142,10 +144,28 @@ export default function DoctorEducationModal({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableCell isHeader className="text-center text-gray-800 text-theme-sm dark:text-gray-400">Universitas</TableCell>
-                  <TableCell isHeader className="text-center text-gray-800 text-theme-sm dark:text-gray-400">Prodi</TableCell>
-                  <TableCell isHeader className=" text-center text-gray-800 text-theme-sm dark:text-gray-400">Tahun</TableCell>
-                  <TableCell isHeader className="text-center text-gray-800 text-theme-sm dark:text-gray-400">
+                  <TableCell
+                    isHeader
+                    className="text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  >
+                    Universitas
+                  </TableCell>
+                  <TableCell
+                    isHeader
+                    className="text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  >
+                    Prodi
+                  </TableCell>
+                  <TableCell
+                    isHeader
+                    className=" text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  >
+                    Tahun
+                  </TableCell>
+                  <TableCell
+                    isHeader
+                    className="text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  >
                     Action
                   </TableCell>
                 </TableRow>
@@ -155,8 +175,12 @@ export default function DoctorEducationModal({
                 {educationData.length > 0 ? (
                   educationData.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.universitas}</TableCell>
-                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">{item.prodi}</TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">
+                        {item.universitas}
+                      </TableCell>
+                      <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">
+                        {item.prodi}
+                      </TableCell>
                       <TableCell className="py-2 text-center text-gray-800 text-theme-sm dark:text-gray-400">
                         {item.tahun_mulai} - {item.tahun_selesai}
                       </TableCell>
@@ -193,16 +217,24 @@ export default function DoctorEducationModal({
       </Modal>
 
       {/* ADD EDUCATION MODAL */}
-      <Modal isOpen={addOpen} onClose={() => setAddOpen(false)} className="max-w-[600px]">
+      <Modal
+        isOpen={addOpen}
+        onClose={() => setAddOpen(false)}
+        className="max-w-[600px]"
+      >
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Add Education</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">
+            Add Education
+          </h3>
 
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div>
               <Label>Universitas</Label>
               <Input
                 value={form.universitas}
-                onChange={(e) => setForm({ ...form, universitas: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, universitas: e.target.value })
+                }
               />
             </div>
 
@@ -219,7 +251,9 @@ export default function DoctorEducationModal({
               <Input
                 type="number"
                 value={form.tahun_mulai}
-                onChange={(e) => setForm({ ...form, tahun_mulai: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, tahun_mulai: e.target.value })
+                }
               />
             </div>
 
@@ -228,7 +262,9 @@ export default function DoctorEducationModal({
               <Input
                 type="number"
                 value={form.tahun_selesai}
-                onChange={(e) => setForm({ ...form, tahun_selesai: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, tahun_selesai: e.target.value })
+                }
               />
             </div>
           </div>
@@ -252,16 +288,24 @@ export default function DoctorEducationModal({
       </Modal>
 
       {/* EDIT EDUCATION MODAL */}
-      <Modal isOpen={editOpen} onClose={() => setEditOpen(false)} className="max-w-[600px]">
+      <Modal
+        isOpen={editOpen}
+        onClose={() => setEditOpen(false)}
+        className="max-w-[600px]"
+      >
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">Edit Education</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-400 mb-4">
+            Edit Education
+          </h3>
 
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div>
               <Label>Universitas</Label>
               <Input
                 value={form.universitas}
-                onChange={(e) => setForm({ ...form, universitas: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, universitas: e.target.value })
+                }
               />
             </div>
 
@@ -278,7 +322,9 @@ export default function DoctorEducationModal({
               <Input
                 type="number"
                 value={form.tahun_mulai}
-                onChange={(e) => setForm({ ...form, tahun_mulai: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, tahun_mulai: e.target.value })
+                }
               />
             </div>
 
@@ -287,7 +333,9 @@ export default function DoctorEducationModal({
               <Input
                 type="number"
                 value={form.tahun_selesai}
-                onChange={(e) => setForm({ ...form, tahun_selesai: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, tahun_selesai: e.target.value })
+                }
               />
             </div>
           </div>
