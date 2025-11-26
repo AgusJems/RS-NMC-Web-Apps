@@ -81,7 +81,7 @@ const Testimonial: React.FC = () => {
               data-aos="fade-up"
               className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:scale-105 duration-200"
             >
-              Tambah Testimoni
+              "Klik untuk Menilai"
             </button>
           </Link>
         </div>

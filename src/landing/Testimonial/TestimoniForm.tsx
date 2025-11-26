@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import Input from "../../components/form/input/InputField";
 import TextArea from "../../components/form/input/TextArea";
+import { showSuccess, showError } from "../../utils/swalFire";
+import { useNavigate } from "react-router-dom";
 
 const TestimoniForm: React.FC = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     nama: "",
     alamat: "",
@@ -25,54 +28,65 @@ const TestimoniForm: React.FC = () => {
     e.preventDefault();
 
     if (form.rating === 0) {
-      alert("Silakan pilih rating ⭐");
+      showError("Rating Belum Dipilih", "Silakan pilih rating ⭐");
       return;
     }
 
-    // Submit ke backend
-    const res = await fetch("http://localhost:3001/api/insertTestimoni", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        nama: form.nama,
-        alamat: form.alamat,
-        deskripsi: form.deskripsi,
-        rating: form.rating,
-        status: 1,
-      }),
-    });
-
-    if (res.ok) {
-      alert("Terima kasih! Testimoni Anda sudah terkirim 😊");
-
-      setForm({
-        nama: "",
-        alamat: "",
-        deskripsi: "",
-        rating: 0,
+    try {
+      const res = await fetch("http://localhost:3001/api/insertTestimoni", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nama: form.nama,
+          alamat: form.alamat,
+          deskripsi: form.deskripsi,
+          rating: form.rating,
+          status: 1,
+        }),
       });
-    } else {
-      alert("Gagal mengirim testimoni");
+
+      if (res.ok) {
+        showSuccess(
+          "Berhasil!",
+          "Terima kasih, testimoni Anda telah dikirim 😊"
+        );
+
+        navigate("/landing");
+
+        // Reset form
+        setForm({
+          nama: "",
+          alamat: "",
+          deskripsi: "",
+          rating: 0,
+        });
+      } else {
+        showError("Gagal Mengirim", "Silakan coba lagi nanti.");
+      }
+    } catch (error) {
+      showError("Terjadi Kesalahan", "Tidak dapat terhubung ke server.");
     }
   };
 
   return (
     <div className="py-16">
       <div className="container max-w-xl mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8">
-
         {/* Header */}
         <h1 className="text-3xl font-bold text-center mb-4 text-gray-700 dark:text-white">
-          Tambah Testimoni
+          Testimoni Pengunjung
         </h1>
         <p className="text-center text-gray-500 dark:text-gray-300 mb-8">
-          Silakan isi nama, alamat, rating dan pengalaman Anda selama di RSU An Ni’mah.
+          Kami menghargai setiap masukan. Silakan isi data diri, berikan rating, 
+          dan tuliskan pengalaman Anda untuk membantu peningkatan pelayanan RSU An Ni’mah.
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
 
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Nama */}
           <div>
-            <label className="block text-gray-600 dark:text-white mb-1">Nama *</label>
+            <label className="block text-gray-600 dark:text-white mb-1">
+              Nama *
+            </label>
             <Input
               type="text"
               name="nama"
@@ -84,7 +98,9 @@ const TestimoniForm: React.FC = () => {
 
           {/* Alamat */}
           <div>
-            <label className="block text-gray-600 dark:text-white mb-1">Alamat *</label>
+            <label className="block text-gray-600 dark:text-white mb-1">
+              Alamat *
+            </label>
             <Input
               type="text"
               name="alamat"
@@ -96,7 +112,9 @@ const TestimoniForm: React.FC = () => {
 
           {/* Rating */}
           <div>
-            <label className="block text-gray-600 dark:text-white mb-2">Rating *</label>
+            <label className="block text-gray-600 dark:text-white mb-2">
+              Rating *
+            </label>
             <div className="flex gap-2 text-2xl">
               {[1, 2, 3, 4, 5].map((star) => (
                 <FaStar
@@ -112,7 +130,9 @@ const TestimoniForm: React.FC = () => {
 
           {/* Deskripsi */}
           <div>
-            <label className="block text-gray-600 dark:text-white mb-1">Deskripsi *</label>
+            <label className="block text-gray-600 dark:text-white mb-1">
+              Deskripsi *
+            </label>
             <TextArea
               name="deskripsi"
               rows={5}
@@ -131,7 +151,6 @@ const TestimoniForm: React.FC = () => {
             Kirim Testimoni
           </button>
         </form>
-
       </div>
     </div>
   );
