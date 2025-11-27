@@ -86,7 +86,7 @@ const DoctorDetailPage: React.FC = () => {
 
   return (
     <>
-      <div className="min-h-[650px] flex justify-center items-center py-12">
+      <div className="min-h-[650px] flex justify-center items-center py-12 dark:bg-black dark:text-white">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
 

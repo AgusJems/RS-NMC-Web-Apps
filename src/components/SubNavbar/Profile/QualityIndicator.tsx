@@ -114,7 +114,7 @@ const QualityIndicatorPage: React.FC = () => {
     ],
   };
   return (
-    <div className="py-10 mb-10 justify-items-center">
+    <div className="py-10 justify-items-center dark:bg-black dark:text-white">
       <div className="container">
         {/* header section */}
         <div className="text-center mb-10 max-w-[800px] mx-auto">

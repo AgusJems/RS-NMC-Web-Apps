@@ -56,7 +56,7 @@ const VisionMissionPage: React.FC = () => {
   return (
     <>
       {/* Banner Section */}
-      <div className="min-h-[750px] flex justify-center items-center py-12 sm:py-0">
+      <div className="min-h-[750px] flex justify-center items-center py-12 sm:py-0 dark:bg-black dark:text-white">
         <div className="container">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
             {/* Image section */}
@@ -78,13 +78,13 @@ const VisionMissionPage: React.FC = () => {
               </h1>
               <p
                 data-aos="fade-up"
-                className="text-md text-gray-500 tracking-wide leading-5"
+                className="text-md tracking-wide leading-5"
               >
                 Assalamu'alaikum warahmatullahi Wabarakatuh.
               </p>
               <p
                 data-aos="fade-up"
-                className="text-md text-gray-500 tracking-wide leading-5 mb-4"
+                className="text-md tracking-wide leading-5 mb-4"
               >
                 Selamat datang di RSU An Ni'mah, rumah sakit yang hadir sebagai
                 wujud komitmen kami dalam memberikan pelayanan kesehatan yang
