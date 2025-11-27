@@ -829,4 +829,19 @@ span.flatpickr-weekday,
   animation: fadeIn 1s ease-in-out;
 }
 
+.news-content ul,
+.news-content ol {
+  list-style-position: outside !important;
+  margin-left: 1.5rem !important;
+  padding-left: 1.2rem !important;
+}
+
+.news-content ul li {
+  list-style-type: disc !important;
+}
+
+.news-content ol li {
+  list-style-type: decimal !important;
+}
+
 

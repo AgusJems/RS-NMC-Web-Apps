@@ -42,7 +42,7 @@ const ServiceData = [
 
 const Service: React.FC = () => {
   return (
-    <div className="py-10 bg-white dark:bg-dark text-black dark:text-white justify-items-center">
+    <div className="py-10 text-black dark:text-white justify-items-center">
       <div className="container">
         {/* Header section */}
         <div data-aos="fade-up" className="text-center mb-10">

@@ -20,7 +20,7 @@ const InPatientPage: React.FC = () => {
 
   return (
     <>
-      <div className="py-10 mb-10 justify-items-center">
+      <div className="py-10 dark:bg-black dark:text-white justify-items-center">
         <div className="min-h-[750px] flex justify-center items-center py-12 sm:py-0">
           <div className="container px-4 py-6">
 

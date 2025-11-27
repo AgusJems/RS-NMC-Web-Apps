@@ -24,26 +24,24 @@ const NewsDetailPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-  AOS.init({ duration: 600 });
-  if (id) fetchNewsDetail();
-}, [id]);
+    AOS.init({ duration: 600 });
+    if (id) fetchNewsDetail();
+  }, [id]);
 
+  const fetchNewsDetail = async () => {
+    if (!id) return;
 
-const fetchNewsDetail = async () => {
-  if (!id) return;
-
-  try {
-    const res = await fetch(`http://localhost:3001/api/getNewsById/${id}`);
-    const json = await res.json();
-    setNews(json.data || null);
-  } catch (err) {
-    console.error("Error fetching detail:", err);
-    setNews(null);
-  } finally {
-    setLoading(false);
-  }
-};
-
+    try {
+      const res = await fetch(`http://localhost:3001/api/getNewsById/${id}`);
+      const json = await res.json();
+      setNews(json.data || null);
+    } catch (err) {
+      console.error("Error fetching detail:", err);
+      setNews(null);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -61,11 +59,22 @@ const fetchNewsDetail = async () => {
     );
   }
 
-  return (
-    <div className="py-10 mb-10 justify-items-center">
-      <div className="min-h-screen px-4 py-6 dark:bg-black dark:text-white">
-        <div className="max-w-4xl mx-auto">
+  const sanitizeHtml = (html: string) => {
+    return (
+      html
+        // Hapus background (bloker putih)
+        .replace(/background-color:[^;"]+;?/gi, "")
+        // Hapus warna teks copy-paste
+        .replace(/color:[^;"]+;?/gi, "")
+        // Hapus style kosong
+        .replace(/style=""/gi, "")
+    );
+  };
 
+  return (
+    <div className="py-10 justify-items-center dark:bg-black dark:text-white">
+      <div className="px-4 py-6">
+        <div className="max-w-2xl mx-auto">
           {/* Title */}
           <h1
             data-aos="fade-up"
@@ -77,7 +86,7 @@ const fetchNewsDetail = async () => {
           {/* Image */}
           <div
             data-aos="fade-up"
-            className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden shadow-lg"
+            className="relative w-full h-full mb-6 rounded-lg overflow-hidden shadow-lg"
           >
             <img
               src={news.image}
@@ -85,21 +94,21 @@ const fetchNewsDetail = async () => {
               className="w-full h-full object-cover object-top"
             />
           </div>
-
-          {/* Content */}
-          <div
-            data-aos="fade-up"
-            className="prose dark:prose-invert max-w-none text-gray-800 dark:text-gray-300"
-            dangerouslySetInnerHTML={{ __html: news.deskripsi }}
-          />
-
-          {/* Date */}
-          <p className="mt-6 text-sm text-gray-400">
-            Dipublikasikan pada:{" "}
-            {new Date(news.created_at).toLocaleDateString("id-ID")}
-          </p>
-
         </div>
+      </div>
+      <div className="px-8 max-w-4xl mx-auto">
+        {/* Content */}
+        <div
+          data-aos="fade-up"
+          className="news-content prose dark:prose-invert max-w-none text-gray-800 dark:text-gray-300 text-sm sm:text-lg"
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(news.deskripsi) }}
+        />
+
+        {/* Date */}
+        <p className="mt-6 text-sm text-gray-400">
+          Dipublikasikan pada:{" "}
+          {new Date(news.created_at).toLocaleDateString("id-ID")}
+        </p>
       </div>
     </div>
   );

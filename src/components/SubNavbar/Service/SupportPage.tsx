@@ -20,7 +20,7 @@ const SupportPage: React.FC = () => {
 
   return (
     <>
-      <div className="py-10 mb-10 justify-items-center">
+      <div className="py-10 dark:bg-black dark:text-white justify-items-center">
         <div className="min-h-[750px] flex justify-center items-center py-12 sm:py-0">
           <div className="container px-4 py-6">
 
@@ -29,7 +29,7 @@ const SupportPage: React.FC = () => {
               <h1 data-aos="fade-up" className="text-2xl font-bold text-center mb-6">
                 Layanan Penunjang Rumah Sakit
               </h1>
-              <p data-aos="fade-up" className="text-sm text-gray-400">
+              <p data-aos="fade-up" className="text-sm">
                 Informasi layanan penunjang seperti laboratorium, radiologi, farmasi, 
                 dan fasilitas alat kesehatan pendukung di RSU An Ni’mah.
               </p>

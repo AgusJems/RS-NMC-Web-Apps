@@ -31,8 +31,8 @@ const OutPatientPage: React.FC = () => {
 
   return (
     <>
-      <div className="py-10 mb-10 justify-items-center">
-        <div className="container min-h-screen px-4 py-6 dark:bg-black dark:text-white">
+      <div className="py-10 dark:bg-black dark:text-white justify-items-center">
+        <div className="container min-h-screen px-4 py-6">
 
           {/* Header */}
           <div className="text-center mb-10 max-w-[800px] mx-auto">
