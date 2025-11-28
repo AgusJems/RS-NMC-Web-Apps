@@ -1,7 +1,6 @@
-import React from "react";
-import Image1 from "../../../public/images/service-logo/dr-hidayat.png";
-import bgRs from "../../../public/images/carousel/rs-depan.svg";
+import React, { useEffect, useState } from "react";
 import Slider, { Settings } from "react-slick";
+import bgRs from "../../../public/images/carousel/rs-depan.svg";
 
 const bgStyle: React.CSSProperties = {
   backgroundImage: `url(${bgRs})`,
@@ -14,40 +13,26 @@ const bgStyle: React.CSSProperties = {
 
 type ImageItem = {
   id: number;
-  img: string;
+  image: string;
   title: string;
-  description: string;
+  deskripsi: string;
 };
-
-const ImageList: ImageItem[] = [
-  {
-    id: 1,
-    img: Image1,
-    title: "RS An Ni’mah Healthcare Center",
-    description:
-      "Menyediakan layanan kesehatan menyeluruh dengan fasilitas modern dan tenaga medis profesional untuk memberikan perawatan terbaik bagi setiap pasien.",
-  },
-  {
-    id: 2,
-    img: Image1,
-    title: "RS An Ni’mah Emergency Care",
-    description:
-      "Unit Gawat Darurat siap siaga 24 jam dengan tim dokter dan perawat berpengalaman, serta dilengkapi peralatan emergensi terkini untuk penanganan cepat dan tepat.",
-  },
-  {
-    id: 3,
-    img: Image1,
-    title: "RS An Ni’mah Outpatient Clinic",
-    description:
-      "Layanan rawat jalan yang nyaman dan efisien, memudahkan pasien dalam mendapatkan konsultasi, pemeriksaan, serta pengobatan sesuai kebutuhan medisnya.",
-  },
-];
 
 interface CarouselProps {
   handleOrderPopup: () => void;
 }
 
 const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
+  const [carouselData, setCarouselData] = useState<ImageItem[]>([]);
+
+  // Ambil data dari backend
+  useEffect(() => {
+    fetch("http://localhost:3001/api/getActiveCarousel")
+      .then((res) => res.json())
+      .then((res) => setCarouselData(res.data || []))
+      .catch((err) => console.error("Error load carousel:", err));
+  }, []);
+
   const settings: Settings = {
     dots: false,
     arrows: false,
@@ -67,10 +52,11 @@ const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
       <div className="dark:bg-dark/60 bg-white/10 backdrop-blur-sm dark:text-white duration-300 h-[750px] flex justify-center items-center">
         <div className="container pb-8 sm:pb-0">
           <Slider {...settings}>
-            {ImageList.map((data) => (
+            {carouselData.map((data) => (
               <div key={data.id}>
                 <div className="grid grid-cols-1 sm:grid-cols-2">
-                  {/* text content section */}
+                  
+                  {/* Text */}
                   <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
                     <h1
                       data-aos="zoom-out"
@@ -80,15 +66,16 @@ const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
                     >
                       {data.title}
                     </h1>
-                    <p
+
+                    <div
                       data-aos="fade-up"
                       data-aos-duration="500"
                       data-aos-delay={100}
                       className="text-lg text-white"
-                    >
-                      {data.description}
-                    </p>
-                    <div
+                      dangerouslySetInnerHTML={{ __html: data.deskripsi }}
+                    />
+
+                    {/* <div
                       data-aos="fade-up"
                       data-aos-duration="500"
                       data-aos-delay={300}
@@ -99,9 +86,10 @@ const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
                       >
                         Read More
                       </button>
-                    </div>
+                    </div> */}
                   </div>
-                  {/* image section */}
+
+                  {/* Image */}
                   <div className="order-1 sm:order-2">
                     <div
                       data-aos="zoom-in"
@@ -109,12 +97,13 @@ const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
                       className="relative z-10"
                     >
                       <img
-                        src={data.img}
+                        src={data.image}
                         alt={data.title}
-                        className="w-[300px] h-[300px] sm:h-[450px] sm:w-[400px] sm:scale-105 lg:scale-120 object-contain mx-auto"
+                        className="w-[300px] h-[300px] sm:h-[450px] sm:w-[400px] sm:scale-105 lg:scale-120 object-contain mx-auto rounded-xl"
                       />
                     </div>
                   </div>
+
                 </div>
               </div>
             ))}

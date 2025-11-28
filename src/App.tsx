@@ -34,6 +34,7 @@ import Partner from "./pages/Partner/Partner";
 import Inpatient from "./pages/Inpatient/Inpatient";
 import Emergency from "./pages/Emergency/Emergency";
 import Support from "./pages/Support/Support";
+import Carousel from "./pages/Carousel/Carousel";
 
 export default function App() {
   useEffect(() => {
@@ -60,6 +61,7 @@ export default function App() {
             <Route path="/emergency" element={<Emergency />} />
             <Route path="/support" element={<Support />} />
             <Route path="/testimonial" element={<Testimonial />} />
+            <Route path="/carousel" element={<Carousel />} />
           </Route>
 
           {/* Auth Layout */}

@@ -219,9 +219,9 @@ export default function PoliTable() {
                     {item.nama_poli}
                   </TableCell>
 
-                  <TableCell className="px-4 py-4 text-gray-500 dark:text-gray-400">
+                  <TableCell className="px-4 py-4 text-gray-500 text-theme-sm dark:text-gray-400">
                     <div
-                      className="prose prose-sm max-w-none dark:prose-invert line-clamp-1"
+                      className="prose prose-sm max-w-2xl dark:prose-invert line-clamp-1"
                       dangerouslySetInnerHTML={{ __html: item.deskripsi }}
                     />
                   </TableCell>

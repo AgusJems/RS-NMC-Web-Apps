@@ -22,6 +22,7 @@ const swaggerOptions = {
     './src/routes/inpatient.routes.js',
     './src/routes/emergency.routes.js',
     './src/routes/support.routes.js',
+    './src/routes/carousel.routes.js',
   ],
 };
 // Generate Swagger specification
