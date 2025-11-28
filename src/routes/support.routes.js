@@ -29,8 +29,8 @@ const router = express.Router();
  *       example:
  *         id: 1
  *         image: "data:image/png;base64,xxxxx"
- *         nama: "Fasilitas Pendukung"
- *         deskripsi: "<p>Contoh fasilitas pendukung di rumah sakit</p>"
+ *         nama: "Support Facility"
+ *         deskripsi: "<p>Example of hospital support facility</p>"
  *         status: 1
  */
 
@@ -38,24 +38,26 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Support
- *   description: API Fasilitas Pendukung Rumah Sakit
+ *   description: API for managing hospital support facilities
  */
 
 /**
  * @swagger
  * /api/support:
  *   get:
- *     summary: Get all support data
+ *     summary: Retrieve all support facility records
  *     tags: [Support]
  *     responses:
  *       200:
- *         description: Berhasil mengambil semua data support
+ *         description: Successfully retrieved all support facility data
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Support'
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/support", getAllSupport);
 
@@ -63,7 +65,7 @@ router.get("/support", getAllSupport);
  * @swagger
  * /api/support/{id}:
  *   get:
- *     summary: Get support data by ID
+ *     summary: Retrieve support facility by ID
  *     tags: [Support]
  *     parameters:
  *       - in: path
@@ -71,16 +73,18 @@ router.get("/support", getAllSupport);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID support
+ *         description: Support facility ID
  *     responses:
  *       200:
- *         description: Data support ditemukan
+ *         description: Support facility data retrieved successfully
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Support'
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Support facility not found
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/support/:id", getSupportById);
 
@@ -88,7 +92,7 @@ router.get("/support/:id", getSupportById);
  * @swagger
  * /api/support:
  *   post:
- *     summary: Insert new support data
+ *     summary: Create a new support facility
  *     tags: [Support]
  *     requestBody:
  *       required: true
@@ -97,8 +101,10 @@ router.get("/support/:id", getSupportById);
  *           schema:
  *             $ref: '#/components/schemas/Support'
  *     responses:
- *       200:
- *         description: Data support berhasil ditambahkan
+ *       201:
+ *         description: Support facility created successfully
+ *       500:
+ *         description: Server error occurred
  */
 router.post("/support", insertSupport);
 
@@ -106,7 +112,7 @@ router.post("/support", insertSupport);
  * @swagger
  * /api/support/{id}:
  *   put:
- *     summary: Update support data
+ *     summary: Update support facility by ID
  *     tags: [Support]
  *     parameters:
  *       - in: path
@@ -114,7 +120,7 @@ router.post("/support", insertSupport);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID support
+ *         description: Support facility ID
  *     requestBody:
  *       required: true
  *       content:
@@ -123,9 +129,11 @@ router.post("/support", insertSupport);
  *             $ref: '#/components/schemas/Support'
  *     responses:
  *       200:
- *         description: Data support berhasil diperbarui
+ *         description: Support facility updated successfully
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Support facility not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put("/support/:id", updateSupport);
 
@@ -133,7 +141,7 @@ router.put("/support/:id", updateSupport);
  * @swagger
  * /api/support/{id}:
  *   delete:
- *     summary: Delete support data
+ *     summary: Delete support facility by ID
  *     tags: [Support]
  *     parameters:
  *       - in: path
@@ -141,12 +149,14 @@ router.put("/support/:id", updateSupport);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID support
+ *         description: Support facility ID
  *     responses:
  *       200:
- *         description: Data support berhasil dihapus
+ *         description: Support facility deleted successfully
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Support facility not found
+ *       500:
+ *         description: Server error occurred
  */
 router.delete("/support/:id", deleteSupport);
 

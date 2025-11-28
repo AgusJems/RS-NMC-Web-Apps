@@ -13,8 +13,8 @@ const router = express.Router();
 /**
  * @swagger
  * tags:
- *   name: Dokter
- *   description: API untuk mengelola data dokter
+ *   name: Doctor
+ *   description: API for managing doctor data
  */
 
 /* =============================
@@ -25,7 +25,7 @@ const router = express.Router();
  * @swagger
  * components:
  *   schemas:
- *     Dokter:
+ *     Doctor:
  *       type: object
  *       properties:
  *         id:
@@ -42,10 +42,10 @@ const router = express.Router();
  *           type: integer
  *       example:
  *         id: 1
- *         nama: "dr. Andi Pratama"
- *         spesialis: "Spesialis Penyakit Dalam"
- *         profile: "<p>Dokter dengan pengalaman 10 tahun</p>"
- *         image: "base64-image"
+ *         nama: "Dr. Andi Pratama"
+ *         spesialis: "Internal Medicine Specialist"
+ *         profile: "<p>A doctor with 10 years of experience</p>"
+ *         image: "base64-image-string"
  *         poli_id: 3
  */
 
@@ -57,13 +57,13 @@ const router = express.Router();
  * @swagger
  * /api/getAllDokter:
  *   get:
- *     summary: Ambil semua data dokter
- *     tags: [Dokter]
+ *     summary: Retrieve all doctors
+ *     tags: [Doctor]
  *     responses:
  *       200:
- *         description: List semua dokter
+ *         description: Successfully retrieved the list of all doctors
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.get("/getAllDokter", getAllDokter);
 
@@ -71,19 +71,20 @@ router.get("/getAllDokter", getAllDokter);
  * @swagger
  * /api/getDokterByPoliId/{poli_id}:
  *   get:
- *     summary: Ambil daftar dokter berdasarkan poli_id
- *     tags: [Dokter]
+ *     summary: Retrieve doctors by clinic (poli) ID
+ *     tags: [Doctor]
  *     parameters:
  *       - in: path
  *         name: poli_id
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Clinic (Poli) ID
  *     responses:
  *       200:
- *         description: Daftar dokter berdasarkan poli_id
+ *         description: Successfully retrieved doctors under the specified clinic
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.get("/getDokterByPoliId/:poli_id", getDokterByPoliId);
 
@@ -91,19 +92,20 @@ router.get("/getDokterByPoliId/:poli_id", getDokterByPoliId);
  * @swagger
  * /api/getDokterById/{id}:
  *   get:
- *     summary: Ambil detail dokter berdasarkan ID
- *     tags: [Dokter]
+ *     summary: Retrieve doctor details by ID
+ *     tags: [Doctor]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Doctor ID
  *     responses:
  *       200:
- *         description: Detail dokter
+ *         description: Successfully retrieved doctor details
  *       404:
- *         description: Dokter tidak ditemukan
+ *         description: Doctor not found
  */
 router.get("/getDokterById/:id", getDokterById);
 
@@ -111,8 +113,8 @@ router.get("/getDokterById/:id", getDokterById);
  * @swagger
  * /api/insertDokter:
  *   post:
- *     summary: Tambah dokter baru
- *     tags: [Dokter]
+ *     summary: Add a new doctor
+ *     tags: [Doctor]
  *     requestBody:
  *       required: true
  *       content:
@@ -130,11 +132,17 @@ router.get("/getDokterById/:id", getDokterById);
  *                 type: string
  *               poli_id:
  *                 type: integer
+ *             example:
+ *               nama: "Dr. Budi Santoso"
+ *               spesialis: "Cardiologist"
+ *               profile: "<p>Experienced heart specialist</p>"
+ *               image: "base64-image"
+ *               poli_id: 4
  *     responses:
  *       201:
- *         description: Dokter berhasil dibuat
+ *         description: Doctor successfully created
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.post("/insertDokter", insertDokter);
 
@@ -142,25 +150,34 @@ router.post("/insertDokter", insertDokter);
  * @swagger
  * /api/updateDokter/{id}:
  *   put:
- *     summary: Perbarui data dokter
- *     tags: [Dokter]
+ *     summary: Update doctor information
+ *     tags: [Doctor]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Doctor ID
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
+ *             example:
+ *               nama: "Dr. Andi Pratama"
+ *               spesialis: "Internal Medicine Specialist"
+ *               profile: "<p>Updated doctor profile info</p>"
+ *               image: "base64-image"
+ *               poli_id: 3
  *     responses:
  *       200:
- *         description: Dokter berhasil diupdate
+ *         description: Doctor successfully updated
  *       404:
- *         description: Dokter tidak ditemukan
+ *         description: Doctor not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put("/updateDokter/:id", updateDokter);
 
@@ -168,19 +185,22 @@ router.put("/updateDokter/:id", updateDokter);
  * @swagger
  * /api/deleteDokter/{id}:
  *   delete:
- *     summary: Hapus dokter berdasarkan ID
- *     tags: [Dokter]
+ *     summary: Delete doctor by ID
+ *     tags: [Doctor]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Doctor ID
  *     responses:
  *       200:
- *         description: Dokter berhasil dihapus
+ *         description: Doctor successfully deleted
+ *       404:
+ *         description: Doctor not found
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.delete("/deleteDokter/:id", deleteDokter);
 

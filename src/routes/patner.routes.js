@@ -32,24 +32,26 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Patner
- *   description: API Partner Rumah Sakit
+ *   description: API for managing hospital partners
  */
 
 /**
  * @swagger
  * /api/patner:
  *   get:
- *     summary: Get all partner
+ *     summary: Retrieve all partners
  *     tags: [Patner]
  *     responses:
  *       200:
- *         description: Berhasil mengambil semua data partner
+ *         description: Successfully retrieved all partners
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Patner'
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/patner", getAllPatner);
 
@@ -57,7 +59,7 @@ router.get("/patner", getAllPatner);
  * @swagger
  * /api/patner/{id}:
  *   get:
- *     summary: Get partner by ID
+ *     summary: Retrieve partner by ID
  *     tags: [Patner]
  *     parameters:
  *       - in: path
@@ -65,16 +67,18 @@ router.get("/patner", getAllPatner);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID partner
+ *         description: Partner ID
  *     responses:
  *       200:
- *         description: Data partner ditemukan
+ *         description: Partner data retrieved successfully
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Patner'
  *       404:
- *         description: Partner tidak ditemukan
+ *         description: Partner not found
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/patner/:id", getPatnerById);
 
@@ -82,7 +86,7 @@ router.get("/patner/:id", getPatnerById);
  * @swagger
  * /api/patner:
  *   post:
- *     summary: Insert partner
+ *     summary: Create a new partner
  *     tags: [Patner]
  *     requestBody:
  *       required: true
@@ -91,8 +95,10 @@ router.get("/patner/:id", getPatnerById);
  *           schema:
  *             $ref: '#/components/schemas/Patner'
  *     responses:
- *       200:
- *         description: Berhasil menambahkan partner
+ *       201:
+ *         description: Partner created successfully
+ *       500:
+ *         description: Server error occurred
  */
 router.post("/patner", insertPatner);
 
@@ -100,7 +106,7 @@ router.post("/patner", insertPatner);
  * @swagger
  * /api/patner/{id}:
  *   put:
- *     summary: Update partner
+ *     summary: Update partner by ID
  *     tags: [Patner]
  *     parameters:
  *       - in: path
@@ -108,6 +114,7 @@ router.post("/patner", insertPatner);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Partner ID
  *     requestBody:
  *       required: true
  *       content:
@@ -116,9 +123,11 @@ router.post("/patner", insertPatner);
  *             $ref: '#/components/schemas/Patner'
  *     responses:
  *       200:
- *         description: Berhasil mengupdate partner
+ *         description: Partner updated successfully
  *       404:
- *         description: Partner tidak ditemukan
+ *         description: Partner not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put("/patner/:id", updatePatner);
 
@@ -126,7 +135,7 @@ router.put("/patner/:id", updatePatner);
  * @swagger
  * /api/patner/{id}:
  *   delete:
- *     summary: Delete partner
+ *     summary: Delete partner by ID
  *     tags: [Patner]
  *     parameters:
  *       - in: path
@@ -134,11 +143,14 @@ router.put("/patner/:id", updatePatner);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Partner ID
  *     responses:
  *       200:
- *         description: Partner berhasil dihapus
+ *         description: Partner deleted successfully
  *       404:
- *         description: Partner tidak ditemukan
+ *         description: Partner not found
+ *       500:
+ *         description: Server error occurred
  */
 router.delete("/patner/:id", deletePatner);
 

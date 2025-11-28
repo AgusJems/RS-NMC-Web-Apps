@@ -29,8 +29,8 @@ const router = express.Router();
  *       example:
  *         id: 1
  *         image: "data:image/png;base64,xxxxx"
- *         nama: "Instalasi Gawat Darurat"
- *         deskripsi: "<p>Instalasi gawat darurat dengan fasilitas lengkap</p>"
+ *         nama: "Emergency Room"
+ *         deskripsi: "<p>Fully equipped emergency care unit</p>"
  *         status: 1
  */
 
@@ -38,24 +38,26 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Emergency
- *   description: API IGD Rumah Sakit
+ *   description: API for managing Emergency Room (ER/IGD) information
  */
 
 /**
  * @swagger
  * /api/emergency:
  *   get:
- *     summary: Get all emergency data
+ *     summary: Retrieve all emergency room records
  *     tags: [Emergency]
  *     responses:
  *       200:
- *         description: Berhasil mengambil semua data IGD
+ *         description: Successfully retrieved all emergency records
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Emergency'
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/emergency", getAllEmergency);
 
@@ -63,7 +65,7 @@ router.get("/emergency", getAllEmergency);
  * @swagger
  * /api/emergency/{id}:
  *   get:
- *     summary: Get emergency data by ID
+ *     summary: Retrieve emergency room record by ID
  *     tags: [Emergency]
  *     parameters:
  *       - in: path
@@ -71,16 +73,18 @@ router.get("/emergency", getAllEmergency);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID emergency
+ *         description: Emergency record ID
  *     responses:
  *       200:
- *         description: Data emergency ditemukan
+ *         description: Emergency data retrieved successfully
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Emergency'
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Emergency record not found
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/emergency/:id", getEmergencyById);
 
@@ -88,7 +92,7 @@ router.get("/emergency/:id", getEmergencyById);
  * @swagger
  * /api/emergency:
  *   post:
- *     summary: Insert new emergency data
+ *     summary: Create a new emergency room record
  *     tags: [Emergency]
  *     requestBody:
  *       required: true
@@ -97,8 +101,10 @@ router.get("/emergency/:id", getEmergencyById);
  *           schema:
  *             $ref: '#/components/schemas/Emergency'
  *     responses:
- *       200:
- *         description: Berhasil menambahkan data emergency
+ *       201:
+ *         description: Emergency record created successfully
+ *       500:
+ *         description: Server error occurred
  */
 router.post("/emergency", insertEmergency);
 
@@ -106,7 +112,7 @@ router.post("/emergency", insertEmergency);
  * @swagger
  * /api/emergency/{id}:
  *   put:
- *     summary: Update emergency data
+ *     summary: Update emergency room record by ID
  *     tags: [Emergency]
  *     parameters:
  *       - in: path
@@ -114,7 +120,7 @@ router.post("/emergency", insertEmergency);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID emergency
+ *         description: Emergency record ID
  *     requestBody:
  *       required: true
  *       content:
@@ -123,9 +129,11 @@ router.post("/emergency", insertEmergency);
  *             $ref: '#/components/schemas/Emergency'
  *     responses:
  *       200:
- *         description: Berhasil mengupdate data emergency
+ *         description: Emergency record updated successfully
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Emergency record not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put("/emergency/:id", updateEmergency);
 
@@ -133,7 +141,7 @@ router.put("/emergency/:id", updateEmergency);
  * @swagger
  * /api/emergency/{id}:
  *   delete:
- *     summary: Delete emergency data
+ *     summary: Delete emergency room record by ID
  *     tags: [Emergency]
  *     parameters:
  *       - in: path
@@ -141,12 +149,14 @@ router.put("/emergency/:id", updateEmergency);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID emergency
+ *         description: Emergency record ID
  *     responses:
  *       200:
- *         description: Data emergency berhasil dihapus
+ *         description: Emergency record deleted successfully
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Emergency record not found
+ *       500:
+ *         description: Server error occurred
  */
 router.delete("/emergency/:id", deleteEmergency);
 
