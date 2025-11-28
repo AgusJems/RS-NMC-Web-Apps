@@ -29,8 +29,8 @@ const router = express.Router();
  *       example:
  *         id: 1
  *         image: "data:image/png;base64,xxxxx"
- *         nama: "Ruang Mawar"
- *         deskripsi: "<p>Ruang rawat inap kelas I</p>"
+ *         nama: "Mawar Room"
+ *         deskripsi: "<p>Class I inpatient room</p>"
  *         status: 1
  */
 
@@ -38,24 +38,26 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Inpatient
- *   description: API Rawat Inap Rumah Sakit
+ *   description: API for managing inpatient rooms
  */
 
 /**
  * @swagger
  * /api/inpatient:
  *   get:
- *     summary: Get all inpatient rooms
+ *     summary: Retrieve all inpatient rooms
  *     tags: [Inpatient]
  *     responses:
  *       200:
- *         description: Berhasil mengambil semua data rawat inap
+ *         description: Successfully retrieved all inpatient room data
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Inpatient'
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/inpatient", getAllInpatient);
 
@@ -63,7 +65,7 @@ router.get("/inpatient", getAllInpatient);
  * @swagger
  * /api/inpatient/{id}:
  *   get:
- *     summary: Get inpatient by ID
+ *     summary: Retrieve inpatient room by ID
  *     tags: [Inpatient]
  *     parameters:
  *       - in: path
@@ -71,16 +73,18 @@ router.get("/inpatient", getAllInpatient);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID ruangan rawat inap
+ *         description: Inpatient room ID
  *     responses:
  *       200:
- *         description: Data rawat inap ditemukan
+ *         description: Inpatient room data retrieved successfully
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Inpatient'
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Inpatient room not found
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/inpatient/:id", getInpatientById);
 
@@ -88,7 +92,7 @@ router.get("/inpatient/:id", getInpatientById);
  * @swagger
  * /api/inpatient:
  *   post:
- *     summary: Insert inpatient room
+ *     summary: Create a new inpatient room
  *     tags: [Inpatient]
  *     requestBody:
  *       required: true
@@ -97,8 +101,10 @@ router.get("/inpatient/:id", getInpatientById);
  *           schema:
  *             $ref: '#/components/schemas/Inpatient'
  *     responses:
- *       200:
- *         description: Berhasil menambahkan data rawat inap
+ *       201:
+ *         description: Inpatient room created successfully
+ *       500:
+ *         description: Server error occurred
  */
 router.post("/inpatient", insertInpatient);
 
@@ -106,7 +112,7 @@ router.post("/inpatient", insertInpatient);
  * @swagger
  * /api/inpatient/{id}:
  *   put:
- *     summary: Update inpatient room
+ *     summary: Update inpatient room by ID
  *     tags: [Inpatient]
  *     parameters:
  *       - in: path
@@ -114,7 +120,7 @@ router.post("/inpatient", insertInpatient);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID rawat inap
+ *         description: Inpatient room ID
  *     requestBody:
  *       required: true
  *       content:
@@ -123,9 +129,11 @@ router.post("/inpatient", insertInpatient);
  *             $ref: '#/components/schemas/Inpatient'
  *     responses:
  *       200:
- *         description: Berhasil update data rawat inap
+ *         description: Inpatient room updated successfully
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Inpatient room not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put("/inpatient/:id", updateInpatient);
 
@@ -133,7 +141,7 @@ router.put("/inpatient/:id", updateInpatient);
  * @swagger
  * /api/inpatient/{id}:
  *   delete:
- *     summary: Delete inpatient room
+ *     summary: Delete inpatient room by ID
  *     tags: [Inpatient]
  *     parameters:
  *       - in: path
@@ -141,11 +149,14 @@ router.put("/inpatient/:id", updateInpatient);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Inpatient room ID
  *     responses:
  *       200:
- *         description: Data rawat inap berhasil dihapus
+ *         description: Inpatient room deleted successfully
  *       404:
- *         description: Data tidak ditemukan
+ *         description: Inpatient room not found
+ *       500:
+ *         description: Server error occurred
  */
 router.delete("/inpatient/:id", deleteInpatient);
 

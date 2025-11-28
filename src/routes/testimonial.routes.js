@@ -13,11 +13,14 @@ const router = express.Router();
 /* ================================
    SWAGGER SCHEMA
 ================================ */
- /**
+
+/**
  * @swagger
  * components:
  *   schemas:
  *     Testimoni:
+ *       summary: Testimonial object schema
+ *       description: Schema definition for patient testimonials submitted through the system.
  *       type: object
  *       properties:
  *         id:
@@ -36,30 +39,40 @@ const router = express.Router();
  *         id: 1
  *         nama: "Rizki"
  *         alamat: "Sidoarjo"
- *         deskripsi: "Pelayanan bagus"
+ *         deskripsi: "Great service"
  *         rating: 5
  *         status: 1
  */
 
-/* ===========================================
+/**
+ * @swagger
+ * tags:
+ *   - name: Testimoni
+ *     summary: API for managing patient testimonials
+ *     description: Endpoints related to creating, retrieving, updating, and deleting patient testimonial records.
+ */
+
+/* ================================
    ROUTES
-=========================================== */
+================================ */
 
 /**
  * @swagger
  * /api/getAllTestimoni:
  *   get:
- *     summary: Get all testimonials
+ *     summary: Retrieve all testimonials
  *     tags: [Testimoni]
  *     responses:
  *       200:
- *         description: Berhasil mengambil semua testimoni
+ *         description: Successfully retrieved all testimonials
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Testimoni'
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/getAllTestimoni", getAllTestimoni);
 
@@ -67,7 +80,7 @@ router.get("/getAllTestimoni", getAllTestimoni);
  * @swagger
  * /api/getTestimoniById/{id}:
  *   get:
- *     summary: Get testimonial by ID
+ *     summary: Retrieve a testimonial by ID
  *     tags: [Testimoni]
  *     parameters:
  *       - in: path
@@ -75,16 +88,18 @@ router.get("/getAllTestimoni", getAllTestimoni);
  *         required: true
  *         schema:
  *           type: integer
- *         description: ID testimoni
+ *         description: Testimonial ID
  *     responses:
  *       200:
- *         description: Berhasil mengambil testimoni
+ *         description: Testimonial retrieved successfully
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Testimoni'
  *       404:
- *         description: Testimoni tidak ditemukan
+ *         description: Testimonial not found
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/getTestimoniById/:id", getTestimoniById);
 
@@ -92,7 +107,7 @@ router.get("/getTestimoniById/:id", getTestimoniById);
  * @swagger
  * /api/insertTestimoni:
  *   post:
- *     summary: Insert testimonial
+ *     summary: Create a new testimonial
  *     tags: [Testimoni]
  *     requestBody:
  *       required: true
@@ -101,8 +116,10 @@ router.get("/getTestimoniById/:id", getTestimoniById);
  *           schema:
  *             $ref: '#/components/schemas/Testimoni'
  *     responses:
- *       200:
- *         description: Testimoni berhasil ditambahkan
+ *       201:
+ *         description: Testimonial created successfully
+ *       500:
+ *         description: Server error occurred
  */
 router.post("/insertTestimoni", insertTestimoni);
 
@@ -110,7 +127,7 @@ router.post("/insertTestimoni", insertTestimoni);
  * @swagger
  * /api/updateTestimoni/{id}:
  *   put:
- *     summary: Update testimonial
+ *     summary: Update testimonial by ID
  *     tags: [Testimoni]
  *     parameters:
  *       - in: path
@@ -126,7 +143,11 @@ router.post("/insertTestimoni", insertTestimoni);
  *             $ref: '#/components/schemas/Testimoni'
  *     responses:
  *       200:
- *         description: Testimoni berhasil diperbarui
+ *         description: Testimonial updated successfully
+ *       404:
+ *         description: Testimonial not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put("/updateTestimoni/:id", updateTestimoni);
 
@@ -155,7 +176,11 @@ router.put("/updateTestimoni/:id", updateTestimoni);
  *               status: 0
  *     responses:
  *       200:
- *         description: Status testimoni berhasil diperbarui
+ *         description: Testimonial status updated successfully
+ *       404:
+ *         description: Testimonial not found
+ *       500:
+ *         description: Server error occurred
  */
 router.patch("/updateStatusTestimoni/:id", updateStatusTestimoni);
 
@@ -163,7 +188,7 @@ router.patch("/updateStatusTestimoni/:id", updateStatusTestimoni);
  * @swagger
  * /api/deleteTestimoni/{id}:
  *   delete:
- *     summary: Delete testimonial
+ *     summary: Delete testimonial by ID
  *     tags: [Testimoni]
  *     parameters:
  *       - in: path
@@ -173,7 +198,11 @@ router.patch("/updateStatusTestimoni/:id", updateStatusTestimoni);
  *           type: integer
  *     responses:
  *       200:
- *         description: Testimoni berhasil dihapus
+ *         description: Testimonial deleted successfully
+ *       404:
+ *         description: Testimonial not found
+ *       500:
+ *         description: Server error occurred
  */
 router.delete("/deleteTestimoni/:id", deleteTestimoni);
 

@@ -14,7 +14,7 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Poli
- *   description: API for managing poli data
+ *   description: API for managing clinic (Poli) data
  */
 
 /* =============================
@@ -40,8 +40,8 @@ const router = express.Router();
  *           type: integer
  *       example:
  *         id: 1
- *         nama_poli: "Poli Umum"
- *         deskripsi: "<p>Pelayanan kesehatan umum</p>"
+ *         nama_poli: "General Clinic"
+ *         deskripsi: "<p>General outpatient medical services</p>"
  *         image: "base64_string"
  *         status: 1
  */
@@ -54,13 +54,13 @@ const router = express.Router();
  * @swagger
  * /api/getAllPoli:
  *   get:
- *     summary: Get all poli
+ *     summary: Retrieve all clinics (Poli)
  *     tags: [Poli]
  *     responses:
  *       200:
- *         description: List of all poli
+ *         description: Successfully retrieved all clinic data
  *       500:
- *         description: Server error
+ *         description: Server error occurred
  */
 router.get("/getAllPoli", getAllPoli);
 
@@ -68,11 +68,13 @@ router.get("/getAllPoli", getAllPoli);
  * @swagger
  * /api/getActivePoli:
  *   get:
- *     summary: Get active poli (status = 1)
+ *     summary: Retrieve active clinics (status = 1)
  *     tags: [Poli]
  *     responses:
  *       200:
- *         description: List of active poli
+ *         description: Successfully retrieved active clinics
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/getActivePoli", getActivePoli);
 
@@ -80,7 +82,7 @@ router.get("/getActivePoli", getActivePoli);
  * @swagger
  * /api/getPoliById/{id}:
  *   get:
- *     summary: Get poli by ID
+ *     summary: Retrieve clinic (Poli) by ID
  *     tags: [Poli]
  *     parameters:
  *       - in: path
@@ -88,11 +90,14 @@ router.get("/getActivePoli", getActivePoli);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Clinic ID
  *     responses:
  *       200:
- *         description: Success
+ *         description: Clinic data retrieved successfully
  *       404:
- *         description: Poli not found
+ *         description: Clinic not found
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/getPoliById/:id", getPoliById);
 
@@ -100,7 +105,7 @@ router.get("/getPoliById/:id", getPoliById);
  * @swagger
  * /api/insertPoli:
  *   post:
- *     summary: Insert a new poli
+ *     summary: Create a new clinic (Poli)
  *     tags: [Poli]
  *     requestBody:
  *       required: true
@@ -115,9 +120,15 @@ router.get("/getPoliById/:id", getPoliById);
  *                 type: string
  *               image:
  *                 type: string
+ *             example:
+ *               nama_poli: "Dental Clinic"
+ *               deskripsi: "<p>Dental and oral health services</p>"
+ *               image: "base64_string"
  *     responses:
  *       201:
- *         description: Poli created successfully
+ *         description: Clinic created successfully
+ *       500:
+ *         description: Server error occurred
  */
 router.post("/insertPoli", insertPoli);
 
@@ -125,7 +136,7 @@ router.post("/insertPoli", insertPoli);
  * @swagger
  * /api/updatePoli/{id}:
  *   put:
- *     summary: Update poli by ID
+ *     summary: Update clinic (Poli) by ID
  *     tags: [Poli]
  *     parameters:
  *       - in: path
@@ -133,6 +144,7 @@ router.post("/insertPoli", insertPoli);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Clinic ID
  *     requestBody:
  *       required: true
  *       content:
@@ -141,9 +153,11 @@ router.post("/insertPoli", insertPoli);
  *             $ref: '#/components/schemas/Poli'
  *     responses:
  *       200:
- *         description: Poli updated successfully
+ *         description: Clinic updated successfully
  *       404:
- *         description: Poli not found
+ *         description: Clinic not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put("/updatePoli/:id", updatePoli);
 
@@ -151,7 +165,7 @@ router.put("/updatePoli/:id", updatePoli);
  * @swagger
  * /api/deletePoli/{id}:
  *   delete:
- *     summary: Delete poli by ID
+ *     summary: Delete clinic (Poli) by ID
  *     tags: [Poli]
  *     parameters:
  *       - in: path
@@ -159,9 +173,14 @@ router.put("/updatePoli/:id", updatePoli);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Clinic ID
  *     responses:
  *       200:
- *         description: Poli deleted successfully
+ *         description: Clinic deleted successfully
+ *       404:
+ *         description: Clinic not found
+ *       500:
+ *         description: Server error occurred
  */
 router.delete("/deletePoli/:id", deletePoli);
 

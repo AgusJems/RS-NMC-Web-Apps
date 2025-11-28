@@ -13,7 +13,7 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Schedule
- *   description: API Jadwal Praktik Dokter
+ *   description: Doctor Practice Schedule API
  */
 
 /**
@@ -47,7 +47,7 @@ const router = express.Router();
  * @swagger
  * /api/getScheduleByDokterId/{dokter_id}:
  *   get:
- *     summary: Ambil jadwal praktik berdasarkan dokter_id
+ *     summary: Retrieve practice schedule by doctor ID
  *     tags: [Schedule]
  *     parameters:
  *       - in: path
@@ -55,11 +55,12 @@ const router = express.Router();
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Doctor ID
  *     responses:
  *       200:
- *         description: List jadwal praktik dokter
+ *         description: Successfully retrieved doctor practice schedule
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.get("/getScheduleByDokterId/:dokter_id", getScheduleByDokterId);
 
@@ -67,13 +68,13 @@ router.get("/getScheduleByDokterId/:dokter_id", getScheduleByDokterId);
  * @swagger
  * /api/getAllHari:
  *   get:
- *     summary: Mengambil semua data hari
+ *     summary: Retrieve all day references
  *     tags: [Schedule]
  *     responses:
  *       200:
- *         description: Berhasil mengambil data hari
+ *         description: Successfully retrieved list of days
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.get("/getAllHari", getAllHari);
 
@@ -81,7 +82,7 @@ router.get("/getAllHari", getAllHari);
  * @swagger
  * /api/insertSchedule:
  *   post:
- *     summary: Tambah jadwal praktik dokter
+ *     summary: Add a new doctor practice schedule
  *     tags: [Schedule]
  *     requestBody:
  *       required: true
@@ -105,9 +106,9 @@ router.get("/getAllHari", getAllHari);
  *               jam_selesai: "12:00"
  *     responses:
  *       201:
- *         description: Jadwal berhasil ditambahkan
+ *         description: Schedule successfully created
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.post("/insertSchedule", insertSchedule);
 
@@ -115,7 +116,7 @@ router.post("/insertSchedule", insertSchedule);
  * @swagger
  * /api/updateSchedule/{id}:
  *   put:
- *     summary: Update jadwal praktik dokter
+ *     summary: Update an existing doctor practice schedule
  *     tags: [Schedule]
  *     parameters:
  *       - in: path
@@ -123,6 +124,7 @@ router.post("/insertSchedule", insertSchedule);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Schedule ID
  *     requestBody:
  *       required: true
  *       content:
@@ -142,11 +144,11 @@ router.post("/insertSchedule", insertSchedule);
  *               jam_selesai: "13:00"
  *     responses:
  *       200:
- *         description: Jadwal berhasil diperbarui
+ *         description: Schedule successfully updated
  *       404:
- *         description: Jadwal tidak ditemukan
+ *         description: Schedule not found
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.put("/updateSchedule/:id", updateSchedule);
 
@@ -154,7 +156,7 @@ router.put("/updateSchedule/:id", updateSchedule);
  * @swagger
  * /api/deleteSchedule/{id}:
  *   delete:
- *     summary: Hapus jadwal praktik dokter
+ *     summary: Delete a doctor practice schedule
  *     tags: [Schedule]
  *     parameters:
  *       - in: path
@@ -162,11 +164,12 @@ router.put("/updateSchedule/:id", updateSchedule);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Schedule ID
  *     responses:
  *       200:
- *         description: Jadwal berhasil dihapus
+ *         description: Schedule successfully deleted
  *       500:
- *         description: Terjadi kesalahan pada server
+ *         description: Server error occurred
  */
 router.delete("/deleteSchedule/:id", deleteSchedule);
 

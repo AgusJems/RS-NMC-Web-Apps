@@ -14,7 +14,7 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Carousel
- *   description: API for managing carousel data
+ *   description: API for managing homepage carousel data
  */
 
 /* =============================
@@ -40,8 +40,8 @@ const router = express.Router();
  *           type: integer
  *       example:
  *         id: 1
- *         nama_carousel: "Carousel Umum"
- *         deskripsi: "<p>Pelayanan kesehatan umum</p>"
+ *         nama_carousel: "General Carousel"
+ *         deskripsi: "<p>General health service information</p>"
  *         image: "base64_string"
  *         status: 1
  */
@@ -54,13 +54,13 @@ const router = express.Router();
  * @swagger
  * /api/getAllCarousel:
  *   get:
- *     summary: Get all carousel
+ *     summary: Retrieve all carousel items
  *     tags: [Carousel]
  *     responses:
  *       200:
- *         description: List of all carousel
+ *         description: Successfully retrieved all carousel items
  *       500:
- *         description: Server error
+ *         description: Server error occurred
  */
 router.get("/getAllCarousel", getAllCarousel);
 
@@ -68,11 +68,13 @@ router.get("/getAllCarousel", getAllCarousel);
  * @swagger
  * /api/getActiveCarousel:
  *   get:
- *     summary: Get active carousel (status = 1)
+ *     summary: Retrieve carousel items with active status (status = 1)
  *     tags: [Carousel]
  *     responses:
  *       200:
- *         description: List of active carousel
+ *         description: Successfully retrieved all active carousel items
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/getActiveCarousel", getActiveCarousel);
 
@@ -80,7 +82,7 @@ router.get("/getActiveCarousel", getActiveCarousel);
  * @swagger
  * /api/getCarouselById/{id}:
  *   get:
- *     summary: Get carousel by ID
+ *     summary: Retrieve carousel item by ID
  *     tags: [Carousel]
  *     parameters:
  *       - in: path
@@ -88,11 +90,14 @@ router.get("/getActiveCarousel", getActiveCarousel);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Carousel item ID
  *     responses:
  *       200:
- *         description: Success
+ *         description: Successfully retrieved carousel item
  *       404:
- *         description: Carousel not found
+ *         description: Carousel item not found
+ *       500:
+ *         description: Server error occurred
  */
 router.get("/getCarouselById/:id", getCarouselById);
 
@@ -100,7 +105,7 @@ router.get("/getCarouselById/:id", getCarouselById);
  * @swagger
  * /api/insertCarousel:
  *   post:
- *     summary: Insert a new carousel
+ *     summary: Create a new carousel item
  *     tags: [Carousel]
  *     requestBody:
  *       required: true
@@ -115,9 +120,15 @@ router.get("/getCarouselById/:id", getCarouselById);
  *                 type: string
  *               image:
  *                 type: string
+ *             example:
+ *               nama_carousel: "Health Promotion Banner"
+ *               deskripsi: "<p>Information about current health promotion</p>"
+ *               image: "base64_string"
  *     responses:
  *       201:
- *         description: Carousel created successfully
+ *         description: Carousel item created successfully
+ *       500:
+ *         description: Server error occurred
  */
 router.post("/insertCarousel", insertCarousel);
 
@@ -125,7 +136,7 @@ router.post("/insertCarousel", insertCarousel);
  * @swagger
  * /api/updateCarousel/{id}:
  *   put:
- *     summary: Update carousel by ID
+ *     summary: Update carousel item by ID
  *     tags: [Carousel]
  *     parameters:
  *       - in: path
@@ -133,6 +144,7 @@ router.post("/insertCarousel", insertCarousel);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Carousel item ID
  *     requestBody:
  *       required: true
  *       content:
@@ -141,9 +153,11 @@ router.post("/insertCarousel", insertCarousel);
  *             $ref: '#/components/schemas/Carousel'
  *     responses:
  *       200:
- *         description: Carousel updated successfully
+ *         description: Carousel item updated successfully
  *       404:
- *         description: Carousel not found
+ *         description: Carousel item not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put("/updateCarousel/:id", updateCarousel);
 
@@ -151,7 +165,7 @@ router.put("/updateCarousel/:id", updateCarousel);
  * @swagger
  * /api/deleteCarousel/{id}:
  *   delete:
- *     summary: Delete carousel by ID
+ *     summary: Delete carousel item by ID
  *     tags: [Carousel]
  *     parameters:
  *       - in: path
@@ -159,9 +173,14 @@ router.put("/updateCarousel/:id", updateCarousel);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: Carousel item ID
  *     responses:
  *       200:
- *         description: Carousel deleted successfully
+ *         description: Carousel item deleted successfully
+ *       404:
+ *         description: Carousel item not found
+ *       500:
+ *         description: Server error occurred
  */
 router.delete("/deleteCarousel/:id", deleteCarousel);
 

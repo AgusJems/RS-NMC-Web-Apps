@@ -45,8 +45,8 @@ const router = express.Router();
  *       example:
  *         id: 1
  *         jenis_id: 2
- *         nama_berita: "Judul Berita"
- *         deskripsi: "<p>Isi berita</p>"
+ *         nama_berita: "Health Awareness Campaign"
+ *         deskripsi: "<p>Detailed description of the news article</p>"
  *         image: "base64_string"
  *         tanggal: "2025-01-12"
  */
@@ -66,7 +66,7 @@ const router = express.Router();
  *           type: string
  *       example:
  *         id: 1
- *         nama: "Informasi"
+ *         nama: "Information"
  *         kode: "INFO"
  */
 
@@ -79,13 +79,13 @@ const router = express.Router();
  * @swagger
  * /api/getAllNews:
  *   get:
- *     summary: Get all news
+ *     summary: Retrieve all news articles
  *     tags: [News]
  *     responses:
  *       200:
- *         description: List of all news
+ *         description: Successfully retrieved list of all news articles
  *       500:
- *         description: Server error
+ *         description: Server error occurred
  */
 router.get('/getAllNews', getAllNews);
 
@@ -93,11 +93,13 @@ router.get('/getAllNews', getAllNews);
  * @swagger
  * /api/getActiveNews:
  *   get:
- *     summary: Get active news (status = 1)
+ *     summary: Retrieve active news (status = 1)
  *     tags: [News]
  *     responses:
  *       200:
- *         description: List of active news
+ *         description: Successfully retrieved list of active news
+ *       500:
+ *         description: Server error occurred
  */
 router.get('/getActiveNews', getActiveNews);
 
@@ -105,11 +107,13 @@ router.get('/getActiveNews', getActiveNews);
  * @swagger
  * /api/getJenisBerita:
  *   get:
- *     summary: Get list of Jenis Berita (dropdown)
+ *     summary: Retrieve list of news categories (Jenis Berita)
  *     tags: [News]
  *     responses:
  *       200:
- *         description: List of news categories
+ *         description: Successfully retrieved news categories
+ *       500:
+ *         description: Server error occurred
  */
 router.get('/getJenisBerita', getJenisBerita);
 
@@ -117,7 +121,7 @@ router.get('/getJenisBerita', getJenisBerita);
  * @swagger
  * /api/getNewsById/{id}:
  *   get:
- *     summary: Get news by ID
+ *     summary: Retrieve a news article by ID
  *     tags: [News]
  *     parameters:
  *       - in: path
@@ -125,11 +129,14 @@ router.get('/getJenisBerita', getJenisBerita);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: News article ID
  *     responses:
  *       200:
- *         description: Success
+ *         description: Successfully retrieved news article
  *       404:
- *         description: Not found
+ *         description: News article not found
+ *       500:
+ *         description: Server error occurred
  */
 router.get('/getNewsById/:id', getNewsById);
 
@@ -137,7 +144,7 @@ router.get('/getNewsById/:id', getNewsById);
  * @swagger
  * /api/insertDetailNews:
  *   post:
- *     summary: Insert new news
+ *     summary: Create a new news article
  *     tags: [News]
  *     requestBody:
  *       required: true
@@ -154,9 +161,16 @@ router.get('/getNewsById/:id', getNewsById);
  *                 type: string
  *               image:
  *                 type: string
+ *             example:
+ *               jenis_id: 1
+ *               nama_berita: "New Hospital Update"
+ *               deskripsi: "<p>Latest update from the hospital</p>"
+ *               image: "base64_string"
  *     responses:
  *       201:
- *         description: Created
+ *         description: News article created successfully
+ *       500:
+ *         description: Server error occurred
  */
 router.post('/insertDetailNews', insertDetailNews);
 
@@ -164,7 +178,7 @@ router.post('/insertDetailNews', insertDetailNews);
  * @swagger
  * /api/updateNews/{id}:
  *   put:
- *     summary: Update news by ID
+ *     summary: Update news article by ID
  *     tags: [News]
  *     parameters:
  *       - in: path
@@ -172,13 +186,20 @@ router.post('/insertDetailNews', insertDetailNews);
  *         required: true
  *         schema:
  *           type: integer
+ *         description: News article ID
  *     requestBody:
  *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/News'
  *     responses:
  *       200:
- *         description: Updated
+ *         description: News article updated successfully
  *       404:
- *         description: Not found
+ *         description: News article not found
+ *       500:
+ *         description: Server error occurred
  */
 router.put('/updateNews/:id', updateNews);
 
@@ -186,15 +207,22 @@ router.put('/updateNews/:id', updateNews);
  * @swagger
  * /api/deleteNews/{id}:
  *   delete:
- *     summary: Delete news by ID
+ *     summary: Delete news article by ID
  *     tags: [News]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
+ *         schema:
+ *           type: integer
+ *         description: News article ID
  *     responses:
  *       200:
- *         description: Deleted
+ *         description: News article deleted successfully
+ *       404:
+ *         description: News article not found
+ *       500:
+ *         description: Server error occurred
  */
 router.delete('/deleteNews/:id', deleteNews);
 
