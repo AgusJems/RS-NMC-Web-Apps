@@ -30,10 +30,26 @@ const router = express.Router();
 
 /**
  * @swagger
+ * tags:
+ *   name: Patner
+ *   description: API Partner Rumah Sakit
+ */
+
+/**
+ * @swagger
  * /api/patner:
  *   get:
  *     summary: Get all partner
  *     tags: [Patner]
+ *     responses:
+ *       200:
+ *         description: Berhasil mengambil semua data partner
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Patner'
  */
 router.get("/patner", getAllPatner);
 
@@ -43,6 +59,22 @@ router.get("/patner", getAllPatner);
  *   get:
  *     summary: Get partner by ID
  *     tags: [Patner]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID partner
+ *     responses:
+ *       200:
+ *         description: Data partner ditemukan
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Patner'
+ *       404:
+ *         description: Partner tidak ditemukan
  */
 router.get("/patner/:id", getPatnerById);
 
@@ -58,6 +90,9 @@ router.get("/patner/:id", getPatnerById);
  *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/Patner'
+ *     responses:
+ *       200:
+ *         description: Berhasil menambahkan partner
  */
 router.post("/patner", insertPatner);
 
@@ -67,6 +102,23 @@ router.post("/patner", insertPatner);
  *   put:
  *     summary: Update partner
  *     tags: [Patner]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Patner'
+ *     responses:
+ *       200:
+ *         description: Berhasil mengupdate partner
+ *       404:
+ *         description: Partner tidak ditemukan
  */
 router.put("/patner/:id", updatePatner);
 
@@ -76,6 +128,17 @@ router.put("/patner/:id", updatePatner);
  *   delete:
  *     summary: Delete partner
  *     tags: [Patner]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Partner berhasil dihapus
+ *       404:
+ *         description: Partner tidak ditemukan
  */
 router.delete("/patner/:id", deletePatner);
 
