@@ -9,7 +9,7 @@ import {
   PlugInIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
-import { IoBagAddOutline, IoBedOutline, IoChatboxEllipsesOutline, IoEaselOutline, IoPeopleOutline } from "react-icons/io5";
+import { IoBagAddOutline, IoBedOutline, IoChatboxEllipsesOutline, IoEaselOutline, IoImagesOutline, IoPeopleOutline } from "react-icons/io5";
 import { FaHandshake, FaMicroscope } from "react-icons/fa";
 import { MdLocalHospital } from "react-icons/md";
 
@@ -60,6 +60,11 @@ const navItems: NavItem[] = [
     icon: <FaHandshake />,
     name: "Partner",
     path: "/partner",
+  },
+  {
+    icon: <IoImagesOutline />,
+    name: "Carousel",
+    path: "/carousel",
   },
   {
     icon: <IoChatboxEllipsesOutline />,

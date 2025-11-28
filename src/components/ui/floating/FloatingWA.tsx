@@ -8,7 +8,7 @@ const FloatingWA = () => {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-5 z-50 bg-green-600 hover:bg-green-700
-                 text-white px-4 py-3 rounded-full shadow-lg flex items-center 
+                 text-white px-3 py-3 rounded-full shadow-lg flex items-center 
                  gap-3 transition-transform transform hover:scale-110"
     >
       {/* WhatsApp Logo */}

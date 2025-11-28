@@ -23,16 +23,16 @@ import {
   closeSwal,
 } from "../../../utils/swalFire";
 
-interface PoliItem {
+interface CarouselItem {
   id: number;
-  nama_poli: string;
+  title: string;
   deskripsi: string;
   image: string;
   status: number;
 }
 
-export default function PoliTable() {
-  const [poliData, setPoliData] = useState<PoliItem[]>([]);
+export default function CarouselTable() {
+  const [carouselData, setCarouselData] = useState<CarouselItem[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
@@ -40,7 +40,7 @@ export default function PoliTable() {
   const [editingId, setEditingId] = useState<number | null>(null);
 
   const [formData, setFormData] = useState({
-    nama_poli: "",
+    title: "",
     deskripsi: "",
     image: "",
     status: true,
@@ -51,7 +51,7 @@ export default function PoliTable() {
     setIsOpen(false);
     setEditingId(null);
     setFormData({
-      nama_poli: "",
+      title: "",
       deskripsi: "",
       image: "",
       status: true,
@@ -59,24 +59,24 @@ export default function PoliTable() {
   };
 
   useEffect(() => {
-    fetchPoli();
+    fetchCarousel();
   }, []);
 
-  const fetchPoli = () => {
-    fetch("http://localhost:3001/api/getAllPoli")
+  const fetchCarousel = () => {
+    fetch("http://localhost:3001/api/getAllCarousel")
       .then((res) => res.json())
-      .then((data) => setPoliData(data.data))
+      .then((data) => setCarouselData(data.data))
       .catch(console.error);
   };
 
   const handleSubmit = () => {
-    editingId ? updatePoli() : addPoli();
+    editingId ? updateCarousel() : addCarousel();
   };
 
-  const addPoli = async () => {
+  const addCarousel = async () => {
     try {
-      showLoading("Menyimpan data poli...");
-      const res = await fetch("http://localhost:3001/api/insertPoli", {
+      showLoading("Menyimpan data carousel...");
+      const res = await fetch("http://localhost:3001/api/insertCarousel", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -85,21 +85,21 @@ export default function PoliTable() {
       closeSwal();
 
       if (res.ok) {
-        showSuccess("Berhasil", "Poli berhasil ditambahkan.");
+        showSuccess("Berhasil", "Carousel berhasil ditambahkan.");
         closeModal();
-        fetchPoli();
-      } else showError("Gagal", "Tidak dapat menyimpan data poli.");
+        fetchCarousel();
+      } else showError("Gagal", "Tidak dapat menyimpan data carousel.");
     } catch {
       closeSwal();
       showError("Error", "Terjadi kesalahan.");
     }
   };
 
-  const updatePoli = async () => {
+  const updateCarousel = async () => {
     try {
-      showLoading("Memperbarui poli...");
+      showLoading("Memperbarui carousel...");
       const res = await fetch(
-        `http://localhost:3001/api/updatePoli/${editingId}`,
+        `http://localhost:3001/api/updateCarousel/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -110,20 +110,20 @@ export default function PoliTable() {
       closeSwal();
 
       if (res.ok) {
-        showSuccess("Berhasil", "Poli berhasil diperbarui.");
+        showSuccess("Berhasil", "Carousel berhasil diperbarui.");
         closeModal();
-        fetchPoli();
-      } else showError("Gagal", "Tidak dapat memperbarui poli.");
+        fetchCarousel();
+      } else showError("Gagal", "Tidak dapat memperbarui carousel.");
     } catch {
       closeSwal();
       showError("Error", "Terjadi kesalahan.");
     }
   };
 
-  const deletePoli = async (id: number) => {
+  const deleteCarousel = async (id: number) => {
     const confirmDelete = await showConfirmDelete(
       "Yakin ingin menghapus?",
-      "Data poli tidak dapat dikembalikan!",
+      "Data carousel tidak dapat dikembalikan!",
       "Hapus",
       "Batal"
     );
@@ -131,25 +131,25 @@ export default function PoliTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/deletePoli/${id}`, {
+      const res = await fetch(`http://localhost:3001/api/deleteCarousel/${id}`, {
         method: "DELETE",
       });
       closeSwal();
 
       if (res.ok) {
-        showSuccess("Berhasil", "Poli berhasil dihapus.");
-        fetchPoli();
-      } else showError("Gagal", "Gagal menghapus poli.");
+        showSuccess("Berhasil", "Carousel berhasil dihapus.");
+        fetchCarousel();
+      } else showError("Gagal", "Gagal menghapus carousel.");
     } catch {
       closeSwal();
-      showError("Error", "Terjadi kesalahan saat menghapus poli.");
+      showError("Error", "Terjadi kesalahan saat menghapus carousel.");
     }
   };
 
-  const editPoli = (item: PoliItem) => {
+  const editCarousel = (item: CarouselItem) => {
     setEditingId(item.id);
     setFormData({
-      nama_poli: item.nama_poli,
+      title: item.title,
       deskripsi: item.deskripsi,
       image: item.image,
       status: item.status === 1,
@@ -157,8 +157,8 @@ export default function PoliTable() {
     setIsOpen(true);
   };
 
-  const totalPages = Math.ceil(poliData.length / itemsPerPage);
-  const paginatedPoli = poliData.slice(
+  const totalPages = Math.ceil(carouselData.length / itemsPerPage);
+  const paginatedCarousel = carouselData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -172,7 +172,7 @@ export default function PoliTable() {
               onClick={openModal}
               className="mb-4 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
             >
-              + Add Poly
+              + Add Carousel
             </Button>
           </div>
 
@@ -183,7 +183,7 @@ export default function PoliTable() {
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
-                  Poly Name
+                  Title
                 </TableCell>
                 <TableCell
                   isHeader
@@ -213,10 +213,10 @@ export default function PoliTable() {
             </TableHeader>
 
             <TableBody className="divide-y divide-gray-100 dark:divide-white/[0.05]">
-              {paginatedPoli.map((item) => (
+              {paginatedCarousel.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell className="px-4 py-4 text-center text-gray-500 dark:text-gray-400">
-                    {item.nama_poli}
+                    {item.title}
                   </TableCell>
 
                   <TableCell className="px-4 py-4 text-gray-500 text-theme-sm dark:text-gray-400">
@@ -252,7 +252,7 @@ export default function PoliTable() {
                     <div className="flex justify-center gap-2">
                       {/* EDIT BUTTON */}
                       <button
-                        onClick={() => editPoli(item)}
+                        onClick={() => editCarousel(item)}
                         className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gradient-to-r from-blue-500 to-blue-400 hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200 lg:inline-flex lg:w-auto"
                       >
                         <svg
@@ -275,7 +275,7 @@ export default function PoliTable() {
 
                       {/* DELETE BUTTON */}
                       <button
-                        onClick={() => deletePoli(item.id)}
+                        onClick={() => deleteCarousel(item.id)}
                         className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gradient-to-r from-red-500 to-red-400 hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200 lg:inline-flex lg:w-auto"
                       >
                         <svg
@@ -347,18 +347,18 @@ export default function PoliTable() {
       <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[900px]">
         <div className="p-6 lg:p-10 bg-white dark:bg-gray-900 rounded-3xl">
           <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white">
-            {editingId ? "Edit Poli" : "Add Poli"}
+            {editingId ? "Edit Carousel" : "Add Carousel"}
           </h4>
 
-          {/* Nama Poli */}
+          {/* Nama Carousel */}
           <div className="mb-3">
-            <Label>Nama Poli</Label>
+            <Label>Title</Label>
             <Input
               type="text"
-              placeholder="Nama poli..."
-              value={formData.nama_poli}
+              placeholder="Nama carousel..."
+              value={formData.title}
               onChange={(e) =>
-                setFormData({ ...formData, nama_poli: e.target.value })
+                setFormData({ ...formData, title: e.target.value })
               }
             />
           </div>
@@ -369,7 +369,7 @@ export default function PoliTable() {
             <QuillEditor
               value={formData.deskripsi}
               onChange={(v) => setFormData({ ...formData, deskripsi: v })}
-              placeholder="Tulis deskripsi poli..."
+              placeholder="Tulis deskripsi carousel..."
               className="text-gray-800 text-theme-sm dark:text-gray-400"
             />
           </div>
