@@ -20,12 +20,18 @@ const router = express.Router();
  *     Testimoni:
  *       type: object
  *       properties:
- *         id: { type: integer }
- *         nama: { type: string }
- *         alamat: { type: string }
- *         deskripsi: { type: string }
- *         rating: { type: integer }
- *         status: { type: integer }
+ *         id:
+ *           type: integer
+ *         nama:
+ *           type: string
+ *         alamat:
+ *           type: string
+ *         deskripsi:
+ *           type: string
+ *         rating:
+ *           type: integer
+ *         status:
+ *           type: integer
  *       example:
  *         id: 1
  *         nama: "Rizki"
@@ -45,6 +51,15 @@ const router = express.Router();
  *   get:
  *     summary: Get all testimonials
  *     tags: [Testimoni]
+ *     responses:
+ *       200:
+ *         description: Berhasil mengambil semua testimoni
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Testimoni'
  */
 router.get("/getAllTestimoni", getAllTestimoni);
 
@@ -54,6 +69,22 @@ router.get("/getAllTestimoni", getAllTestimoni);
  *   get:
  *     summary: Get testimonial by ID
  *     tags: [Testimoni]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID testimoni
+ *     responses:
+ *       200:
+ *         description: Berhasil mengambil testimoni
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Testimoni'
+ *       404:
+ *         description: Testimoni tidak ditemukan
  */
 router.get("/getTestimoniById/:id", getTestimoniById);
 
@@ -63,6 +94,15 @@ router.get("/getTestimoniById/:id", getTestimoniById);
  *   post:
  *     summary: Insert testimonial
  *     tags: [Testimoni]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Testimoni'
+ *     responses:
+ *       200:
+ *         description: Testimoni berhasil ditambahkan
  */
 router.post("/insertTestimoni", insertTestimoni);
 
@@ -72,6 +112,21 @@ router.post("/insertTestimoni", insertTestimoni);
  *   put:
  *     summary: Update testimonial
  *     tags: [Testimoni]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Testimoni'
+ *     responses:
+ *       200:
+ *         description: Testimoni berhasil diperbarui
  */
 router.put("/updateTestimoni/:id", updateTestimoni);
 
@@ -81,6 +136,12 @@ router.put("/updateTestimoni/:id", updateTestimoni);
  *   patch:
  *     summary: Update testimonial status only
  *     tags: [Testimoni]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
  *     requestBody:
  *       required: true
  *       content:
@@ -92,6 +153,9 @@ router.put("/updateTestimoni/:id", updateTestimoni);
  *                 type: integer
  *             example:
  *               status: 0
+ *     responses:
+ *       200:
+ *         description: Status testimoni berhasil diperbarui
  */
 router.patch("/updateStatusTestimoni/:id", updateStatusTestimoni);
 
@@ -101,6 +165,15 @@ router.patch("/updateStatusTestimoni/:id", updateStatusTestimoni);
  *   delete:
  *     summary: Delete testimonial
  *     tags: [Testimoni]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Testimoni berhasil dihapus
  */
 router.delete("/deleteTestimoni/:id", deleteTestimoni);
 
