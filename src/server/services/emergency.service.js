@@ -1,20 +1,20 @@
-import pool from "../../config/db.js";
+import pool from "../../../config/db.js";
 
-const inpatientService = {
+const emergencyService = {
   getAll: async () => {
-    const [rows] = await pool.query("SELECT * FROM inpatient ORDER BY id DESC");
+    const [rows] = await pool.query("SELECT * FROM emergency ORDER BY id DESC");
     return rows;
   },
 
   getActive: async () => {
     const [rows] = await pool.query(
-      "SELECT * FROM inpatient WHERE status = 1 ORDER BY id DESC"
+      "SELECT * FROM emergency WHERE status = 1 ORDER BY id DESC"
     );
     return rows;
   },
 
   getById: async (id) => {
-    const [rows] = await pool.query("SELECT * FROM inpatient WHERE id = ?", [
+    const [rows] = await pool.query("SELECT * FROM emergency WHERE id = ?", [
       id,
     ]);
     return rows[0];
@@ -22,7 +22,7 @@ const inpatientService = {
 
   insert: async ({ image, nama, deskripsi }) => {
     await pool.query(
-      `INSERT INTO inpatient (image, nama, deskripsi)
+      `INSERT INTO emergency (image, nama, deskripsi)
        VALUES (?, ?, ?)`,
       [image, nama, deskripsi]
     );
@@ -35,12 +35,12 @@ const inpatientService = {
 
     const values = [...Object.values(updateData), id];
 
-    await pool.query(`UPDATE inpatient SET ${setClause} WHERE id = ?`, values);
+    await pool.query(`UPDATE emergency SET ${setClause} WHERE id = ?`, values);
   },
 
   deleteById: async (id) => {
-    await pool.query("DELETE FROM inpatient WHERE id = ?", [id]);
+    await pool.query("DELETE FROM emergency WHERE id = ?", [id]);
   },
 };
 
-export default inpatientService;
+export default emergencyService;

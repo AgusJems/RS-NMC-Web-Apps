@@ -35,19 +35,33 @@ import Inpatient from "./pages/Inpatient/Inpatient";
 import Emergency from "./pages/Emergency/Emergency";
 import Support from "./pages/Support/Support";
 import Carousel from "./pages/Carousel/Carousel";
+import { Navigate } from "react-router-dom";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 export default function App() {
   useEffect(() => {
-      AOS.init({ offset: 100, duration: 600, easing: "ease-in-sine", delay: 100 });
-    }, []);
+    AOS.init({
+      offset: 100,
+      duration: 600,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
+  }, []);
   return (
     <>
       <Router>
         <ScrollToTop />
         <Routes>
+          <Route path="/" element={<Navigate to="/signin" replace />} />
           {/* Dashboard Layout */}
-          <Route element={<AppLayout />}>
-            <Route index path="/" element={<Home />} />
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/dashboard" element={<Home />} />
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
@@ -72,15 +86,24 @@ export default function App() {
             <Route path="/landing" element={<HomeLanding />} />
             <Route path="/profile/story" element={<StoryPage />} />
             <Route path="/profile/visi-misi" element={<VisionMissionPage />} />
-            <Route path="/profile/quality-indicators" element={<QualityIndicatorPage />} />
+            <Route
+              path="/profile/quality-indicators"
+              element={<QualityIndicatorPage />}
+            />
             <Route path="/doctorpage" element={<DoctorPage />} />
-            <Route path="/doctorpage/:id" element={<DoctorDetailPage/>} />
+            <Route path="/doctorpage/:id" element={<DoctorDetailPage />} />
             <Route path="/newspage" element={<NewsPage />} />
             <Route path="/newspage/:id" element={<NewsDetailPage />} />
             <Route path="/service/outpatient" element={<OutPatientPage />} />
-            <Route path="/service/outpatient/:id" element={<OutPatientDetailPage />} />
+            <Route
+              path="/service/outpatient/:id"
+              element={<OutPatientDetailPage />}
+            />
             <Route path="/service/inpatient" element={<InPatientPage />} />
-            <Route path="/service/emergency-care" element={<EmergencyCarePage />} />
+            <Route
+              path="/service/emergency-care"
+              element={<EmergencyCarePage />}
+            />
             <Route path="/service/support" element={<SupportPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/testimoni" element={<TestimoniForm />} />
@@ -88,8 +111,6 @@ export default function App() {
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
-
-
         </Routes>
       </Router>
     </>
