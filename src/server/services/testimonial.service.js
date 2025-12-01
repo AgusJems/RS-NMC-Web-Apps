@@ -1,4 +1,4 @@
-import pool from "../../config/db.js";
+import pool from "../../../config/db.js";
 
 export const getAll = async () => {
   const [rows] = await pool.query("SELECT * FROM testimoni ORDER BY id DESC");
