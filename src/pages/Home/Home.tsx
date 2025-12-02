@@ -7,7 +7,6 @@ import Partner from "../../landing/Partner/Partner";
 import Service from "../../landing/Service/Service";
 import Banner from "../../landing/Banner/Banner";
 import Doctor from "../../landing/Doctor/Doctor";
-import DoctorData from "../../components/doctorData/doctorData";
 import Contact from "../../landing/Contact/Contact";
 import News from "../../landing/News/News";
 import Testimonial from "../../landing/Testimonial/Testimonial";
@@ -18,7 +17,7 @@ const HomeLanding: React.FC = () => {
       <Carousel handleOrderPopup={() => console.log("Popup dibuka")} />
       <Service />
       <Banner />
-      <Doctor doctors={DoctorData} />
+      <Doctor />
       <Contact />
       <News />
       <Partner />

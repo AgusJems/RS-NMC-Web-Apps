@@ -7,7 +7,7 @@ export default function Poly() {
   return (
     <div>
       <PageMeta
-        title="Partner | RS NMC"
+        title="RS NMC Web Apps"
         description="This is React.js Blank Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
       />
       <PageBreadcrumb pageTitle="Partner Page" />
