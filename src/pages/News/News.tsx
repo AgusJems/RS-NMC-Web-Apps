@@ -7,7 +7,7 @@ export default function News() {
   return (
     <div>
       <PageMeta
-        title="News | RS NMC"
+        title="RS NMC Web Apps"
         description="This is React.js Blank Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
       />
       <PageBreadcrumb pageTitle="News Page" />

@@ -7,7 +7,7 @@ export default function Support() {
   return (
     <div>
       <PageMeta
-        title="Support | RS NMC"
+        title="RS NMC Web Apps"
         description="This is React.js Blank Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
       />
       <PageBreadcrumb pageTitle="Support Page" />
