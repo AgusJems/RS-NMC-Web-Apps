@@ -14,7 +14,7 @@ class AuthService {
     );
 
     if (rows.length === 0) {
-      throw new Error("User tidak ditemukan");
+      throw new Error("User not found");
     }
 
     const user = rows[0];
@@ -28,7 +28,7 @@ class AuthService {
     console.log("Compare result:", isMatch);
 
     if (!isMatch) {
-      throw new Error("Password salah");
+      throw new Error("Wrong Password");
     }
 
     const token = jwt.sign(

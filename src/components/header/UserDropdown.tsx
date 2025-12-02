@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { useNavigate } from "react-router-dom";
+import { showLogoutSuccess } from "../../utils/swalFire";
 
 export default function UserDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ export default function UserDropdown() {
   function handleLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    showLogoutSuccess();
     navigate("/signin");
   }
 

@@ -2,12 +2,11 @@ import { useState } from "react";
 import { EyeCloseIcon, EyeIcon } from "../../icons";
 import Label from "../form/Label";
 import Input from "../form/input/InputField";
-import Checkbox from "../form/input/Checkbox";
 import Button from "../ui/button/Button";
+import { closeSwal, showError, showLoginError, showLoginSuccess } from "../../utils/swalFire";
 
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -15,10 +14,12 @@ export default function SignInForm() {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setError("");
     setLoading(true);
 
     try {
+
       const res = await fetch("http://localhost:3001/api/auth/login", {
         method: "POST",
         headers: {
@@ -29,28 +30,27 @@ export default function SignInForm() {
 
       const data = await res.json();
 
+      closeSwal();
+
       if (!res.ok) {
-        setError(data.message || "Login gagal");
+        showLoginError(data.message || "Login failed. Please try again.");
         setLoading(false);
+        setError(data.message);
         return;
       }
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      if (isChecked) {
-        localStorage.setItem("keepLoggedIn", "true");
-      } else {
-        localStorage.removeItem("keepLoggedIn");
-      }
+      showLoginSuccess(data.user.name || data.user.username);
 
-      alert("Login berhasil!");
-      window.location.href = "/dashboard";
+      setTimeout(() => {
+        window.location.href = "/dashboard";
+      }, 1200);
     } catch (err) {
-      setError("Terjadi kesalahan server");
+      closeSwal();
+      showError("Error", "A server error occurred.");
     }
-
-    setLoading(false);
   };
 
   return (
@@ -98,15 +98,6 @@ export default function SignInForm() {
                   ) : (
                     <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
                   )}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Checkbox checked={isChecked} onChange={setIsChecked} />
-                <span className="block text-sm text-gray-700 dark:text-gray-400">
-                  Keep me logged in
                 </span>
               </div>
             </div>

@@ -95,8 +95,8 @@ export const closeSwal = () => {
 export const showLoginSuccess = (username?: string) => {
   Swal.fire({
     icon: "success",
-    title: "Login Berhasil",
-    text: username ? `Selamat datang, ${username}!` : "Selamat datang!",
+    title: "Login Successfully!",
+    text: username ? `Welcome, ${username}!` : "Welcome!",
     timer: 2000,
     showConfirmButton: false,
     ...blurOptions,
@@ -107,7 +107,7 @@ export const showLoginSuccess = (username?: string) => {
 export const showLoginError = (message = "Username atau password salah.") => {
   Swal.fire({
     icon: "error",
-    title: "Login Gagal",
+    title: "Login Failed!",
     text: message,
     confirmButtonColor: "#dc2626",
     ...blurOptions,
@@ -118,8 +118,8 @@ export const showLoginError = (message = "Username atau password salah.") => {
 export const showLogoutSuccess = () => {
   Swal.fire({
     icon: "success",
-    title: "Logout Berhasil",
-    text: "Sampai jumpa kembali!",
+    title: "Logout Successfully",
+    text: "See you again!",
     timer: 1800,
     showConfirmButton: false,
     ...blurOptions,
