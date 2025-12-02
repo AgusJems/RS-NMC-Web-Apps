@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { useNavigate } from "react-router-dom";
 import { showLogoutSuccess } from "../../utils/swalFire";
 
+interface User {
+  nama_lengkap: string;
+}
+
 export default function UserDropdown() {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   function closeDropdown() {
     setIsOpen(false);
@@ -24,11 +36,11 @@ export default function UserDropdown() {
         onClick={() => setIsOpen(prev => !prev)}
         className="flex items-center text-gray-700 dropdown-toggle dark:text-gray-400"
       >
-        <span className="mr-3 overflow-hidden rounded-full h-11 w-11">
+        {/* <span className="mr-3 overflow-hidden rounded-full h-11 w-11">
           <img src="/images/user/owner.png" alt="User" />
-        </span>
+        </span> */}
 
-        <span className="block mr-1 font-medium text-theme-sm">Agus</span>
+        <span className="block mr-1 font-medium text-theme-sm">{user?.nama_lengkap || "User"}</span>
 
         <svg
           className={`transition-transform duration-200 ${
@@ -53,14 +65,14 @@ export default function UserDropdown() {
         onClose={closeDropdown}
         className="absolute right-0 mt-[17px] w-[260px] rounded-2xl border bg-white p-3 shadow-theme-lg"
       >
-        <div>
+        {/* <div>
           <span className="font-medium text-gray-700">Agus Safrudin</span>
           <span className="block text-theme-xs text-gray-500">
             safrudinagus@gmail.com
           </span>
         </div>
 
-        <ul className="pt-4 pb-3 border-b"></ul>
+        <ul className="pt-4 pb-3 border-b"></ul> */}
 
         <button
           onClick={handleLogout}
