@@ -35,6 +35,12 @@ import Inpatient from "./pages/Inpatient/Inpatient";
 import Emergency from "./pages/Emergency/Emergency";
 import Support from "./pages/Support/Support";
 import Carousel from "./pages/Carousel/Carousel";
+
+// start Resto
+import Resto from "./pages/Resto/Resto";
+import RestoPage from "./landing/Resto/Resto";
+// End Resto
+
 import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
@@ -76,6 +82,7 @@ export default function App() {
             <Route path="/support" element={<Support />} />
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/carousel" element={<Carousel />} />
+            <Route path="/resto" element={<Resto />} />
           </Route>
 
           {/* Auth Layout */}
@@ -107,6 +114,7 @@ export default function App() {
             <Route path="/service/support" element={<SupportPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/testimoni" element={<TestimoniForm />} />
+            <Route path="/service/resto" element={<RestoPage />} />
           </Route>
 
           {/* Fallback Route */}
