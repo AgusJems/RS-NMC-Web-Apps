@@ -32,7 +32,7 @@ export const NavLinks: NavLink[] = [
       { name: "Rawat Darurat", link: "/service/emergency-care" },
       { name: "Rawat Inap", link: "/service/inpatient" },
       { name: "Penunjang", link: "/service/support" },
-      { name: "Anni`mah Resto", link: "/service/annimah-resto" },
+      { name: "Resto NMC", link: "/service/resto" },
     ],
   },
   { id: 5, name: "NMC Update", link: "/newspage" },
