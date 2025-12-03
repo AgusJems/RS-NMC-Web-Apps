@@ -62,11 +62,8 @@ const NewsDetailPage: React.FC = () => {
   const sanitizeHtml = (html: string) => {
     return (
       html
-        // Hapus background (bloker putih)
         .replace(/background-color:[^;"]+;?/gi, "")
-        // Hapus warna teks copy-paste
         .replace(/color:[^;"]+;?/gi, "")
-        // Hapus style kosong
         .replace(/style=""/gi, "")
     );
   };

@@ -1,117 +1,143 @@
 import React, { useEffect, useState } from "react";
-import Slider, { Settings } from "react-slick";
-import bgRs from "../../../public/images/carousel/rs-depan.svg";
+import Slider from "react-slick";
 
-const bgStyle: React.CSSProperties = {
-  backgroundImage: `url(${bgRs})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  height: "750px",
-  width: "100vw",
-};
-
-type ImageItem = {
+interface RestoItem {
   id: number;
-  image: string;
   title: string;
   deskripsi: string;
-};
-
-interface CarouselProps {
-  handleOrderPopup: () => void;
+  image: string;
+  status: number;
+  created_at: string;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
-  const [carouselData, setCarouselData] = useState<ImageItem[]>([]);
+const Resto: React.FC = () => {
+  const [resto, setResto] = useState<RestoItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Ambil data dari backend
   useEffect(() => {
-    fetch("http://localhost:3001/api/getActiveCarousel")
-      .then((res) => res.json())
-      .then((res) => setCarouselData(res.data || []))
-      .catch((err) => console.error("Error load carousel:", err));
+    fetchResto();
   }, []);
 
-  const settings: Settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 800,
-    slidesToScroll: 1,
-    slidesToShow: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    cssEase: "ease-in-out",
-    pauseOnHover: false,
-    pauseOnFocus: true,
+  const fetchResto = async () => {
+    try {
+      const res = await fetch("http://localhost:3001/api/Resto");
+      const json = await res.json();
+      setResto(json.data || []);
+    } catch (err) {
+      console.error("Error fetching resto:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 1000,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    responsive: [
+      {
+        breakpoint: 10000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const sanitizeHtml = (html: string) => {
+    return html
+      .replace(/background-color:[^;"]+;?/gi, "")
+      .replace(/color:[^;"]+;?/gi, "")
+      .replace(/style=""/gi, "");
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-gray-500">
+        Loading...
+      </div>
+    );
+  }
+
   return (
-    <div style={bgStyle}>
-      <div className="dark:bg-dark/60 bg-white/10 backdrop-blur-sm dark:text-white duration-300 h-[750px] flex justify-center items-center">
-        <div className="container pb-8 sm:pb-0">
-          <Slider {...settings}>
-            {carouselData.map((data) => (
-              <div key={data.id}>
-                <div className="grid grid-cols-1 sm:grid-cols-2">
-                  
-                  {/* Text */}
-                  <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
-                    <h1
-                      data-aos="zoom-out"
-                      data-aos-duration="500"
-                      data-aos-once="true"
-                      className="text-5xl sm:text-6xl lg:text-7xl font-bold text-emerald-700"
-                    >
-                      {data.title}
-                    </h1>
-
-                    <div
-                      data-aos="fade-up"
-                      data-aos-duration="500"
-                      data-aos-delay={100}
-                      className="text-lg text-white"
-                      dangerouslySetInnerHTML={{ __html: data.deskripsi }}
-                    />
-
-                    {/* <div
-                      data-aos="fade-up"
-                      data-aos-duration="500"
-                      data-aos-delay={300}
-                    >
-                      <button
-                        onClick={handleOrderPopup}
-                        className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
-                      >
-                        Read More
-                      </button>
-                    </div> */}
-                  </div>
-
-                  {/* Image */}
-                  <div className="order-1 sm:order-2">
-                    <div
-                      data-aos="zoom-in"
-                      data-aos-once="true"
-                      className="relative z-10"
-                    >
-                      <img
-                        src={data.image}
-                        alt={data.title}
-                        className="w-[300px] h-[300px] sm:h-[450px] sm:w-[400px] sm:scale-105 lg:scale-120 object-contain mx-auto rounded-xl"
-                      />
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            ))}
-          </Slider>
+    <div className="py-10 justify-items-center dark:bg-black dark:text-white">
+      <div className="container">
+        {/* Header */}
+        <div className="text-center mb-10 max-w-[800px] mx-auto">
+          <h1 className="text-2xl font-bold text-center mb-6">
+            Menu Resto RSU An Ni’mah
+          </h1>
         </div>
+
+        {/* Slider */}
+        <Slider {...settings}>
+          {resto.map((item) => (
+            <div key={item.id} className="px-4 py-6">
+              <div className="max-w-2xl mx-auto">
+                {/* Title */}
+                <h1
+                  data-aos="fade-up"
+                  className="text-3xl font-bold mb-4 text-gray-900 dark:text-white text-center"
+                >
+                  {item.title}
+                </h1>
+
+                {/* IMAGE */}
+                <div
+                  data-aos="fade-up"
+                  className="relative w-full h-full mb-6 rounded-lg overflow-hidden shadow-lg"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full"
+                  />
+                </div>
+
+                {/* DESCRIPTION */}
+                <div
+                  data-aos="fade-up"
+                  className="news-content prose dark:prose-invert max-w-none text-gray-800 dark:text-gray-300 text-sm sm:text-lg"
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizeHtml(item.deskripsi),
+                  }}
+                />
+
+                {/* DATE */}
+                <p className="mt-4 text-sm text-gray-400 text-center">
+                  Ditambahkan pada:{" "}
+                  {new Date(item.created_at).toLocaleDateString("id-ID")}
+                </p>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );
 };
 
-export default Carousel;
+export default Resto;
