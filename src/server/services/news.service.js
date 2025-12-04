@@ -99,6 +99,17 @@ const newsService = {
       throw error;
     }
   },
+
+  getTotalNews: async () => {
+    try {
+      const query = `SELECT COUNT(*) AS total FROM berita`;
+      const [rows] = await pool.query(query);
+      return rows[0].total;
+    } catch (error) {
+      console.error("Error counting news:", error);
+      throw error;
+    }
+  },
 };
 
 export default newsService;

@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   getAllNews,
+  getTotalNews,
   getActiveNews,
   getNewsById,
   insertDetailNews,
@@ -88,6 +89,20 @@ const router = express.Router();
  *         description: Server error occurred
  */
 router.get('/getAllNews', getAllNews);
+
+/**
+ * @swagger
+ * /api/getTotalNews:
+ *   get:
+ *     summary: Retrieve total count of news articles
+ *     tags: [News]
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved total count
+ *       500:
+ *         description: Server error occurred
+ */
+router.get('/getTotalNews', getTotalNews);
 
 /**
  * @swagger

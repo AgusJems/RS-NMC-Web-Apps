@@ -90,3 +90,14 @@ export const deleteNews = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const getTotalNews = async (req, res) => {
+  try {
+    const total = await newsService.getTotalNews();
+    res.status(200).json({ total });
+  } catch (error) {
+    console.error("Error fetching total news:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
