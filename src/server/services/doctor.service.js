@@ -11,6 +11,17 @@ const dokterService = {
     return await pool.query(query);
   },
 
+  getTotalDokter: async () => {
+    try {
+      const query = `SELECT COUNT(*) AS total FROM dokter`;
+      const [rows] = await pool.query(query);
+      return rows[0].total;
+    } catch (error) {
+      console.error("Error counting doctors:", error);
+      throw error;
+    }
+  },
+
   getDokterByPoliId: async (poli_id) => {
     const [rows] = await pool.query(`SELECT * FROM dokter WHERE poli_id = ?`, [
       poli_id,

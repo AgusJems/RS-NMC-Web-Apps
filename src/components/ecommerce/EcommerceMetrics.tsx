@@ -8,10 +8,18 @@ import {
 import Badge from "../ui/badge/Badge";
 
 export default function EcommerceMetrics() {
+  const [totalDoctors, setTotalDoctors] = useState(0);
   const [totalNews, setTotalNews] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/getTotalNews") // ← UBAH jika beda port
+    // GET TOTAL DOCTOR
+    fetch("http://localhost:3001/api/getTotalDokter")
+      .then((res) => res.json())
+      .then((data) => setTotalDoctors(data.total))
+      .catch((err) => console.error("Error fetching total doctors:", err));
+
+    // GET TOTAL NEWS
+    fetch("http://localhost:3001/api/getTotalNews")
       .then((res) => res.json())
       .then((data) => setTotalNews(data.total))
       .catch((err) => console.error("Error fetching total news:", err));
@@ -28,10 +36,10 @@ export default function EcommerceMetrics() {
         <div className="flex items-end justify-between mt-5">
           <div>
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              Customers
+              Doctors
             </span>
             <h4 className="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">
-              3,782
+              {totalDoctors}
             </h4>
           </div>
           <Badge color="success">

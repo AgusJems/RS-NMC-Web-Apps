@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getAllDokter,
+  getTotalDokter,
   getDokterById,
   getDokterByPoliId,
   insertDokter,
@@ -66,6 +67,21 @@ const router = express.Router();
  *         description: Server error occurred
  */
 router.get("/getAllDokter", getAllDokter);
+
+/**
+ * @swagger
+ * /api/getTotalDokter:
+ *   get:
+ *     summary: Retrieve total count of doctors
+ *     tags: [Doctor]
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved total doctor count
+ *       500:
+ *         description: Server error occurred
+ */
+router.get("/getTotalDokter", getTotalDokter);
+
 
 /**
  * @swagger
