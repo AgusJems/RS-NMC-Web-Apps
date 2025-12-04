@@ -12,13 +12,12 @@ export default function EcommerceMetrics() {
   const [totalNews, setTotalNews] = useState(0);
 
   useEffect(() => {
-    // GET TOTAL DOCTOR
+    
     fetch("http://localhost:3001/api/getTotalDokter")
       .then((res) => res.json())
       .then((data) => setTotalDoctors(data.total))
       .catch((err) => console.error("Error fetching total doctors:", err));
 
-    // GET TOTAL NEWS
     fetch("http://localhost:3001/api/getTotalNews")
       .then((res) => res.json())
       .then((data) => setTotalNews(data.total))
