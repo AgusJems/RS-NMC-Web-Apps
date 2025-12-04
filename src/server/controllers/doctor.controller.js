@@ -15,6 +15,16 @@ export const getAllDokter = async (req, res) => {
   }
 };
 
+export const getTotalDokter = async (req, res) => {
+  try {
+    const total = await dokterService.getTotalDokter();
+    res.status(200).json({ total });
+  } catch (error) {
+    console.error("Error fetching total doctors:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 export const getDokterByPoliId = async (req, res) => {
   try {
     const poli_id = req.params.poli_id;
