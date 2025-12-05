@@ -22,7 +22,7 @@ interface CarouselProps {
   handleOrderPopup: () => void;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ handleOrderPopup }) => {
+const Carousel: React.FC<CarouselProps> = () => {
   const [carouselData, setCarouselData] = useState<ImageItem[]>([]);
 
   // Ambil data dari backend
