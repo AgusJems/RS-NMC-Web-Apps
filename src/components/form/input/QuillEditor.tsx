@@ -46,13 +46,14 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
       }
 
       // Add the 'text-change' event listener
-      quill.on("text-change", (delta, oldDelta, source) => {
+      quill.on("text-change", (_, __, source) => {
         if (source === "user") {
           let html = quill.root.innerHTML;
-          // Treat Quill's empty state as an empty string
+
           if (html === "<p><br></p>") {
             html = "";
           }
+
           onChangeRef.current(html);
         }
       });
@@ -74,7 +75,9 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
     }
   }, [value]);
 
-  return <div ref={editorRef} className={className} style={{ minHeight: "200px" }} />;
+  return (
+    <div ref={editorRef} className={className} style={{ minHeight: "200px" }} />
+  );
 };
 
 export default QuillEditor;

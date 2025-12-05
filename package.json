@@ -47,6 +47,8 @@
     "react-router-dom": "^7.6.3",
     "react-select": "^5.10.2",
     "react-slick": "^0.30.3",
+    "simplebar": "^6.3.3",
+    "simplebar-react": "^3.3.2",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.22.2",
     "swiper": "^11.2.3",
