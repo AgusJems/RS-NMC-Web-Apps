@@ -844,4 +844,10 @@ span.flatpickr-weekday,
   list-style-type: decimal !important;
 }
 
+/* FIX EMPTY :is() BUG FROM TAILWIND v4 + VITE CSS MINIFIER */
+::-webkit-scrollbar-thumb:is(*) {}
+.simplebar-scrollbar:before:is(*) {}
+.dark .simplebar-scrollbar:before:is(*) {}
+
+
 
