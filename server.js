@@ -50,12 +50,13 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Serve frontend build
 app.use(express.static(path.join(__dirname, "dist")));
 
-app.get("*", (req, res) => {
+// FIX: Express 5 – replace "*" with "/*"
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
-
 
 // Start server
 app.listen(port, "0.0.0.0", () => {
