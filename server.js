@@ -53,9 +53,9 @@ const __dirname = path.dirname(__filename);
 // Serve frontend build
 app.use(express.static(path.join(__dirname, "dist")));
 
-// FIX: Express 5 – replace "*" with "/*"
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist/index.html"));
 });
 
 // Start server
