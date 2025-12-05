@@ -11,7 +11,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * components:`
+ * components:
  *   schemas:
  *     Resto:
  *       type: object
