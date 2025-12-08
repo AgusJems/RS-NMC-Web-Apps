@@ -22,7 +22,7 @@ const ContactUs = [
     link: "story",
   },
   {
-    title: "Visi $ Misi",
+    title: "Visi & Misi",
     link: "visi-misi",
   },
   {
