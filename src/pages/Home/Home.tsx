@@ -13,7 +13,7 @@ import Testimonial from "../../landing/Testimonial/Testimonial";
 
 const HomeLanding: React.FC = () => {
   return (
-    <div className="dark:bg-black dark:text-white overflow-x-hidden">
+    <div className="dark:bg-black dark:text-white">
       <Carousel handleOrderPopup={() => console.log("Popup dibuka")} />
       <Service />
       <Banner />
