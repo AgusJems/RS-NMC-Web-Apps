@@ -1,6 +1,6 @@
 const FloatingWA = () => {
   const message = "Halo admin, saya ingin bertanya mengenai layanan.";
-  const waUrl = `https://wa.me/6281227086943?text=${encodeURIComponent(message)}`;
+  const waUrl = `https://wa.me/628112922444?text=${encodeURIComponent(message)}`;
 
   return (
     <a
