@@ -44,7 +44,7 @@ const Doctor: React.FC = () => {
 
   return (
     <div className="p-8 bg-white dark:bg-black text-black dark:text-white">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
           <p data-aos="fade-up" className="text-sm text-primary">
@@ -52,11 +52,11 @@ const Doctor: React.FC = () => {
           </p>
           <h1
             data-aos="fade-up"
-            className="text-3xl font-bold text-gray-500 dark:text-white mb-4"
+            className="text-2xl sm:text-3xl font-bold text-gray-500 dark:text-white mb-4"
           >
             Dokter Kami
           </h1>
-          <p data-aos="fade-up" className="text-md text-gray-400">
+          <p data-aos="fade-up" className="text-sm sm:text-md text-gray-400">
             Dukung kesehatan Anda bersama dokter-dokter terbaik kami yang siap
             memberikan pelayanan profesional dan penuh dedikasi.
           </p>

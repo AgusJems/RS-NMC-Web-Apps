@@ -116,7 +116,7 @@ const DoctorDetailPage: React.FC = () => {
               {/* PROFIL */}
               <div data-aos="fade-up">
                 <h3 className="text-xl font-bold text-green-700 mb-2">PROFIL</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-700 text-sm sm:text-lg dark:text-gray-300 leading-relaxed">
                   {parseHTML(doctor.profile)}
                 </p>
               </div>

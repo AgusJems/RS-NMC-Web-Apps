@@ -43,20 +43,20 @@ const ServiceData = [
 const Service: React.FC = () => {
   return (
     <div className="py-10 text-black dark:text-white justify-items-center">
-      <div className="container">
+      <div className="container px-4">
         {/* Header section */}
         <div data-aos="fade-up" className="text-center mb-10">
           <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
             Our Services
           </p>
-          <h1 className="text-3xl font-bold text-gray-500 dark:text-white mb-2">Layanan Kami</h1>
-          <p className="text-md text-gray-400">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-500 dark:text-white mb-2">Layanan Kami</h1>
+          <p className="text-sm sm:text-md text-gray-400">
             RS An Ni’mah menghadirkan layanan kesehatan terpadu yang didukung oleh tenaga medis berkompeten, <br></br> fasilitas modern, serta komitmen untuk memberikan perawatan terbaik bagi setiap pasien.
           </p>
         </div>
 
         {/* Service card section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-4 place-items-center">
           {ServiceData.map(({ id, img, name, description, link, aosDelay }) => (
             <div
               key={id}

@@ -175,7 +175,7 @@ const Footer: React.FC = () => {
             RSU An Ni&apos;mah
           </div>
 
-          <div className="text-sm opacity-80">
+          <div className="text-[8px] sm:text-xs opacity-80">
             Created by{" "}
             <a
               href="https://www.linkedin.com/in/agus-safrudin-b11a8b37b/"

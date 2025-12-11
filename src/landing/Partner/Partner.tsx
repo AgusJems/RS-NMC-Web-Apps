@@ -35,7 +35,7 @@ const Partner: React.FC = () => {
   };
 
   return (
-    <div className="bg-emerald-50 dark:bg-black text-black dark:text-white p-8">
+    <div className="py-8 sm:py-10 bg-emerald-50 dark:bg-black text-black dark:text-white">
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
@@ -44,7 +44,7 @@ const Partner: React.FC = () => {
           </p>
           <h1
             data-aos="fade-up"
-            className="text-3xl font-bold text-gray-500 dark:text-white"
+            className="text-2xl sm:text-3xl font-bold text-gray-500 dark:text-white"
           >
             Partner & Friend
           </h1>

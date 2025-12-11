@@ -57,17 +57,17 @@ const Testimonial: React.FC = () => {
     <div className="py-10 mb-10 justify-items-center">
       <div className="container">
         {/* header section */}
-        <div className="text-center mb-10 max-w-[600px] mx-auto">
+        <div className="text-center px-4 mb-10 max-w-[600px] mx-auto">
           <p data-aos="fade-up" className="text-sm text-primary">
             What our patients are saying
           </p>
           <h1
             data-aos="fade-up"
-            className="text-3xl font-bold text-gray-500 dark:text-white mb-4"
+            className="text-2xl sm:text-3xl font-bold text-gray-500 dark:text-white mb-4"
           >
             Testimonial by Pasien
           </h1>
-          <p data-aos="fade-up" className="text-md text-gray-400">
+          <p data-aos="fade-up" className="text-sm sm:text-md text-gray-400">
             Ulasan dan pengalaman nyata dari pasien yang telah merasakan
             pelayanan RS An Ni’mah. Komitmen kami adalah memberikan perawatan
             terbaik dengan sentuhan kepedulian.

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaUserCircle } from "react-icons/fa";
+// import { FaUserCircle } from "react-icons/fa";
 import { HiChevronDown } from "react-icons/hi";
 import { NavLinks, NavLink } from "../../landing/Navbar/data/navLinks";
 
@@ -24,13 +24,13 @@ const ResponsiveMenu: React.FC<ResponsiveMenuProps> = ({
     >
       <div>
         {/* User Info */}
-        <div className="flex items-center justify-start gap-3">
+        {/* <div className="flex items-center justify-start gap-3">
           <FaUserCircle className="text-6xl" />
           <div>
             <h1>Hello Agus</h1>
             <h1 className="text-sm text-slate-500">Premium user</h1>
           </div>
-        </div>
+        </div> */}
 
         {/* Navigation */}
         <nav className="mt-12">

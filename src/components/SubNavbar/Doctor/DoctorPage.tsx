@@ -55,11 +55,11 @@ const DoctorPage: React.FC = () => {
 
           {/* Header */}
           <div className="text-center mb-10 max-w-[700px] mx-auto">
-            <h1 data-aos="fade-up" className="text-2xl font-bold mb-6">
+            <h1 data-aos="fade-up" className="text-xl sm:text-3xl font-bold mb-6">
               Cari Jadwal Dokter di RSU An Ni’mah
             </h1>
 
-            <p data-aos="fade-up" className="text-md text-gray-400 mb-4">
+            <p data-aos="fade-up" className="text-sm sm:text-md text-gray-400 mb-4">
               Jadwal dokter RSU An Ni’mah kini dapat diakses secara mudah.
               Pilih dokter sesuai kebutuhan Anda dan temukan waktu praktik terbaik.
             </p>
@@ -97,7 +97,7 @@ const DoctorPage: React.FC = () => {
 
                   {/* Button menuju detail schedule */}
                   <Link to={`/doctorpage/${data.id}`}>
-                    <button className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:scale-105 duration-200 cursor-pointer">
+                    <button className="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer">
                       View Schedule
                     </button>
                   </Link>

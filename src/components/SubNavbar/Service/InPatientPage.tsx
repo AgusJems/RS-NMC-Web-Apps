@@ -20,12 +20,12 @@ const InPatientPage: React.FC = () => {
 
   return (
     <>
-      <div className="py-10 dark:bg-black dark:text-white justify-items-center">
-        <div className="min-h-[750px] flex justify-center items-center py-12 sm:py-0">
+      <div className="py-5 sm:py-10 dark:bg-black dark:text-white justify-items-center">
+        <div className="min-h-[750px] flex justify-center items-center py-0">
           <div className="container px-4 py-6">
 
             {/* HEADER */}
-            <div className="text-center mb-10 max-w-[800px] mx-auto">
+            <div className="text-center max-w-[800px] mx-auto">
               <h1 data-aos="fade-up" className="text-2xl font-bold text-center mb-6">
                 Pelayanan Rawat Inap
               </h1>
