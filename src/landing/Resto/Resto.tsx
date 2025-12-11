@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import Slider from "react-slick";
+import { appSetting } from "../../../appSetting";
 
 interface RestoItem {
   id: number;
@@ -29,7 +30,7 @@ const Resto: React.FC = () => {
 
   const fetchResto = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/Resto");
+      const res = await fetch(`${appSetting.apiUrl}/api/Resto`);
       const json = await res.json();
       setResto(json.data || []);
     } catch (err) {

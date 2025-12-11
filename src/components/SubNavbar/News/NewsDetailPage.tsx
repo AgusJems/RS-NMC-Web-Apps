@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { appSetting } from "../../../../appSetting";
 
 interface NewsItem {
   id: number;
@@ -32,7 +33,7 @@ const NewsDetailPage: React.FC = () => {
     if (!id) return;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/getNewsById/${id}`);
+      const res = await fetch(`${appSetting.apiUrl}/api/getNewsById/${id}`);
       const json = await res.json();
       setNews(json.data || null);
     } catch (err) {

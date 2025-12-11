@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import { appSetting } from "../../../appSetting";
 
 interface Testimoni {
   id: number;
@@ -15,7 +16,7 @@ const Testimonial: React.FC = () => {
   const [testimoni, setTestimoni] = useState<Testimoni[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/getAllTestimoni")
+    fetch(`${appSetting.apiUrl}/api/getAllTestimoni`)
       .then((res) => res.json())
       .then((res) => {
         const activeData = (res.data || []).filter(

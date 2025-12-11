@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import { appSetting } from "../../../appSetting";
 
 interface NewsItem {
   id: number;
@@ -42,7 +43,7 @@ const News: React.FC = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/getAllNews")
+    fetch(`${appSetting.apiUrl}/api/getActiveNews`)
       .then((res) => res.json())
       .then((json) => {
         setNews((json.data || []).slice(0, 6));

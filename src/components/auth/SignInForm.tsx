@@ -4,6 +4,7 @@ import Label from "../form/Label";
 import Input from "../form/input/InputField";
 import Button from "../ui/button/Button";
 import { closeSwal, showError, showLoginError, showLoginSuccess } from "../../utils/swalFire";
+import { appSetting } from "../../../appSetting";
 
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +21,7 @@ export default function SignInForm() {
 
     try {
 
-      const res = await fetch("http://localhost:3001/api/auth/login", {
+      const res = await fetch(`${appSetting.apiUrl}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

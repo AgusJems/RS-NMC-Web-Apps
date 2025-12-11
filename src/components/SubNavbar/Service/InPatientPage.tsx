@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { appSetting } from "../../../../appSetting";
 
 interface InpatientItem {
   id: number;
@@ -12,7 +13,7 @@ const InPatientPage: React.FC = () => {
   const [data, setData] = useState<InpatientItem[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/inpatient")
+    fetch(`${appSetting.apiUrl}/api/inpatient`)
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(console.error);

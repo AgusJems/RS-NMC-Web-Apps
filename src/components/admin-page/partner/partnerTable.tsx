@@ -20,6 +20,7 @@ import {
   showLoading,
   closeSwal,
 } from "../../../utils/swalFire";
+import { appSetting } from "../../../../appSetting";
 
 interface Patner {
   id: number;
@@ -45,7 +46,7 @@ export default function PartnerTable() {
   }, []);
 
   const fetchPartner = () => {
-    fetch("http://localhost:3001/api/patner")
+    fetch(`${appSetting.apiUrl}/api/patner`)
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(() => console.log("Failed fetch partner"));
@@ -73,8 +74,8 @@ export default function PartnerTable() {
       showLoading("Saving...");
 
       const url = editingId
-        ? `http://localhost:3001/api/patner/${editingId}`
-        : `http://localhost:3001/api/patner`;
+        ? `${appSetting.apiUrl}/api/patner/${editingId}`
+        : `${appSetting.apiUrl}/api/patner`;
 
       const method = editingId ? "PUT" : "POST";
 
@@ -113,7 +114,7 @@ export default function PartnerTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/patner/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/patner/${id}`, {
         method: "DELETE",
       });
 

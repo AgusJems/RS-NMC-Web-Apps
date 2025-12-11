@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { appSetting } from "../../../../appSetting";
 
 interface DoctorDetail {
   id: number;
@@ -40,9 +41,9 @@ const DoctorDetailPage: React.FC = () => {
 
     const fetchData = async () => {
       try {
-        const resDoctor = await fetch(`http://localhost:3001/api/getDokterById/${id}`);
-        const resSchedule = await fetch(`http://localhost:3001/api/getScheduleByDokterId/${id}`);
-        const resEducation = await fetch(`http://localhost:3001/api/getEducationByDokterId/${id}`);
+        const resDoctor = await fetch(`${appSetting.apiUrl}/api/getDokterById/${id}`);
+        const resSchedule = await fetch(`${appSetting.apiUrl}/api/getScheduleByDokterId/${id}`);
+        const resEducation = await fetch(`${appSetting.apiUrl}/api/getEducationByDokterId/${id}`);
 
         const doctorData = await resDoctor.json();
         const scheduleData = await resSchedule.json();

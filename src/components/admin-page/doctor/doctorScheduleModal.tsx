@@ -14,6 +14,7 @@ import {
 
 import Swal from "sweetalert2";
 import Select from "react-select";
+import { appSetting } from "../../../../appSetting";
 
 const customStyles = {
   control: (base: any, state: any) => {
@@ -146,20 +147,20 @@ export default function DoctorScheduleModal({
 
   const fetchSchedule = async () => {
     const res = await fetch(
-      `http://localhost:3001/api/getScheduleByDokterId/${dokterId}`
+      `${appSetting.apiUrl}/api/getScheduleByDokterId/${dokterId}`
     );
     const json = await res.json();
     setScheduleData(json.data || []);
   };
 
   const fetchHari = async () => {
-    const res = await fetch(`http://localhost:3001/api/getAllHari`);
+    const res = await fetch(`${appSetting.apiUrl}/api/getAllHari`);
     const json = await res.json();
     setHariList(json.data || []);
   };
 
   const addSchedule = async () => {
-    await fetch(`http://localhost:3001/api/insertSchedule`, {
+    await fetch(`${appSetting.apiUrl}/api/insertSchedule`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ dokter_id: dokterId, ...form }),
@@ -174,7 +175,7 @@ export default function DoctorScheduleModal({
   const updateSchedule = async () => {
     if (!editItem) return;
 
-    await fetch(`http://localhost:3001/api/updateSchedule/${editItem.id}`, {
+    await fetch(`${appSetting.apiUrl}/api/updateSchedule/${editItem.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
@@ -199,7 +200,7 @@ export default function DoctorScheduleModal({
 
     if (!confirm.isConfirmed) return;
 
-    await fetch(`http://localhost:3001/api/deleteSchedule/${id}`, {
+    await fetch(`${appSetting.apiUrl}/api/deleteSchedule/${id}`, {
       method: "DELETE",
     });
 

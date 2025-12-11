@@ -6,6 +6,7 @@ import {
   GroupIcon,
 } from "../../icons";
 import Badge from "../ui/badge/Badge";
+import { appSetting } from "../../../appSetting";
 
 export default function EcommerceMetrics() {
   const [totalDoctors, setTotalDoctors] = useState(0);
@@ -13,12 +14,12 @@ export default function EcommerceMetrics() {
 
   useEffect(() => {
     
-    fetch("http://localhost:3001/api/getTotalDokter")
+    fetch(`${appSetting.apiUrl}/api/getTotalDokter`)
       .then((res) => res.json())
       .then((data) => setTotalDoctors(data.total))
       .catch((err) => console.error("Error fetching total doctors:", err));
 
-    fetch("http://localhost:3001/api/getTotalNews")
+    fetch(`${appSetting.apiUrl}/api/getTotalNews`)
       .then((res) => res.json())
       .then((data) => setTotalNews(data.total))
       .catch((err) => console.error("Error fetching total news:", err));

@@ -22,6 +22,7 @@ import {
   showLoading,
   closeSwal,
 } from "../../../utils/swalFire";
+import { appSetting } from "../../../../appSetting";
 
 interface CarouselItem {
   id: number;
@@ -63,7 +64,7 @@ export default function CarouselTable() {
   }, []);
 
   const fetchCarousel = () => {
-    fetch("http://localhost:3001/api/getAllCarousel")
+    fetch(`${appSetting.apiUrl}/api/getAllCarousel`)
       .then((res) => res.json())
       .then((data) => setCarouselData(data.data))
       .catch(console.error);
@@ -76,7 +77,7 @@ export default function CarouselTable() {
   const addCarousel = async () => {
     try {
       showLoading("Menyimpan data carousel...");
-      const res = await fetch("http://localhost:3001/api/insertCarousel", {
+      const res = await fetch(`${appSetting.apiUrl}/api/insertCarousel`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -99,7 +100,7 @@ export default function CarouselTable() {
     try {
       showLoading("Memperbarui carousel...");
       const res = await fetch(
-        `http://localhost:3001/api/updateCarousel/${editingId}`,
+        `${appSetting.apiUrl}/api/updateCarousel/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -131,7 +132,7 @@ export default function CarouselTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/deleteCarousel/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/deleteCarousel/${id}`, {
         method: "DELETE",
       });
       closeSwal();

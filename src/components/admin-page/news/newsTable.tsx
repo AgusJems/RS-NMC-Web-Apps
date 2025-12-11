@@ -23,6 +23,7 @@ import {
   showLoading,
   closeSwal,
 } from "../../../utils/swalFire";
+import { appSetting } from "../../../../appSetting";
 
 const customStyles = {
   control: (base: any, state: any) => {
@@ -163,14 +164,14 @@ export default function NewsTable() {
   }, []);
 
   const fetchNews = () => {
-    fetch("http://localhost:3001/api/getAllNews")
+    fetch(`${appSetting.apiUrl}/api/getAllNews`)
       .then((res) => res.json())
       .then((data) => setNewsData(data.data))
       .catch(console.error);
   };
 
   const fetchJenis = () => {
-    fetch("http://localhost:3001/api/getJenisBerita")
+    fetch(`${appSetting.apiUrl}/api/getJenisBerita`)
       .then((res) => res.json())
       .then((data) => setJenisData(data.data))
       .catch(console.error);
@@ -183,7 +184,7 @@ export default function NewsTable() {
   const addNews = async () => {
     try {
       showLoading("Menyimpan berita...");
-      const res = await fetch("http://localhost:3001/api/insertDetailNews", {
+      const res = await fetch(`${appSetting.apiUrl}/api/insertDetailNews`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -205,7 +206,7 @@ export default function NewsTable() {
     try {
       showLoading("Memperbarui berita...");
       const res = await fetch(
-        `http://localhost:3001/api/updateNews/${editingId}`,
+        `${appSetting.apiUrl}/api/updateNews/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -236,7 +237,7 @@ export default function NewsTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/deleteNews/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/deleteNews/${id}`, {
         method: "DELETE",
       });
       closeSwal();

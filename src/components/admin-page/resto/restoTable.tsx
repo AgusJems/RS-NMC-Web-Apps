@@ -23,6 +23,7 @@ import {
   showLoading,
   closeSwal,
 } from "../../../utils/swalFire";
+import { appSetting } from "../../../../appSetting";
 
 interface RestoItem {
   id: number;
@@ -67,7 +68,7 @@ export default function RestoTable() {
   }, []);
 
   const fetchData = () => {
-    fetch("http://localhost:3001/api/Resto")
+    fetch(`${appSetting.apiUrl}/api/Resto`)
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(console.error);
@@ -80,7 +81,7 @@ export default function RestoTable() {
   const addData = async () => {
     try {
       showLoading("Menyimpan resto...");
-      const res = await fetch("http://localhost:3001/api/Resto", {
+      const res = await fetch(`${appSetting.apiUrl}/api/Resto`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -102,7 +103,7 @@ export default function RestoTable() {
     try {
       showLoading("Memperbarui resto...");
       const res = await fetch(
-        `http://localhost:3001/api/Resto/${editingId}`,
+        `${appSetting.apiUrl}/api/Resto/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -133,7 +134,7 @@ export default function RestoTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/Resto/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/Resto/${id}`, {
         method: "DELETE",
       });
       closeSwal();
