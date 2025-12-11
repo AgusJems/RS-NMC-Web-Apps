@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { appSetting } from "../../../../appSetting";
 
 interface EmergencyItem {
   id: number;
@@ -12,7 +13,7 @@ const EmergencyPage: React.FC = () => {
   const [data, setData] = useState<EmergencyItem[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/emergency")
+    fetch(`${appSetting.apiUrl}/api/emergency`)
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(console.error);

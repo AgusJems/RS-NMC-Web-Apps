@@ -24,6 +24,7 @@ import {
 } from "../../../utils/swalFire";
 import DoctorEducationModal from "./doctorEducationModal";
 import DoctorScheduleModal from "./doctorScheduleModal";
+import { appSetting } from "../../../../appSetting";
 
 const customStyles = {
   control: (base: any, state: any) => {
@@ -159,14 +160,14 @@ export default function DoctorTable() {
   };
 
   const fetchDoctors = () => {
-    fetch("http://localhost:3001/api/getAllDokter")
+    fetch(`${appSetting.apiUrl}/api/getAllDokter`)
       .then((res) => res.json())
       .then((data) => setDoctorData(data.data))
       .catch(console.error);
   };
 
   const fetchPoli = () => {
-    fetch("http://localhost:3001/api/getAllPoli")
+    fetch(`${appSetting.apiUrl}/api/getAllPoli`)
       .then((res) => res.json())
       .then((data) => setPoliData(data.data))
       .catch(console.error);
@@ -193,7 +194,7 @@ export default function DoctorTable() {
   const addDoctor = async () => {
     try {
       showLoading("Menyimpan data dokter...");
-      const res = await fetch("http://localhost:3001/api/insertDokter", {
+      const res = await fetch(`${appSetting.apiUrl}/api/insertDokter`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider, { Settings } from "react-slick";
+import { appSetting } from "../../../appSetting";
 
 interface DoctorItem {
   id: number;
@@ -13,7 +14,7 @@ const Doctor: React.FC = () => {
   const [doctors, setDoctors] = useState<DoctorItem[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/getAllDokter")
+    fetch(`${appSetting.apiUrl}/api/getAllDokter`)
       .then((res) => res.json())
       .then((json) => setDoctors(json.data || []))
       .catch((err) => console.error("Error fetching doctors:", err));

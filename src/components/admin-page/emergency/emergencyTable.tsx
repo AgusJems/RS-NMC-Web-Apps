@@ -23,6 +23,7 @@ import {
   showLoading,
   closeSwal,
 } from "../../../utils/swalFire";
+import { appSetting } from "../../../../appSetting";
 
 interface EmergencyItem {
   id: number;
@@ -64,7 +65,7 @@ export default function EmergencyTable() {
   }, []);
 
   const fetchData = () => {
-    fetch("http://localhost:3001/api/emergency")
+    fetch(`${appSetting.apiUrl}/api/emergency`)
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(console.error);
@@ -77,7 +78,7 @@ export default function EmergencyTable() {
   const addData = async () => {
     try {
       showLoading("Menyimpan emergency...");
-      const res = await fetch("http://localhost:3001/api/emergency", {
+      const res = await fetch(`${appSetting.apiUrl}/api/emergency`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -99,7 +100,7 @@ export default function EmergencyTable() {
     try {
       showLoading("Memperbarui emergency...");
       const res = await fetch(
-        `http://localhost:3001/api/emergency/${editingId}`,
+        `${appSetting.apiUrl}/api/emergency/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -130,7 +131,7 @@ export default function EmergencyTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/emergency/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/emergency/${id}`, {
         method: "DELETE",
       });
       closeSwal();

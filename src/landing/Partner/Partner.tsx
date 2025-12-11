@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider, { Settings } from "react-slick";
+import { appSetting } from "../../../appSetting";
 
 interface PartnerItem {
   id: number;
@@ -10,7 +11,7 @@ const Partner: React.FC = () => {
   const [partners, setPartners] = useState<PartnerItem[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/patner")
+    fetch(`${appSetting.apiUrl}/api/patner`)
       .then((res) => res.json())
       .then((res) => setPartners(res.data || []))
       .catch(() => console.log("Failed to load partners"));

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { appSetting } from "../../../../appSetting";
 
 interface SupportItem {
   id: number;
@@ -12,7 +13,7 @@ const SupportPage: React.FC = () => {
   const [data, setData] = useState<SupportItem[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/support") // API PENUNJANG
+    fetch(`${appSetting.apiUrl}/api/support`) // API PENUNJANG
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(console.error);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { appSetting } from "../../../../appSetting";
 
 interface PoliItem {
   id: number;
@@ -21,7 +22,7 @@ const OutPatientPage: React.FC = () => {
 
   const fetchPoli = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/getActivePoli");
+      const res = await fetch(`${appSetting.apiUrl}/api/getActivePoli`);
       const json = await res.json();
       setPoliData(json.data || []);
     } catch (error) {

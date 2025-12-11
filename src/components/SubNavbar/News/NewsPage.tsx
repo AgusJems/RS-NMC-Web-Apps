@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { appSetting } from "../../../../appSetting";
 
 interface NewsItem {
   id: number;
@@ -27,7 +28,7 @@ const NewsPage: React.FC = () => {
 
   const fetchNews = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/getAllNews");
+      const res = await fetch(`${appSetting.apiUrl}/api/getAllNews`);
       const json = await res.json();
       setAllNews(json.data || []);
     } catch (err) {

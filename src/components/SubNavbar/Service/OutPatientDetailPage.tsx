@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { appSetting } from "../../../../appSetting";
 
 interface PoliItem {
   id: number;
@@ -32,7 +33,7 @@ const OutPatientDetailPage: React.FC = () => {
 
   const fetchDetail = async () => {
     try {
-      const res = await fetch(`http://localhost:3001/api/getPoliById/${id}`);
+      const res = await fetch(`${appSetting.apiUrl}/api/getPoliById/${id}`);
       const json = await res.json();
       setPoli(json.data || null);
 
@@ -50,7 +51,7 @@ const OutPatientDetailPage: React.FC = () => {
   const fetchDokter = async (poliId: number) => {
     try {
       const res = await fetch(
-        `http://localhost:3001/api/getDokterByPoliId/${poliId}`
+        `${appSetting.apiUrl}/api/getDokterByPoliId/${poliId}`
       );
       const json = await res.json();
       setDokterList(json.data || []);

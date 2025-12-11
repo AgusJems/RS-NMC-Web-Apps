@@ -4,6 +4,7 @@ import Input from "../../components/form/input/InputField";
 import TextArea from "../../components/form/input/TextArea";
 import { showSuccess, showError } from "../../utils/swalFire";
 import { useNavigate } from "react-router-dom";
+import { appSetting } from "../../../appSetting";
 
 const TestimoniForm: React.FC = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const TestimoniForm: React.FC = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:3001/api/insertTestimoni", {
+      const res = await fetch(`${appSetting.apiUrl}/api/insertTestimoni`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

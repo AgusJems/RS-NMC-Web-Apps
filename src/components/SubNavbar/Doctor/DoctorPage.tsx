@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { appSetting } from "../../../../appSetting";
 
 interface DoctorItem {
   id: number;
@@ -21,7 +22,7 @@ const DoctorPage: React.FC = () => {
 
   // Fetch doctor from backend
   useEffect(() => {
-    fetch("http://localhost:3001/api/getAllDokter")
+    fetch(`${appSetting.apiUrl}/api/getAllDokter`)
       .then((res) => res.json())
       .then((json) => {
         setDoctors(json.data || []);

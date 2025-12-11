@@ -23,6 +23,7 @@ import {
   showLoading,
   closeSwal,
 } from "../../../utils/swalFire";
+import { appSetting } from "../../../../appSetting";
 
 interface SupporttItem {
   id: number;
@@ -64,7 +65,7 @@ export default function SupporttTable() {
   }, []);
 
   const fetchData = () => {
-    fetch("http://localhost:3001/api/support")
+    fetch(`${appSetting.apiUrl}/api/support`)
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(console.error);
@@ -77,7 +78,7 @@ export default function SupporttTable() {
   const addData = async () => {
     try {
       showLoading("Menyimpan support...");
-      const res = await fetch("http://localhost:3001/api/support", {
+      const res = await fetch(`${appSetting.apiUrl}/api/support`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -99,7 +100,7 @@ export default function SupporttTable() {
     try {
       showLoading("Memperbarui support...");
       const res = await fetch(
-        `http://localhost:3001/api/support/${editingId}`,
+        `${appSetting.apiUrl}/api/support/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -130,7 +131,7 @@ export default function SupporttTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/support/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/support/${id}`, {
         method: "DELETE",
       });
       closeSwal();

@@ -23,6 +23,7 @@ import {
   showLoading,
   closeSwal,
 } from "../../../utils/swalFire";
+import { appSetting } from "../../../../appSetting";
 
 interface InpatientItem {
   id: number;
@@ -64,7 +65,7 @@ export default function InpatientTable() {
   }, []);
 
   const fetchData = () => {
-    fetch("http://localhost:3001/api/inpatient")
+    fetch(`${appSetting.apiUrl}/api/inpatient`)
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(console.error);
@@ -77,7 +78,7 @@ export default function InpatientTable() {
   const addData = async () => {
     try {
       showLoading("Menyimpan inpatient...");
-      const res = await fetch("http://localhost:3001/api/inpatient", {
+      const res = await fetch(`${appSetting.apiUrl}/api/inpatient`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -99,7 +100,7 @@ export default function InpatientTable() {
     try {
       showLoading("Memperbarui inpatient...");
       const res = await fetch(
-        `http://localhost:3001/api/inpatient/${editingId}`,
+        `${appSetting.apiUrl}/api/inpatient/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -130,7 +131,7 @@ export default function InpatientTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/inpatient/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/inpatient/${id}`, {
         method: "DELETE",
       });
       closeSwal();

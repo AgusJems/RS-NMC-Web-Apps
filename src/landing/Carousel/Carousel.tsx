@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Slider, { Settings } from "react-slick";
 import bgRs from "../../../public/images/carousel/rs-depan.svg";
+import { appSetting } from "../../../appSetting";
+
 
 const bgStyle: React.CSSProperties = {
   backgroundImage: `url(${bgRs})`,
@@ -27,7 +29,7 @@ const Carousel: React.FC<CarouselProps> = () => {
 
   // Ambil data dari backend
   useEffect(() => {
-    fetch("http://localhost:3001/api/getActiveCarousel")
+    fetch(`${appSetting.apiUrl}/api/getActiveCarousel`)
       .then((res) => res.json())
       .then((res) => setCarouselData(res.data || []))
       .catch((err) => console.error("Error load carousel:", err));

@@ -20,6 +20,7 @@ import {
   closeSwal,
 } from "../../../utils/swalFire";
 import Badge from "../../ui/badge/Badge";
+import { appSetting } from "../../../../appSetting";
 
 interface Testimoni {
   id: number;
@@ -41,7 +42,7 @@ export default function TestimonialTable() {
   }, []);
 
   const fetchTestimoni = () => {
-    fetch("http://localhost:3001/api/getAllTestimoni")
+    fetch(`${appSetting.apiUrl}/api/getAllTestimoni`)
       .then((res) => res.json())
       .then((res) => setData(res.data || []))
       .catch(() => console.log("Failed fetch testimoni"));
@@ -60,7 +61,7 @@ export default function TestimonialTable() {
       showLoading("Memperbarui status...");
 
       const res = await fetch(
-        `http://localhost:3001/api/updateStatusTestimoni/${editingId}`,
+        `${appSetting.apiUrl}/api/updateStatusTestimoni/${editingId}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -96,7 +97,7 @@ export default function TestimonialTable() {
     try {
       showLoading("Menghapus...");
       const res = await fetch(
-        `http://localhost:3001/api/deleteTestimoni/${id}`,
+        `${appSetting.apiUrl}/api/deleteTestimoni/${id}`,
         { method: "DELETE" }
       );
 

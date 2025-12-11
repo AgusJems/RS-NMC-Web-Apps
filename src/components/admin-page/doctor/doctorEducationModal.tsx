@@ -13,6 +13,7 @@ import {
   TableCell,
   TableBody,
 } from "../../ui/table";
+import { appSetting } from "../../../../appSetting";
 
 interface Props {
   isOpen: boolean;
@@ -52,14 +53,14 @@ export default function DoctorEducationModal({
 
   const fetchEducation = async () => {
     const res = await fetch(
-      `http://localhost:3001/api/getEducationByDokterId/${dokterId}`
+      `${appSetting.apiUrl}/api/getEducationByDokterId/${dokterId}`
     );
     const json = await res.json();
     setEducationData(json.data || []);
   };
 
   const addEducation = async () => {
-    await fetch(`http://localhost:3001/api/insertEducation`, {
+    await fetch(`${appSetting.apiUrl}/api/insertEducation`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ dokter_id: dokterId, ...form }),
@@ -89,7 +90,7 @@ export default function DoctorEducationModal({
   };
 
   const updateEducation = async () => {
-    await fetch(`http://localhost:3001/api/updateEducation/${editId}`, {
+    await fetch(`${appSetting.apiUrl}/api/updateEducation/${editId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
@@ -113,7 +114,7 @@ export default function DoctorEducationModal({
 
     if (!confirm.isConfirmed) return;
 
-    await fetch(`http://localhost:3001/api/deleteEducation/${id}`, {
+    await fetch(`${appSetting.apiUrl}/api/deleteEducation/${id}`, {
       method: "DELETE",
     });
 

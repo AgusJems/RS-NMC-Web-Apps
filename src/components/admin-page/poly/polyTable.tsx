@@ -22,6 +22,7 @@ import {
   showLoading,
   closeSwal,
 } from "../../../utils/swalFire";
+import { appSetting } from "../../../../appSetting";
 
 interface PoliItem {
   id: number;
@@ -63,7 +64,7 @@ export default function PoliTable() {
   }, []);
 
   const fetchPoli = () => {
-    fetch("http://localhost:3001/api/getAllPoli")
+    fetch(`${appSetting.apiUrl}/api/getAllPoli`)
       .then((res) => res.json())
       .then((data) => setPoliData(data.data))
       .catch(console.error);
@@ -76,7 +77,7 @@ export default function PoliTable() {
   const addPoli = async () => {
     try {
       showLoading("Menyimpan data poli...");
-      const res = await fetch("http://localhost:3001/api/insertPoli", {
+      const res = await fetch(`${appSetting.apiUrl}/api/insertPoli`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -99,7 +100,7 @@ export default function PoliTable() {
     try {
       showLoading("Memperbarui poli...");
       const res = await fetch(
-        `http://localhost:3001/api/updatePoli/${editingId}`,
+        `${appSetting.apiUrl}/api/updatePoli/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -131,7 +132,7 @@ export default function PoliTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/deletePoli/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/deletePoli/${id}`, {
         method: "DELETE",
       });
       closeSwal();
