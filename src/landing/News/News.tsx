@@ -56,12 +56,12 @@ const News: React.FC = () => {
     <div className="py-10 justify-items-center bg-white dark:bg-black text-black dark:text-white">
       <div className="container">
         {/* HEADER */}
-        <div className="text-center mb-10 max-w-[600px] mx-auto">
+        <div className="text-center mb-10 max-w-[600px] px-4 mx-auto">
           <p data-aos="fade-up" className="text-sm text-primary">Our News</p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold text-gray-500 dark:text-white mb-2">
+          <h1 data-aos="fade-up" className="text-2xl sm:text-3xl font-bold text-gray-500 dark:text-white mb-2">
             Berita
           </h1>
-          <p data-aos="fade-up" className="text-md text-gray-400">
+          <p data-aos="fade-up" className="text-sm sm:text-md text-gray-400">
             Dapatkan informasi terbaru seputar kegiatan, inovasi layanan, serta edukasi kesehatan dari RS An Ni’mah.
           </p>
         </div>

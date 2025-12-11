@@ -69,7 +69,7 @@ const NewsPage: React.FC = () => {
                   setActiveTab(tab);
                   setVisibleCount(4);
                 }}
-                className={`px-2 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
+                className={`px-3 sm:px-4 py-2 sm:py-2 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                   activeTab === tab
                     ? "bg-gradient-to-r from-primary to-secondary text-white"
                     : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -109,7 +109,7 @@ const NewsPage: React.FC = () => {
                   </p>
 
                   <Link className="text-center" to={`/newspage/${data.id}`}>
-                    <button className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:scale-105 duration-200 cursor-pointer">
+                    <button className="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer">
                       Read More
                     </button>
                   </Link>
@@ -125,9 +125,9 @@ const NewsPage: React.FC = () => {
           <div className="flex justify-center mt-8">
             <button
               onClick={() => setVisibleCount((prev) => prev + 4)}
-              className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-full hover:scale-105 duration-200"
+              className="bg-gradient-to-r from-gdtwo to-gdone text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200"
             >
-              Load More
+              Load More  ..
             </button>
           </div>
         )}

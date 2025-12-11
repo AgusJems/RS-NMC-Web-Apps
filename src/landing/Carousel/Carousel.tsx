@@ -62,7 +62,7 @@ const Carousel: React.FC<CarouselProps> = () => {
                       data-aos="zoom-out"
                       data-aos-duration="500"
                       data-aos-once="true"
-                      className="text-5xl sm:text-6xl lg:text-7xl font-bold text-emerald-700"
+                      className="text-3xl sm:text-6xl lg:text-7xl font-bold text-emerald-700"
                     >
                       {data.title}
                     </h1>
@@ -71,7 +71,7 @@ const Carousel: React.FC<CarouselProps> = () => {
                       data-aos="fade-up"
                       data-aos-duration="500"
                       data-aos-delay={100}
-                      className="text-lg text-white"
+                      className="text-md sm:text-lg text-white"
                       dangerouslySetInnerHTML={{ __html: data.deskripsi }}
                     />
 

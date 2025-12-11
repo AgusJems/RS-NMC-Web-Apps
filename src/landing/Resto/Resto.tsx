@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import Slider from "react-slick";
 
 interface RestoItem {
@@ -13,6 +14,14 @@ interface RestoItem {
 const Resto: React.FC = () => {
   const [resto, setResto] = useState<RestoItem[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const handleResto = () => {
+    const message = "Halo admin, saya ingin bertanya mengenai layanan.";
+    const waUrl = `https://wa.me/6281227086943?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(waUrl, "_blank");
+  };
 
   useEffect(() => {
     fetchResto();
@@ -34,10 +43,10 @@ const Resto: React.FC = () => {
     dots: true,
     arrows: false,
     infinite: true,
-    speed: 1000,
+    speed: 2000,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
     cssEase: "linear",
     pauseOnHover: true,
     pauseOnFocus: true,
@@ -86,10 +95,14 @@ const Resto: React.FC = () => {
     <div className="py-10 justify-items-center dark:bg-black dark:text-white">
       <div className="container">
         {/* Header */}
-        <div className="text-center mb-10 max-w-[800px] mx-auto">
+        <div className="text-center max-w-[800px] mb-5 px-4 mx-auto">
           <h1 className="text-2xl font-bold text-center mb-6">
             Menu Resto RSU An Ni’mah
           </h1>
+
+          <p data-aos="fade-up" className="text-sm text-gray-400">
+            Pilihan menu makanan sehat yang disajikan oleh Resto RSU An Ni’mah, dibuat dengan bahan berkualitas dan mengikuti standar gizi rumah sakit.
+          </p>
         </div>
 
         {/* Slider */}
@@ -135,6 +148,15 @@ const Resto: React.FC = () => {
             </div>
           ))}
         </Slider>
+        <div className="flex justify-center mt-10">
+          <button
+            onClick={handleResto}
+            className="flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white font-semibold hover:scale-105 cursor-pointer px-5 py-3 rounded-full shadow-lg transition-all duration-300"
+          >
+            <FaWhatsapp className="text-xl" />
+            Pesan Sekarang
+          </button>
+        </div>
       </div>
     </div>
   );
