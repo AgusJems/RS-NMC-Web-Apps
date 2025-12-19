@@ -216,7 +216,7 @@ export default function DoctorTable() {
     try {
       showLoading("Memperbarui data dokter...");
       const res = await fetch(
-        `http://localhost:3001/api/updateDokter/${editingId}`,
+        `${appSetting.apiUrl}/api/updateDokter/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -247,7 +247,7 @@ export default function DoctorTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`http://localhost:3001/api/deleteDokter/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/deleteDokter/${id}`, {
         method: "DELETE",
       });
       closeSwal();
