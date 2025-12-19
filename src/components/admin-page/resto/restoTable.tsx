@@ -191,11 +191,11 @@ export default function RestoTable() {
     <>
       {/* TABLE WRAPPER */}
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:bg-white/[0.03] dark:border-white/[0.05]">
-        <div className="max-w-full overflow-x-auto">
+        <div className="max-w-full overflow-x-auto sm:overflow-x-visible">
           <div className="p-4 text-end">
             <Button
               onClick={openModal}
-              className="mb-4 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
+              className="mb-4 w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
             >
               + Add Resto
             </Button>
@@ -405,7 +405,7 @@ export default function RestoTable() {
       <Modal
         isOpen={isOpen}
         onClose={closeModal}
-        className="max-w-[1000px] m-4 max-h-[1000px]"
+        className="max-w-[1000px] m-4"
       >
         <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl">
           <h4 className="text-2xl font-semibold mb-4 text-gray-500 dark:text-gray-400">

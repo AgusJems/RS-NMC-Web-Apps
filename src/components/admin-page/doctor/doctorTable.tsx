@@ -299,13 +299,13 @@ export default function DoctorTable() {
         <div className="p-4 text-end">
           <Button
             onClick={openModal}
-            className="mb-4 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 text-white"
+            className="mb-4 w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 text-white"
           >
             + Add Doctor
           </Button>
         </div>
 
-        <div className="max-w-full overflow-x-auto">
+        <div className="max-w-full overflow-x-auto sm:overflow-x-visible">
           <Table>
             <TableHeader>
               <TableRow>

@@ -118,7 +118,7 @@ export default function TestimonialTable() {
   return (
     <>
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:bg-white/[0.03] dark:border-white/[0.05]">
-        <div className="max-w-full overflow-x-auto">
+        <div className="max-w-full overflow-x-auto sm:overflow-x-visible">
           <Table>
             <TableHeader>
               <TableRow>
