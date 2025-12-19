@@ -167,11 +167,11 @@ export default function CarouselTable() {
   return (
     <>
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
-        <div className="max-w-full overflow-x-auto">
+        <div className="max-w-full overflow-x-auto sm:overflow-x-visible">
           <div className="p-4 text-end">
             <Button
               onClick={openModal}
-              className="mb-4 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
+              className="mb-4 w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
             >
               + Add Carousel
             </Button>

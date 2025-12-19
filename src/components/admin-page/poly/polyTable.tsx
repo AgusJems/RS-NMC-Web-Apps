@@ -167,11 +167,11 @@ export default function PoliTable() {
   return (
     <>
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
-        <div className="max-w-full overflow-x-auto">
+        <div className="max-w-full overflow-x-auto sm:overflow-x-visible">
           <div className="p-4 text-end">
             <Button
               onClick={openModal}
-              className="mb-4 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
+              className="mb-4 w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
             >
               + Add Poly
             </Button>
@@ -345,7 +345,7 @@ export default function PoliTable() {
       </div>
 
       {/* MODAL ADD/EDIT */}
-      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[900px]">
+      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[1000px] m-4">
         <div className="p-6 lg:p-10 bg-white dark:bg-gray-900 rounded-3xl">
           <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white">
             {editingId ? "Edit Poli" : "Add Poli"}
