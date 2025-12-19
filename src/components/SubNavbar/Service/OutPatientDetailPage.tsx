@@ -77,12 +77,12 @@ const OutPatientDetailPage: React.FC = () => {
 
   return (
     <div className="py-12 dark:bg-black dark:text-white justify-items-center">
-      <div className="container min-h-screen px-4 py-6">
+      <div className="container min-h-screen px-4">
         <div className="max-w-4xl mx-auto">
           {/* TITLE */}
           <h1
             data-aos="fade-up"
-            className="text-3xl font-bold mb-4 text-gray-900 dark:text-white"
+            className="text-xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
           >
             {poli.nama_poli}
           </h1>
@@ -90,7 +90,7 @@ const OutPatientDetailPage: React.FC = () => {
           {/* IMAGE */}
           <div
             data-aos="fade-up"
-            className="relative w-full h-[350px] mb-6 rounded-lg overflow-hidden shadow-lg"
+            className="relative w-full h-[250px] sm:h-[350px] mb-6 rounded-lg overflow-hidden shadow-lg"
           >
             <img
               src={poli.image}
@@ -112,7 +112,7 @@ const OutPatientDetailPage: React.FC = () => {
             <div className="mt-12">
               <h2
                 data-aos="fade-up"
-                className="text-2xl font-bold mb-6 text-gray-800 dark:text-white"
+                className="text-xl sm:text-2xl font-bold mb-6 text-gray-800 dark:text-white"
               >
                 Dokter yang Melayani
               </h2>
@@ -151,7 +151,7 @@ const OutPatientDetailPage: React.FC = () => {
           {/* BUTTON BACK */}
           <div className="mt-12">
             <Link to="/service/outpatient">
-              <button className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:scale-105 duration-200">
+              <button className="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer">
                 ← Kembali ke Daftar Poli
               </button>
             </Link>

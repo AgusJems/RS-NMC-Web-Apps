@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { showError } from "../../../utils/swalFire";
 
 interface FileInputProps {
   className?: string;
@@ -11,9 +12,9 @@ const FileInput: FC<FileInputProps> = ({ className = "", onChange }) => {
     if (!file) return;
 
     // Validasi ukuran file (maksimum 1MB)
-    const maxSizeInMB = 1;
+    const maxSizeInMB = 5;
     if (file.size > maxSizeInMB * 1024 * 1024) {
-      alert("Ukuran gambar maksimal 1MB");
+      showError("Ukuran File Terlalu Besar", "Ukuran gambar maksimal 5MB");
       return;
     }
 

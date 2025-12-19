@@ -52,11 +52,11 @@ const DoctorPage: React.FC = () => {
   return (
     <>
       <div className="py-10 justify-items-center dark:bg-black dark:text-white">
-        <div className="container min-h-screen px-4 py-6">
+        <div className="container min-h-screen px-4">
 
           {/* Header */}
           <div className="text-center mb-10 max-w-[700px] mx-auto">
-            <h1 data-aos="fade-up" className="text-xl sm:text-3xl font-bold mb-6">
+            <h1 data-aos="fade-up" className="text-xl sm:text-2xl font-bold mb-6">
               Cari Jadwal Dokter di RSU An Ni’mah
             </h1>
 

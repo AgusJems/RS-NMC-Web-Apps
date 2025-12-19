@@ -120,7 +120,7 @@ const QualityIndicatorPage: React.FC = () => {
         <div className="text-center mb-10 max-w-[800px] mx-auto">
             <h1
               data-aos="fade-up"
-              className="text-2xl font-bold text-center mb-6"
+              className="text-xl sm:text-2xl font-bold text-center mb-6"
             >
               Capaian Indikator Nasional Mutu (INM) <br></br> Rumah Sakit Umum An ni`mah
             </h1>
@@ -132,7 +132,7 @@ const QualityIndicatorPage: React.FC = () => {
             {StoryData.map((data: StoryItem) => (
               <div key={data.id} className="my-6 cursor-pointer">
                 <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 relative">
-                  <div className="relative w-full h-[400px] rounded-lg overflow-hidden mb-2">
+                  <div className="relative w-full h-[250px] sm:h-[400px] rounded-lg overflow-hidden mb-2">
                     <img
                       src={data.img}
                       alt={data.name}
@@ -141,7 +141,7 @@ const QualityIndicatorPage: React.FC = () => {
                   </div>
                   <div className="flex flex-col items-center gap-4">
                     <div className="space-y-3">
-                      <h1 className="text-xl font-bold text-black/80 dark:text-white">
+                      <h1 className="text-md sm:text-xl font-bold text-black/80 dark:text-white">
                         {data.name}
                       </h1>
                     </div>
