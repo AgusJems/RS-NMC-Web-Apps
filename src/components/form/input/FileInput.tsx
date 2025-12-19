@@ -11,10 +11,10 @@ const FileInput: FC<FileInputProps> = ({ className = "", onChange }) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    // Validasi ukuran file (maksimum 1MB)
-    const maxSizeInMB = 5;
+    // Validasi ukuran file (maksimum 3MB)
+    const maxSizeInMB = 3;
     if (file.size > maxSizeInMB * 1024 * 1024) {
-      showError("Ukuran File Terlalu Besar", "Ukuran gambar maksimal 5MB");
+      showError("Ukuran File Terlalu Besar", "Ukuran gambar maksimal 3MB");
       return;
     }
 
