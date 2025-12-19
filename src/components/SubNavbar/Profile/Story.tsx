@@ -44,11 +44,11 @@ const StoryPage: React.FC = () => {
   return (
     <>
       <div className="py-10 dark:bg-black dark:text-white justify-items-center">
-        <div className="container min-h-screen px-4 py-6">
+        <div className="container min-h-screen px-4">
           <div className="text-center mb-10 max-w-[800px] mx-auto">
             <h1
               data-aos="fade-up"
-              className="text-2xl font-bold text-center mb-6"
+              className="text-xl sm:text-2xl font-bold text-center mb-6"
             >
               Perjalanan Sejarah RSU Anni'mah
             </h1>
@@ -67,7 +67,7 @@ const StoryPage: React.FC = () => {
             {StoryData.map((data) => (
               <div key={data.id} className="cursor-pointer">
                 <div className="flex flex-col gap-4 shadow-lg py-6 px-4 rounded-xl dark:bg-gray-800">
-                  <div className="relative w-full h-[450px] rounded-lg overflow-hidden mb-2">
+                  <div className="relative w-full h-[250px] sm:h-[450px] rounded-lg overflow-hidden mb-2">
                     <img
                       src={data.img}
                       alt={data.name}
@@ -75,7 +75,7 @@ const StoryPage: React.FC = () => {
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-xl font-bold text-black/80 dark:text-white">
+                    <h2 className="text-md sm:text-xl font-bold text-black/80 dark:text-white">
                       {data.name}
                     </h2>
                     <p className="text-sm text-gray-500 dark:text-gray-300">

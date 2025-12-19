@@ -71,12 +71,12 @@ const NewsDetailPage: React.FC = () => {
 
   return (
     <div className="py-10 justify-items-center dark:bg-black dark:text-white">
-      <div className="px-4 py-6">
+      <div className="px-4">
         <div className="max-w-2xl mx-auto">
           {/* Title */}
           <h1
             data-aos="fade-up"
-            className="text-3xl font-bold mb-4 text-gray-900 dark:text-white"
+            className="text-xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
           >
             {news.nama_berita}
           </h1>

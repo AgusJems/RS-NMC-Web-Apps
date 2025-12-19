@@ -56,15 +56,15 @@ const VisionMissionPage: React.FC = () => {
   return (
     <>
       {/* Banner Section */}
-      <div className="min-h-[750px] flex justify-center items-center py-12 sm:py-0 dark:bg-black dark:text-white">
-        <div className="container">
+      <div className="min-h-[550px] flex justify-center items-center py-12 sm:py-15 dark:bg-black dark:text-white">
+        <div className="container px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
             {/* Image section */}
             <div data-aos="zoom-in">
               <img
                 src="/images/user/erwin.svg"
                 alt="Direktur RSU An Ni'mah"
-                className="max-w-[500px] h-[550px] w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover rounded-lg"
+                className="max-w-[500px] h-[450px] sm:h-[550px] w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover rounded-lg"
               />
             </div>
 

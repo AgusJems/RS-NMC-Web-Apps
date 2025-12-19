@@ -33,16 +33,18 @@ const OutPatientPage: React.FC = () => {
   return (
     <>
       <div className="py-10 dark:bg-black dark:text-white justify-items-center">
-        <div className="container min-h-screen px-4 py-6">
-
+        <div className="container min-h-screen px-4">
           {/* Header */}
           <div className="text-center mb-10 max-w-[800px] mx-auto">
-            <h1 data-aos="fade-up" className="text-2xl font-bold mb-6">
+            <h1
+              data-aos="fade-up"
+              className="text-xl sm:text-2xl font-bold mb-6"
+            >
               Pelayanan Rawat Jalan
             </h1>
             <p data-aos="fade-up" className="text-sm text-gray-400">
-              Layanan rawat jalan RSU An Ni’mah tersedia untuk berbagai kebutuhan medis,
-              ditangani oleh dokter spesialis berpengalaman.
+              Layanan rawat jalan RSU An Ni’mah tersedia untuk berbagai
+              kebutuhan medis, ditangani oleh dokter spesialis berpengalaman.
             </p>
           </div>
 
@@ -53,8 +55,7 @@ const OutPatientPage: React.FC = () => {
           >
             {poliData.map((data) => (
               <div key={data.id} className="cursor-pointer">
-                <div className="flex flex-col gap-4 shadow-lg py-8 px-3 rounded-xl dark:bg-gray-800">
-
+                <div className="flex flex-col gap-4 shadow-lg py-6 px-3 rounded-xl dark:bg-gray-800">
                   {/* Image */}
                   <div className="w-full h-[153px] rounded-lg overflow-hidden mb-2">
                     <img
@@ -74,18 +75,16 @@ const OutPatientPage: React.FC = () => {
                       {data.deskripsi.replace(/<[^>]+>/g, "").slice(0, 100)}...
                     </p>
 
-                    <Link to={`/service/outpatient/${data.id}`}>
-                      <button className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:scale-105 duration-200">
+                    <Link className="text-center" to={`/service/outpatient/${data.id}`}>
+                      <button className="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer">
                         Read More
                       </button>
                     </Link>
-                    
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </>

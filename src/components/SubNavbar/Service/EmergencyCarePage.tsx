@@ -23,13 +23,13 @@ const EmergencyPage: React.FC = () => {
     <>
       <div className="py-5 sm:py-10 dark:bg-black dark:text-white justify-items-center">
         <div className="min-h-[750px] flex justify-center items-center py-0">
-          <div className="container px-4 py-6">
+          <div className="container px-4">
 
             {/* HEADER */}
             <div className="text-center max-w-[800px] mx-auto">
               <h1
                 data-aos="fade-up"
-                className="text-2xl font-bold text-center mb-6"
+                className="text-xl sm:text-2xl font-bold text-center mb-6"
               >
                 Pelayanan Rawat Darurat
               </h1>
@@ -45,14 +45,14 @@ const EmergencyPage: React.FC = () => {
               .map((item) => (
                 <div
                   key={item.id}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center py-12"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center py-4 sm:py-12"
                 >
                   {/* IMAGE */}
                   <div data-aos="zoom-in">
                     <img
                       src={item.image}
                       alt={item.nama}
-                      className="max-w-[600px] h-[400px] w-full mx-auto 
+                      className="max-w-[600px] h-[300px] sm:h-[400px] w-full mx-auto 
                                  drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] 
                                  object-cover rounded-lg"
                     />
@@ -60,13 +60,13 @@ const EmergencyPage: React.FC = () => {
 
                   {/* TEXT */}
                   <div className="flex flex-col justify-center gap-6 sm:pt-0">
-                    <h1 data-aos="fade-up" className="text-3xl font-bold">
+                    <h1 data-aos="fade-up" className="text-xl sm:text-3xl font-bold">
                       {item.nama}
                     </h1>
 
                     <div
                       data-aos="fade-up"
-                      className="text-md text-gray-500 tracking-wide leading-5 mb-4"
+                      className="text-sm sm:text-md text-gray-500 tracking-wide leading-5 mb-4"
                       dangerouslySetInnerHTML={{ __html: item.deskripsi }}
                     />
                   </div>

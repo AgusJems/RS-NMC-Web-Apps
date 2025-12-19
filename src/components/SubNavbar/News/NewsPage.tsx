@@ -48,11 +48,11 @@ const NewsPage: React.FC = () => {
 
   return (
     <div className="py-10 dark:bg-black dark:text-white justify-items-center">
-      <div className="container min-h-screen px-4 py-6">
+      <div className="container min-h-screen px-4">
         
         {/* Header */}
         <div className="text-center mb-8 max-w-[800px] mx-auto">
-          <h1 data-aos="fade-up" className="text-2xl font-bold text-center mb-4">
+          <h1 data-aos="fade-up" className="text-xl sm:text-2xl font-bold text-center mb-4">
             {activeTab}
           </h1>
           <p data-aos="fade-up" className="text-sm text-gray-400">
@@ -90,7 +90,7 @@ const NewsPage: React.FC = () => {
         >
           {tabData.slice(0, visibleCount).map((data) => (
             <div key={data.id} className="cursor-pointer">
-              <div className="flex flex-col gap-4 shadow-lg py-8 px-4 rounded-xl dark:bg-gray-800">
+              <div className="flex flex-col gap-0 sm:gap-4 shadow-lg py-6 px-4 sm:py-8 sm:px-4 rounded-xl dark:bg-gray-800">
                 
                 <div className="relative w-full h-[250px] rounded-lg overflow-hidden mb-2">
                   <img
