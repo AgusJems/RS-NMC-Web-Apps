@@ -101,13 +101,34 @@ const NewsPage: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-xl font-bold text-black/80 dark:text-white line-clamp-2">
-                    {data.nama_berita}
-                  </h2>
 
-                  <p className="text-sm text-gray-500 dark:text-gray-300 line-clamp-2 mb-3">
-                    {data.deskripsi.replace(/<[^>]+>/g, "").slice(0, 100)}...
-                  </p>
+                  <div className="relative group/title">
+                    <h1 className="text-lg font-semibold text-black/80 dark:text-white line-clamp-2">
+                      {data.nama_berita}
+                    </h1>
+
+                    <div
+                      className="pointer-events-none absolute z-30 hidden group-hover/title:block
+                                bg-black text-white text-xs rounded-md
+                                px-3 py-2 max-w-sm shadow-lg
+                                -top-2 left-0 translate-y-[-100%]">
+                      {data.nama_berita}
+                    </div>
+                  </div>
+
+                  <div className="relative group/desc mb-3">
+                    <p className="text-xs text-gray-500 dark:text-gray-300 line-clamp-2">
+                      {data.deskripsi.replace(/<[^>]+>/g, "").slice(0, 100)}...
+                    </p>
+
+                    <div
+                      className="pointer-events-none absolute z-30 hidden group-hover/desc:block
+                                bg-black text-white text-xs rounded-md
+                                px-3 py-2 max-w-sm shadow-lg
+                                -top-2 left-0 translate-y-[-100%]">
+                      {data.deskripsi.replace(/<[^>]+>/g, "")}
+                    </div>
+                  </div>
 
                   <Link className="text-center" to={`/newspage/${data.id}`}>
                     <button className="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer">
