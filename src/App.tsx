@@ -43,6 +43,7 @@ import RestoPage from "./landing/Resto/Resto";
 
 import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import Simrs from "./landing/Simrs/Simrs";
 
 export default function App() {
   useEffect(() => {
@@ -115,6 +116,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/testimoni" element={<TestimoniForm />} />
             <Route path="/service/resto" element={<RestoPage />} />
+            <Route path="/simrs" element={<Simrs />} />
           </Route>
 
           {/* Fallback Route */}
