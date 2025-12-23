@@ -84,12 +84,34 @@ const News: React.FC = () => {
 
                     <div className="flex flex-col items-center gap-4">
                       <div className="space-y-3">
-                        <h1 className="text-xl font-bold text-black/80 dark:text-white line-clamp-2">
-                          {item.nama_berita}
-                        </h1>
-                        <p className="text-xs text-gray-500 dark:text-gray-300 line-clamp-2">
-                          {stripHTML(item.deskripsi).slice(0, 90)}...
-                        </p>
+                        <div className="relative group/title">
+                          <h1 className="text-lg font-semibold text-black/80 dark:text-white line-clamp-2">
+                            {item.nama_berita}
+                          </h1>
+
+                          <div
+                            className="pointer-events-none absolute z-30 hidden group-hover/title:block
+                                      bg-black text-white text-xs rounded-md
+                                      px-3 py-2 max-w-sm shadow-lg
+                                      -top-2 left-0 translate-y-[-100%]">
+                            {item.nama_berita}
+                          </div>
+                        </div>
+
+                        <div className="relative group/desc">
+                          <p className="text-xs text-gray-500 dark:text-gray-300 line-clamp-2">
+                            {stripHTML(item.deskripsi).slice(0, 90)}...
+                          </p>
+
+                          <div
+                            className="pointer-events-none absolute z-30 hidden group-hover/desc:block
+                                      bg-black text-white text-xs rounded-md
+                                      px-3 py-2 max-w-sm shadow-lg
+                                      -top-2 left-0 translate-y-[-100%]">
+                            {stripHTML(item.deskripsi)}
+                          </div>
+                        </div>
+
                       </div>
                     </div>
                   </div>
