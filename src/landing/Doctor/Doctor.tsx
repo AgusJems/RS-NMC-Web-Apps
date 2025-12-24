@@ -67,20 +67,19 @@ const Doctor: React.FC = () => {
         <Slider {...settings}>
           {doctors.slice(0, 10).map((doctor) => (
             <div key={doctor.id} className="px-2">
-              <div
-                data-aos="zoom-in"
-                className="space-y-3 flex flex-col items-center"
-              >
-                <img
-                  src={getImageSrc(doctor.image)}
-                  alt={doctor.nama}
-                  className="h-[220px] w-[200px] object-cover rounded-md drop-shadow-[-10px_10px_12px_rgba(0,0,0,0.6)]"
-                />
-                <div className="text-center">
-                  <h3 className="font-semibold">{doctor.nama}</h3>
-                  <p className="text-sm text-gray-600">{doctor.spesialis}</p>
+              <Link to={`/doctorpage/${doctor.id}`}>
+                <div data-aos="zoom-in" className="space-y-3 flex flex-col items-center">
+                  <img
+                    src={getImageSrc(doctor.image)}
+                    alt={doctor.nama}
+                    className="h-[220px] w-[200px] object-cover rounded-md drop-shadow-[-10px_10px_12px_rgba(0,0,0,0.6)]"
+                  />
+                  <div className="text-center">
+                    <h3 className="font-semibold">{doctor.nama}</h3>
+                    <p className="text-sm text-gray-600">{doctor.spesialis}</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </Slider>
