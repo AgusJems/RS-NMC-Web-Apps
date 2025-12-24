@@ -120,14 +120,6 @@ const NewsPage: React.FC = () => {
                     <p className="text-xs text-gray-500 dark:text-gray-300 line-clamp-2">
                       {data.deskripsi.replace(/<[^>]+>/g, "").slice(0, 100)}...
                     </p>
-
-                    <div
-                      className="pointer-events-none absolute z-30 hidden group-hover/desc:block
-                                bg-black text-white text-xs rounded-md
-                                px-3 py-2 max-w-sm shadow-lg
-                                -top-2 left-0 translate-y-[-100%]">
-                      {data.deskripsi.replace(/<[^>]+>/g, "")}
-                    </div>
                   </div>
 
                   <Link className="text-center" to={`/newspage/${data.id}`}>
