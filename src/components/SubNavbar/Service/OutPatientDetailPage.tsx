@@ -119,29 +119,21 @@ const OutPatientDetailPage: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
                 {dokterList.map((doctor) => (
-                  <div
-                    key={doctor.id}
-                    data-aos="zoom-in"
-                    className="flex flex-col items-center"
-                  >
-                    <img
-                      src={
-                        doctor.image?.startsWith("data:")
-                          ? doctor.image
-                          : `data:image/jpeg;base64,${doctor.image}`
-                      }
-                      alt={doctor.nama}
-                      className="h-[220px] w-[200px] drop-shadow-[-10px_10px_12px_rgba(0,0,0,0.6)] object-cover"
-                    />
+                  <div key={doctor.id} data-aos="zoom-in" className="flex flex-col items-center">
+                    <Link to={`/doctorpage/${doctor.id}`}>
+                      <img src={ doctor.image?.startsWith("data:") ? doctor.image : `data:image/jpeg;base64,${doctor.image}` }
+                        alt={doctor.nama}
+                        className="h-[220px] w-[200px] drop-shadow-[-10px_10px_12px_rgba(0,0,0,0.6)] object-cover"/>
 
-                    <div className="text-center mt-3">
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
-                        {doctor.nama}
-                      </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        {doctor.spesialis}
-                      </p>
-                    </div>
+                      <div className="text-center mt-3">
+                        <h3 className="font-semibold text-gray-900 dark:text-white">
+                          {doctor.nama}
+                        </h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          {doctor.spesialis}
+                        </p>
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
