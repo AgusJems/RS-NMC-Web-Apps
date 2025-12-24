@@ -14,7 +14,7 @@ interface NewsItem {
   jenis_nama?: string; // dari backend
 }
 
-const tabs = ["Promo Spesial", "Berita Menarik", "Tips Kesehatan"];
+const tabs = ["Promo Spesial", "Berita Terbaru", "Tips Kesehatan"];
 
 const NewsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Promo Spesial");
@@ -37,7 +37,7 @@ const NewsPage: React.FC = () => {
   };
 
  const getTabData = (tab: string): NewsItem[] => {
-  if (tab === "Berita Menarik") return allNews.filter(n => n.jenis_id === 1);
+  if (tab === "Berita Terbaru") return allNews.filter(n => n.jenis_id === 1);
   if (tab === "Promo Spesial") return allNews.filter(n => n.jenis_id === 2);
   if (tab === "Tips Kesehatan") return allNews.filter(n => n.jenis_id === 3);
   return [];
