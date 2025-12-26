@@ -22,7 +22,7 @@ const ServiceData = [
   },
   {
     id: 3,
-    img: "/images/service-logo/rawat-inap.svg",
+    img: "/images/service-logo/ranap.svg",
     name: "Rawat Inap",
     description:
       "Perawatan pasien 24 jam dengan fasilitas nyaman dan tenaga medis berpengalaman.",
