@@ -14,10 +14,6 @@ import { Link } from 'react-router-dom';
 
 const ContactUs = [
   {
-    title: "Kenapa RSU An ni`mah",
-    link: "/#",
-  },
-  {
     title: "Sejarah Rumah Sakit",
     link: "story",
   },
@@ -65,7 +61,7 @@ const Footer: React.FC = () => {
               />
             </h1>
             <p className='text-gray-200'>
-            Kami hadir untuk memberikan layanan kesehatan yang aman, profesional, dan ramah bagi setiap pasien. RSU An Ni’mah — melayani dengan penuh kasih sayang.
+              Melayani Penuh Kasih Sayang.
             </p>
             <div className="flex items-center gap-3 mt-6">
                 <a href="https://www.instagram.com/rsuannimah/">
@@ -172,7 +168,7 @@ const Footer: React.FC = () => {
         {/* Bottom text */}
         <div className="text-center py-10 border-t-2 border-gray-300/50 text-white">
           <div className="text-lg font-semibold mb-1">
-            RSU An Ni&apos;mah
+            Rumah Sakit Umum AN NI`MAH
           </div>
 
           <div className="text-[8px] sm:text-xs opacity-80">
@@ -185,7 +181,7 @@ const Footer: React.FC = () => {
             >
               agus
             </a>{" "}
-            ©2025 | All Rights Reserved
+            ©2026 | All Rights Reserved
           </div>
         </div>
       </div>

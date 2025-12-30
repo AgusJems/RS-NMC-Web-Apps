@@ -21,13 +21,11 @@ const Banner = () => {
           {/* text details section */}
           <div className="flex flex-col justify-center gap-6 order-0 sm:order-none">
             <h1 data-aos="fade-up" className="text-2xl sm:text-3xl font-bold text-gray-700 dark:text-white sm:text-left">
-              Pelayanan terbaik dari para Ahli Medis
+              Pelayanan Terbaik dari Para Ahli Medis 
             </h1>
 
             <p data-aos="fade-up" className="text-md text-gray-500 sm:text-left">
-              Rumah sakit adalah bagian integral dari suatu organisasi sosial
-              dan kesehatan dengan fungsi menyediakan pelayanan paripurna
-              (komprehensif).
+              Rumah sakit merupakan institusi pelayanan kesehatan yang menyediakan pelayanan kesehatan perorangan secara lengkap, meliputi pelayanan rawat inap, rawat jalan, dan gawat darurat.
             </p>
 
             <div className="flex flex-col gap-4">

@@ -32,7 +32,7 @@ const SupportPage: React.FC = () => {
               </h1>
               <p data-aos="fade-up" className="text-sm">
                 Informasi layanan penunjang seperti laboratorium, radiologi, farmasi, 
-                dan fasilitas alat kesehatan pendukung di RSU An Ni’mah.
+                dan fasilitas alat kesehatan pendukung di Rumah Sakit Umum AN NI`MAH.
               </p>
             </div>
 

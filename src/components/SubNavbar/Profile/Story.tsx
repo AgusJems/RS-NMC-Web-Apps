@@ -36,10 +36,10 @@ const StoryPage: React.FC = () => {
               data-aos="fade-up"
               className="text-xl sm:text-2xl font-bold text-center mb-6"
             >
-              Perjalanan Sejarah RSU Anni&apos;mah
+              Perjalanan Sejarah Rumah Sakit Umum AN NI`MAH
             </h1>
             <p data-aos="fade-up" className="text-sm text-gray-400">
-              Dalam perjalanan panjangnya, RSU Anni’mah telah menjadi saksi
+              Dalam perjalanan panjangnya, Rumah Sakit Umum AN NI`MAH telah menjadi saksi
               tumbuhnya pelayanan kesehatan yang berpihak pada rakyat. Dari
               fasilitas sederhana hingga menjadi pusat pelayanan unggulan,
               sejarah kami adalah kisah dedikasi dan perubahan.

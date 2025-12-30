@@ -78,7 +78,7 @@ const TestimoniForm: React.FC = () => {
         </h1>
         <p className="text-center text-gray-500 dark:text-gray-300 mb-8">
           Kami menghargai setiap masukan. Silakan isi data diri, berikan rating, 
-          dan tuliskan pengalaman Anda untuk membantu peningkatan pelayanan RSU An Ni’mah.
+          dan tuliskan pengalaman Anda untuk membantu peningkatan pelayanan Rumah Sakit Umum AN NI`MAH.
         </p>
 
 
