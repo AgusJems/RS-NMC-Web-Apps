@@ -44,6 +44,8 @@ import RestoPage from "./landing/Resto/Resto";
 import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Simrs from "./landing/Simrs/Simrs";
+import Story from "./pages/Story/Story";
+import Indicator from "./pages/Indicator/Indicator";
 
 export default function App() {
   useEffect(() => {
@@ -84,6 +86,8 @@ export default function App() {
             <Route path="/testimonial" element={<Testimonial />} />
             <Route path="/carousel" element={<Carousel />} />
             <Route path="/resto" element={<Resto />} />
+            <Route path="/story" element={<Story />} />
+            <Route path="/indicator" element={<Indicator />} />
           </Route>
 
           {/* Auth Layout */}

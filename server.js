@@ -20,6 +20,8 @@ import emergencyRoutes from "./src/server/routes/emergency.routes.js";
 import supportRoutes from "./src/server/routes/support.routes.js";
 import carouselRoutes from "./src/server/routes/carousel.routes.js";
 import authRoutes from "./src/server/routes/auth.routes.js";
+import indicatorRoutes from "./src/server/routes/indicator.routes.js";
+import storyRoutes from "./src/server/routes/story.routes.js";
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -41,6 +43,8 @@ app.use("/api", emergencyRoutes);
 app.use("/api", supportRoutes);
 app.use("/api", carouselRoutes);
 app.use("/api", restoRoutes);
+app.use("/api", indicatorRoutes);
+app.use("/api", storyRoutes);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

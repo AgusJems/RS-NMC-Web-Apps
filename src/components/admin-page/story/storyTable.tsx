@@ -6,13 +6,14 @@ import {
   TableHeader,
   TableRow,
 } from "../../ui/table";
+
 import Badge from "../../ui/badge/Badge";
 import Button from "../../ui/button/Button";
 import { Modal } from "../../ui/modal";
-// import Input from "../../form/input/InputField";
+import Input from "../../form/input/InputField";
 import Label from "../../form/Label";
 import FileInput from "../../form/input/FileInput";
-// import QuillEditor from "../../form/input/QuillEditor";
+import QuillEditor from "../../form/input/QuillEditor";
 import Switch from "../../form/switch/Switch";
 
 import {
@@ -24,7 +25,7 @@ import {
 } from "../../../utils/swalFire";
 import { appSetting } from "../../../../appSetting";
 
-interface CarouselItem {
+interface StoryItem {
   id: number;
   title: string;
   deskripsi: string;
@@ -32,8 +33,8 @@ interface CarouselItem {
   status: number;
 }
 
-export default function CarouselTable() {
-  const [carouselData, setCarouselData] = useState<CarouselItem[]>([]);
+export default function StoryTable() {
+  const [data, setData] = useState<StoryItem[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
@@ -60,71 +61,69 @@ export default function CarouselTable() {
   };
 
   useEffect(() => {
-    fetchCarousel();
+    fetchData();
   }, []);
 
-  const fetchCarousel = () => {
-    fetch(`${appSetting.apiUrl}/api/getAllCarousel`)
+  const fetchData = () => {
+    fetch(`${appSetting.apiUrl}/api/story`)
       .then((res) => res.json())
-      .then((data) => setCarouselData(data.data))
+      .then((res) => setData(res.data || []))
       .catch(console.error);
   };
 
   const handleSubmit = () => {
-    editingId ? updateCarousel() : addCarousel();
+    editingId ? updateData() : addData();
   };
 
-  const addCarousel = async () => {
+  const addData = async () => {
     try {
-      showLoading("Menyimpan data carousel...");
-      const res = await fetch(`${appSetting.apiUrl}/api/insertCarousel`, {
+      showLoading("Menyimpan story...");
+      const res = await fetch(`${appSetting.apiUrl}/api/story`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       closeSwal();
 
       if (res.ok) {
-        showSuccess("Berhasil", "Carousel berhasil ditambahkan.");
+        showSuccess("Berhasil", "Data berhasil ditambahkan.");
         closeModal();
-        fetchCarousel();
-      } else showError("Gagal", "Tidak dapat menyimpan data carousel.");
+        fetchData();
+      } else showError("Gagal", "Tidak dapat menyimpan data.");
     } catch {
       closeSwal();
       showError("Error", "Terjadi kesalahan.");
     }
   };
 
-  const updateCarousel = async () => {
+  const updateData = async () => {
     try {
-      showLoading("Memperbarui carousel...");
+      showLoading("Memperbarui story...");
       const res = await fetch(
-        `${appSetting.apiUrl}/api/updateCarousel/${editingId}`,
+        `${appSetting.apiUrl}/api/story/${editingId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         }
       );
-
       closeSwal();
 
       if (res.ok) {
-        showSuccess("Berhasil", "Carousel berhasil diperbarui.");
+        showSuccess("Berhasil", "Data berhasil diperbarui.");
         closeModal();
-        fetchCarousel();
-      } else showError("Gagal", "Tidak dapat memperbarui carousel.");
+        fetchData();
+      } else showError("Gagal", "Tidak dapat memperbarui.");
     } catch {
       closeSwal();
       showError("Error", "Terjadi kesalahan.");
     }
   };
 
-  const deleteCarousel = async (id: number) => {
+  const deleteData = async (id: number) => {
     const confirmDelete = await showConfirmDelete(
-      "Yakin ingin menghapus?",
-      "Data carousel tidak dapat dikembalikan!",
+      "Yakin menghapus?",
+      "Data tidak dapat dikembalikan!",
       "Hapus",
       "Batal"
     );
@@ -132,22 +131,22 @@ export default function CarouselTable() {
 
     try {
       showLoading("Menghapus...");
-      const res = await fetch(`${appSetting.apiUrl}/api/deleteCarousel/${id}`, {
+      const res = await fetch(`${appSetting.apiUrl}/api/story/${id}`, {
         method: "DELETE",
       });
       closeSwal();
 
       if (res.ok) {
-        showSuccess("Berhasil", "Carousel berhasil dihapus.");
-        fetchCarousel();
-      } else showError("Gagal", "Gagal menghapus carousel.");
+        showSuccess("Berhasil", "Data dihapus.");
+        fetchData();
+      } else showError("Gagal", "Gagal menghapus.");
     } catch {
       closeSwal();
-      showError("Error", "Terjadi kesalahan saat menghapus carousel.");
+      showError("Error", "Terjadi kesalahan.");
     }
   };
 
-  const editCarousel = (item: CarouselItem) => {
+  const editData = (item: StoryItem) => {
     setEditingId(item.id);
     setFormData({
       title: item.title,
@@ -158,55 +157,60 @@ export default function CarouselTable() {
     setIsOpen(true);
   };
 
-  const totalPages = Math.ceil(carouselData.length / itemsPerPage);
-  const paginatedCarousel = carouselData.slice(
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const paginatedData = data.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
   return (
     <>
-      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
+      {/* TABLE WRAPPER */}
+      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:bg-white/[0.03] dark:border-white/[0.05]">
         <div className="max-w-full overflow-x-auto sm:overflow-x-visible">
           <div className="p-4 text-end">
             <Button
               onClick={openModal}
               className="mb-4 w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:scale-105 duration-200 text-white"
             >
-              + Add Carousel
+              + Add Story
             </Button>
           </div>
 
           <Table>
-            <TableHeader className="border-b border-gray-100 dark:border-white/[0.05]">
+            <TableHeader className="border-b border-gray-100 dark:border-white/[0.08]">
               <TableRow>
-                {/* <TableCell
+                <TableCell
                   isHeader
-                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  className="px-6 py-4 text-center text-gray-700 dark:text-gray-300 min-w-[160px]"
                 >
                   Title
                 </TableCell>
+
                 <TableCell
                   isHeader
-                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  className="px-6 py-4 text-center text-gray-700 dark:text-gray-300 min-w-[300px]"
                 >
                   Description
-                </TableCell> */}
+                </TableCell>
+
                 <TableCell
                   isHeader
-                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  className="px-6 py-4 text-center text-gray-700 dark:text-gray-300 min-w-[120px]"
                 >
                   Image
                 </TableCell>
+
                 <TableCell
                   isHeader
-                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  className="px-6 py-4 text-center text-gray-700 dark:text-gray-300 min-w-[100px]"
                 >
                   Status
                 </TableCell>
+
                 <TableCell
                   isHeader
-                  className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
+                  className="px-6 py-4 text-center text-gray-700 dark:text-gray-300 min-w-[180px]"
                 >
                   Action
                 </TableCell>
@@ -214,24 +218,27 @@ export default function CarouselTable() {
             </TableHeader>
 
             <TableBody className="divide-y divide-gray-100 dark:divide-white/[0.05]">
-              {paginatedCarousel.map((item) => (
+              {paginatedData.map((item) => (
                 <TableRow key={item.id}>
-                  {/* <TableCell className="px-4 py-4 text-center text-gray-500 dark:text-gray-400">
+                  {/* NAME */}
+                  <TableCell className="px-6 py-4 text-gray-600 dark:text-gray-300 font-medium">
                     {item.title}
                   </TableCell>
 
+                  {/* DESCRIPTION */}
                   <TableCell className="px-4 py-4 text-gray-500 text-theme-sm dark:text-gray-400">
                     <div
                       className="prose prose-sm max-w-2xl dark:prose-invert line-clamp-1"
                       dangerouslySetInnerHTML={{ __html: item.deskripsi }}
                     />
-                  </TableCell> */}
+                  </TableCell>
 
-                  <TableCell className="px-4 py-4 text-center">
+                  {/* IMAGE */}
+                  <TableCell className="px-6 py-4 text-center">
                     {item.image ? (
                       <img
                         src={item.image}
-                        className="w-12 h-12 rounded object-cover mx-auto"
+                        className="w-16 h-16 mx-auto rounded-lg object-cover shadow"
                       />
                     ) : (
                       <span className="text-xs text-gray-400 italic">
@@ -240,20 +247,22 @@ export default function CarouselTable() {
                     )}
                   </TableCell>
 
-                  <TableCell className="px-4 py-4 text-center">
+                  {/* STATUS */}
+                  <TableCell className="px-6 py-4 text-center">
                     <Badge
                       size="sm"
                       color={item.status === 1 ? "success" : "error"}
                     >
-                      {item.status === 1 ? "Active" : "Non Active"}
+                      {item.status === 1 ? "Active" : "Inactive"}
                     </Badge>
                   </TableCell>
 
+                  {/* ACTION */}
                   <TableCell className="px-4 py-4 text-center">
                     <div className="flex justify-center gap-2">
                       {/* EDIT BUTTON */}
                       <button
-                        onClick={() => editCarousel(item)}
+                        onClick={() => editData(item)}
                         className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gradient-to-r from-blue-500 to-blue-400 hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200 lg:inline-flex lg:w-auto"
                       >
                         <svg
@@ -276,7 +285,7 @@ export default function CarouselTable() {
 
                       {/* DELETE BUTTON */}
                       <button
-                        onClick={() => deleteCarousel(item.id)}
+                        onClick={() => deleteData(item.id)}
                         className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gradient-to-r from-red-500 to-red-400 hover:text-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200 lg:inline-flex lg:w-auto"
                       >
                         <svg
@@ -314,7 +323,7 @@ export default function CarouselTable() {
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
-              className="px-3 py-1 text-sm border rounded disabled:opacity-50 text-gray-800 dark:text-gray-400"
+              className="px-3 py-1 text-sm border rounded disabled:opacity-50 text-gray-500 dark:text-gray-400"
             >
               Prev
             </button>
@@ -336,7 +345,7 @@ export default function CarouselTable() {
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 text-sm border rounded disabled:opacity-50 text-gray-800 dark:text-gray-400"
+              className="px-3 py-1 text-sm border rounded disabled:opacity-50 text-gray-500 dark:text-gray-400"
             >
               Next
             </button>
@@ -345,35 +354,39 @@ export default function CarouselTable() {
       </div>
 
       {/* MODAL ADD/EDIT */}
-      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[900px]">
-        <div className="p-6 lg:p-10 bg-white dark:bg-gray-900 rounded-3xl">
-          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white">
-            {editingId ? "Edit Carousel" : "Add Carousel"}
+      <Modal
+        isOpen={isOpen}
+        onClose={closeModal}
+        className="max-w-[1000px] m-4"
+      >
+        <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl">
+          <h4 className="text-2xl font-semibold mb-4 text-gray-500 dark:text-gray-400">
+            {editingId ? "Edit Story" : "Add Story"}
           </h4>
 
-          {/* Nama Carousel */}
-          {/* <div className="mb-3">
-            <Label>Title</Label>
+          {/* Nama */}
+          <div className="mb-3">
+            <Label>Name</Label>
             <Input
               type="text"
-              placeholder="Nama carousel..."
+              placeholder="Name"
               value={formData.title}
               onChange={(e) =>
                 setFormData({ ...formData, title: e.target.value })
               }
             />
-          </div> */}
+          </div>
 
           {/* Deskripsi */}
-          {/* <div className="mb-3">
-            <Label>Deskripsi</Label>
+          <div className="mb-3">
+            <Label>Description</Label>
             <QuillEditor
               value={formData.deskripsi}
               onChange={(v) => setFormData({ ...formData, deskripsi: v })}
-              placeholder="Tulis deskripsi carousel..."
+              placeholder="Write description here..."
               className="text-gray-800 text-theme-sm dark:text-gray-400"
             />
-          </div> */}
+          </div>
 
           {/* Image */}
           <div className="mb-3">
@@ -381,11 +394,10 @@ export default function CarouselTable() {
             <FileInput
               onChange={(base64) => setFormData({ ...formData, image: base64 })}
             />
-
             {formData.image && (
               <img
                 src={formData.image}
-                className="w-32 h-32 object-cover rounded border mt-2"
+                className="w-32 h-32 object-cover border rounded mt-2"
               />
             )}
           </div>
@@ -406,10 +418,10 @@ export default function CarouselTable() {
           )}
 
           <div className="flex justify-end gap-3 mt-6">
-            <Button size="sm" variant="outline" onClick={closeModal}>
+            <Button variant="outline" onClick={closeModal}>
               Cancel
             </Button>
-            <Button size="sm" onClick={handleSubmit}>
+            <Button onClick={handleSubmit}>
               {editingId ? "Update" : "Save"}
             </Button>
           </div>

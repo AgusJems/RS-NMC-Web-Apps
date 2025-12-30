@@ -1,81 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import { appSetting } from "../../../../appSetting";
 
-interface StoryItem {
+interface IndicatorItem {
   id: number;
-  name: string;
-  img: string;
+  title: string;
+  image: string | null;
+  status: number;
 }
 
-const StoryData: StoryItem[] = [
-  {
-    id: 1,
-    name: "Kepatuhan Kebersihan Tangan",
-    img: "/images/quality/1.png",
-  },
-  {
-    id: 2,
-    name: "Kepatuhan Alat Pelindung Diri (APD)",
-    img: "/images/quality/2.png",
-  },
-  {
-    id: 3,
-    name: "Kepatuhan Identifikasi Pasien",
-    img: "/images/quality/3.png",
-  },
-  {
-    id: 4,
-    name: "Waktu Tanggap Operasi Seksio Sesarea Emergensi",
-    img: "/images/quality/4.png",
-  },
-  {
-    id: 5,
-    name: "Waktu Tunggu Rawat Jalan",
-    img: "/images/quality/5.png",
-  },
-  {
-    id: 6,
-    name: "Penundaan Operasi Elektif",
-    img: "/images/quality/6.png",
-  },
-  {
-    id: 7,
-    name: "Kepatuhan Waktu Visit Dokter",
-    img: "/images/quality/7.png",
-  },
-  {
-    id: 8,
-    name: "Pelapoaran Hasil Kritis Laboratorium",
-    img: "/images/quality/8.png",
-  },
-  {
-    id: 9,
-    name: "Kepatuhan Penggunaan Formularium Nasional",
-    img: "/images/quality/9.png",
-  },
-  {
-    id: 10,
-    name: "Kepatuhan Terhadap Alur Klinis (Clinical Pathway)",
-    img: "/images/quality/10.png",
-  },
-  {
-    id: 11,
-    name: "Kepatuhan Upaya Pencegahan Risiko Pasien Jatuh",
-    img: "/images/quality/11.png",
-  },
-  {
-    id: 12,
-    name: "Kecepatan Waktu Tanggap Komplain",
-    img: "/images/quality/12.png",
-  },
-  {
-    id: 13,
-    name: "Kepuasan Pasien",
-    img: "/images/quality/13.png",
-  },
-];
-
 const QualityIndicatorPage: React.FC = () => {
+  const [data, setData] = useState<IndicatorItem[]>([]);
+
+  useEffect(() => {
+    fetch(`${appSetting.apiUrl}/api/indicator`)
+      .then((res) => res.json())
+      .then((res) => setData(res.data || []))
+      .catch(console.error);
+  }, []);
+
   const settings = {
     dots: true,
     arrows: false,
@@ -113,42 +56,52 @@ const QualityIndicatorPage: React.FC = () => {
       },
     ],
   };
+
   return (
     <div className="py-10 justify-items-center dark:bg-black dark:text-white">
       <div className="container">
-        {/* header section */}
-        <div className="text-center mb-10 max-w-[800px] mx-auto">
-            <h1
-              data-aos="fade-up"
-              className="text-xl sm:text-2xl font-bold text-center mb-6"
-            >
-              Capaian Indikator Nasional Mutu (INM) <br></br> Rumah Sakit Umum An ni`mah
-            </h1>
-          </div>
 
-        {/* News cards */}
+        {/* HEADER */}
+        <div className="text-center mb-10 max-w-[800px] mx-auto">
+          <h1
+            data-aos="fade-up"
+            className="text-xl sm:text-2xl font-bold text-center mb-6"
+          >
+            Capaian Indikator Nasional Mutu (INM) <br />
+            Rumah Sakit Umum An ni`mah
+          </h1>
+        </div>
+
+        {/* SLIDER */}
         <div data-aos="zoom-in">
           <Slider {...settings}>
-            {StoryData.map((data: StoryItem) => (
-              <div key={data.id} className="my-6 cursor-pointer">
-                <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 relative">
-                  <div className="relative w-full h-[250px] sm:h-[400px] rounded-lg overflow-hidden mb-2">
-                    <img
-                      src={data.img}
-                      alt={data.name}
-                      className="w-full h-full"
-                    />
-                  </div>
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="space-y-3">
-                      <h1 className="text-md sm:text-xl font-bold text-black/80 dark:text-white">
-                        {data.name}
-                      </h1>
+            {data
+              .filter((item) => item.status === 1)
+              .map((item) => (
+                <div key={item.id} className="my-6 cursor-pointer">
+                  <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 relative">
+
+                    {/* IMAGE */}
+                    <div className="relative w-full h-[250px] sm:h-[400px] rounded-lg overflow-hidden mb-2">
+                      <img
+                        src={item.image || "/images/placeholder.jpg"}
+                        alt={item.title}
+                        className="w-full h-full"
+                      />
                     </div>
+
+                    {/* TITLE */}
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="space-y-3">
+                        <h1 className="text-md sm:text-xl font-bold text-black/80 dark:text-white">
+                          {item.title}
+                        </h1>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </Slider>
         </div>
       </div>
