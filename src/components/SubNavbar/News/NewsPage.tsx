@@ -124,7 +124,7 @@ const NewsPage: React.FC = () => {
 
                   <Link className="text-center" to={`/newspage/${data.id}`}>
                     <button className="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer">
-                      Read More
+                      Baca Selengkapnya
                     </button>
                   </Link>
                 </div>
@@ -141,7 +141,7 @@ const NewsPage: React.FC = () => {
               onClick={() => setVisibleCount((prev) => prev + 4)}
               className="bg-gradient-to-r from-gdtwo to-gdone text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200"
             >
-              Load More  ..
+              Lebih Banyak ..
             </button>
           </div>
         )}

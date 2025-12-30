@@ -79,7 +79,7 @@ const Service: React.FC = () => {
                 </p>
                 <Link to={`/service/${link}`} className="text-center">
                   <button className="bg-gradient-to-r from-gdtwo to-gdone text-white px-6 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer">
-                    Read More
+                    Lihat Detail
                   </button>
                 </Link>
               </div>
