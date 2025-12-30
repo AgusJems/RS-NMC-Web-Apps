@@ -18,11 +18,11 @@ const storyService = {
     return rows[0];
   },
 
-  insert: async ({ image, nama, deskripsi }) => {
+  insert: async ({ image, title, deskripsi }) => {
     await pool.query(
-      `INSERT INTO story (image, nama, deskripsi)
+      `INSERT INTO story (image, title, deskripsi)
        VALUES (?, ?, ?)`,
-      [image, nama, deskripsi]
+      [image, title, deskripsi]
     );
   },
 
