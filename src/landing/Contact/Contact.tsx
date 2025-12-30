@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
               data-aos="fade-up"
               className="text-2xl sm:text-4xl font-semibold font-sans"
             >
-              Reservasi Pelayanan kami sekarang
+              RESERVASI PELAYANAN KAMI SEKARANG
             </h1>
             <p data-aos="fade-up" className="text-sm text-white">
               Rumah sakit adalah bagian integral dari suatu organisasi sosial
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
               className="bg-gradient-to-r from-gdtwo to-gdone text-white px-6 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer"
               onClick={handleReservation}
             >
-              Reservasi
+              Daftar Sekarang
             </button>
           </div>
         </div>
