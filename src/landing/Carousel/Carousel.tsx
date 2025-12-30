@@ -3,13 +3,11 @@ import Slider, { Settings } from "react-slick";
 import bgRs from "../../../public/images/carousel/rs-depan.svg";
 import { appSetting } from "../../../appSetting";
 
-
 const bgStyle: React.CSSProperties = {
   backgroundImage: `url(${bgRs})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
-  height: "750px",
   width: "100vw",
 };
 
@@ -50,16 +48,17 @@ const Carousel: React.FC<CarouselProps> = () => {
   };
 
   return (
-    <div style={bgStyle}>
-      <div className="dark:bg-dark/60 bg-white/10 backdrop-blur-sm dark:text-white duration-300 h-[750px] flex justify-center items-center">
+    <div style={bgStyle} className="h-[350px] sm:h-[750px]">
+      <div className="dark:bg-dark/60 bg-white/10 backdrop-blur-sm dark:text-white duration-300 h-[350px] sm:h-[750px] flex justify-center items-center">
         <div className="container pb-8 sm:pb-0">
           <Slider {...settings}>
             {carouselData.map((data) => (
               <div key={data.id}>
-                <div className="grid grid-cols-1 sm:grid-cols-2">
+                {/* <div className="grid grid-cols-1 sm:grid-cols-2"> */}
+                <div>
                   
                   {/* Text */}
-                  <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
+                  {/* <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10">
                     <h1
                       data-aos="zoom-out"
                       data-aos-duration="500"
@@ -77,7 +76,7 @@ const Carousel: React.FC<CarouselProps> = () => {
                       dangerouslySetInnerHTML={{ __html: data.deskripsi }}
                     />
 
-                    {/* <div
+                    <div
                       data-aos="fade-up"
                       data-aos-duration="500"
                       data-aos-delay={300}
@@ -88,23 +87,23 @@ const Carousel: React.FC<CarouselProps> = () => {
                       >
                         Read More
                       </button>
-                    </div> */}
-                  </div>
+                    </div>
+                  </div> */}
 
                   {/* Image */}
-                  <div className="order-1 sm:order-2">
+                  {/* <div className="order-1 sm:order-2"> */}
                     <div
                       data-aos="zoom-in"
                       data-aos-once="true"
-                      className="relative z-10"
+                      className="relative z-10 rounded-xl overflow-hidden shadow-lg"
                     >
                       <img
                         src={data.image}
                         alt={data.title}
-                        className="w-[300px] h-[300px] sm:h-[450px] sm:w-[400px] sm:scale-105 lg:scale-120 object-contain mx-auto rounded-xl"
+                        className="w-full h-[300px] sm:h-[450px] sm:w-full sm:scale-105 lg:scale-120 object-contain mx-auto"
                       />
                     </div>
-                  </div>
+                  {/* </div> */}
 
                 </div>
               </div>

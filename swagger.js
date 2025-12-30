@@ -25,6 +25,8 @@ const swaggerOptions = {
     "./src/server/routes/support.routes.js",
     "./src/server/routes/carousel.routes.js",
     "./src/server/routes/resto.routes.js",
+    "./src/server/routes/indicator.routes.js",
+    "./src/server/routes/story.routes.js",
   ],
 };
 // Generate Swagger specification

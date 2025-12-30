@@ -9,10 +9,10 @@ import {
 import Badge from "../../ui/badge/Badge";
 import Button from "../../ui/button/Button";
 import { Modal } from "../../ui/modal";
-import Input from "../../form/input/InputField";
+// import Input from "../../form/input/InputField";
 import Label from "../../form/Label";
 import FileInput from "../../form/input/FileInput";
-import QuillEditor from "../../form/input/QuillEditor";
+// import QuillEditor from "../../form/input/QuillEditor";
 import Switch from "../../form/switch/Switch";
 
 import {
@@ -180,7 +180,7 @@ export default function CarouselTable() {
           <Table>
             <TableHeader className="border-b border-gray-100 dark:border-white/[0.05]">
               <TableRow>
-                <TableCell
+                {/* <TableCell
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
@@ -191,7 +191,7 @@ export default function CarouselTable() {
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
                 >
                   Description
-                </TableCell>
+                </TableCell> */}
                 <TableCell
                   isHeader
                   className="px-5 text-center text-gray-800 text-theme-sm dark:text-gray-400"
@@ -216,7 +216,7 @@ export default function CarouselTable() {
             <TableBody className="divide-y divide-gray-100 dark:divide-white/[0.05]">
               {paginatedCarousel.map((item) => (
                 <TableRow key={item.id}>
-                  <TableCell className="px-4 py-4 text-center text-gray-500 dark:text-gray-400">
+                  {/* <TableCell className="px-4 py-4 text-center text-gray-500 dark:text-gray-400">
                     {item.title}
                   </TableCell>
 
@@ -225,7 +225,7 @@ export default function CarouselTable() {
                       className="prose prose-sm max-w-2xl dark:prose-invert line-clamp-1"
                       dangerouslySetInnerHTML={{ __html: item.deskripsi }}
                     />
-                  </TableCell>
+                  </TableCell> */}
 
                   <TableCell className="px-4 py-4 text-center">
                     {item.image ? (
@@ -352,7 +352,7 @@ export default function CarouselTable() {
           </h4>
 
           {/* Nama Carousel */}
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <Label>Title</Label>
             <Input
               type="text"
@@ -362,10 +362,10 @@ export default function CarouselTable() {
                 setFormData({ ...formData, title: e.target.value })
               }
             />
-          </div>
+          </div> */}
 
           {/* Deskripsi */}
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <Label>Deskripsi</Label>
             <QuillEditor
               value={formData.deskripsi}
@@ -373,7 +373,7 @@ export default function CarouselTable() {
               placeholder="Tulis deskripsi carousel..."
               className="text-gray-800 text-theme-sm dark:text-gray-400"
             />
-          </div>
+          </div> */}
 
           {/* Image */}
           <div className="mb-3">
