@@ -18,11 +18,11 @@ const indicatorService = {
     return rows[0];
   },
 
-  insert: async ({ image, nama }) => {
+  insert: async ({ image, title }) => {
     await pool.query(
-      `INSERT INTO indicator (image, nama)
+      `INSERT INTO indicator (image, title)
        VALUES (?, ?)`,
-      [image, nama]
+      [image, title]
     );
   },
 
