@@ -98,11 +98,11 @@ const Resto: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-[800px] mb-5 px-4 mx-auto">
           <h1 className="text-2xl font-bold text-center mb-6">
-            Menu Resto RSU An Ni’mah
+            Menu Resto Rumah Sakit Umum AN NI`MAH
           </h1>
 
           <p data-aos="fade-up" className="text-sm text-gray-400">
-            Pilihan menu makanan sehat yang disajikan oleh Resto RSU An Ni’mah, dibuat dengan bahan berkualitas dan mengikuti standar gizi rumah sakit.
+            Pilihan menu makanan sehat yang disajikan oleh Resto Rumah Sakit Umum AN NI`MAH, dibuat dengan bahan berkualitas dan mengikuti standar gizi rumah sakit.
           </p>
         </div>
 

@@ -63,7 +63,7 @@ const News: React.FC = () => {
             Berita
           </h1>
           <p data-aos="fade-up" className="text-sm sm:text-md text-gray-400">
-            Dapatkan informasi terbaru seputar kegiatan, inovasi layanan, serta edukasi kesehatan dari RS An Ni’mah.
+            Dapatkan informasi terbaru seputar kegiatan, inovasi layanan, serta edukasi kesehatan dari Rumah Sakit Umum An Ni’mah.
           </p>
         </div>
 
@@ -117,7 +117,7 @@ const News: React.FC = () => {
         <div className="flex justify-center">
           <a href="/newspage" className="text-center">
             <button className="bg-gradient-to-r from-gdtwo to-gdone text-white px-6 sm:px-6 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200 cursor-pointer mt-10">
-              View All News
+              Lihat Semua
             </button>
           </a>
         </div>

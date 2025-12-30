@@ -100,7 +100,7 @@ const Carousel: React.FC<CarouselProps> = () => {
                       <img
                         src={data.image}
                         alt={data.title}
-                        className="w-full h-[300px] sm:h-[450px] sm:w-full sm:scale-105 lg:scale-120 object-contain mx-auto"
+                        className="w-full h-[300px] sm:h-[450px] sm:w-full object-contain mx-auto"
                       />
                     </div>
                   {/* </div> */}

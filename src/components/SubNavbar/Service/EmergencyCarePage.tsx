@@ -35,7 +35,7 @@ const EmergencyPage: React.FC = () => {
               </h1>
 
               <p data-aos="fade-up" className="text-sm text-gray-400">
-                Informasi layanan gawat darurat dan fasilitas yang tersedia di RSU An Ni’mah.
+                Informasi layanan gawat darurat dan fasilitas yang tersedia di Rumah Sakit Umum AN NI`MAH.
               </p>
             </div>
 

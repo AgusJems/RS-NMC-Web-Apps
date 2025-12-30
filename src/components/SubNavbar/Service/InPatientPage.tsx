@@ -31,7 +31,7 @@ const InPatientPage: React.FC = () => {
                 Pelayanan Rawat Inap
               </h1>
               <p data-aos="fade-up" className="text-sm text-gray-400">
-                Informasi fasilitas rawat inap berdasarkan kelas layanan yang tersedia di RSU An Ni’mah.
+                Informasi fasilitas rawat inap berdasarkan kelas layanan yang tersedia di Rumah Sakit Umum AN NI`MAH
               </p>
             </div>
 

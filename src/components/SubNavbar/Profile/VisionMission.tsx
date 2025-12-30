@@ -63,7 +63,7 @@ const VisionMissionPage: React.FC = () => {
             <div data-aos="zoom-in">
               <img
                 src="/images/user/erwin.svg"
-                alt="Direktur RSU An Ni'mah"
+                alt="Direktur Rumah Sakit Umum AN NI`MAH"
                 className="max-w-[500px] h-[450px] sm:h-[550px] w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover rounded-lg"
               />
             </div>
@@ -74,23 +74,23 @@ const VisionMissionPage: React.FC = () => {
                 data-aos="fade-up"
                 className="text-3xl sm:text-3xl font-bold"
               >
-                RSU AN NI'MAH
+                Rumah Sakit Umum AN NI`MAH
               </h1>
               <p
                 data-aos="fade-up"
                 className="text-md tracking-wide leading-5"
               >
-                Assalamu'alaikum warahmatullahi Wabarakatuh.
+                Assalamu’alaikum Warahmatullahi Wabarakatuh 
               </p>
               <p
                 data-aos="fade-up"
                 className="text-md tracking-wide leading-5 mb-4"
               >
-                Selamat datang di RSU An Ni'mah, rumah sakit yang hadir sebagai
+                Selamat datang di Rumah Sakit Umum AN NI`MAH, rumah sakit yang hadir sebagai
                 wujud komitmen kami dalam memberikan pelayanan kesehatan yang
                 profesional, amanah dan penuh kasih. Dengan semangat islami dan
                 nilai-nilai kebaikan, kami berusaha menghadirkan layanan yang
-                tidak hanya menyembuhkan, namun juga menenangkan. Terimakasih
+                tidak hanya menyembuhkan, tetapi juga menenangkan. Terimakasih
                 atas kepercayaan Anda.
               </p>
               <h2
@@ -114,7 +114,7 @@ const VisionMissionPage: React.FC = () => {
       <div className="min-h-screen px-4 py-10 dark:bg-black dark:text-white justify-items-center">
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <h1 data-aos="fade-up" className="text-3xl font-bold mb-4">
-            Visi & Misi RSU An Ni'mah
+            Visi & Misi Rumah Sakit Umum AN NI`MAH
           </h1>
           <p
             data-aos="fade-up"

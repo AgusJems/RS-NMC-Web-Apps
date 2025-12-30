@@ -43,7 +43,7 @@ const OutPatientPage: React.FC = () => {
               Pelayanan Rawat Jalan
             </h1>
             <p data-aos="fade-up" className="text-sm text-gray-400">
-              Layanan rawat jalan RSU An Ni’mah tersedia untuk berbagai
+              Layanan rawat jalan Rumah Sakit Umum AN NI`MAH tersedia untuk berbagai
               kebutuhan medis, ditangani oleh dokter spesialis berpengalaman.
             </p>
           </div>

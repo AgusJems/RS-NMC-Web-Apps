@@ -51,7 +51,7 @@ const Service: React.FC = () => {
           </p>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-500 dark:text-white mb-2">Layanan Kami</h1>
           <p className="text-sm sm:text-md text-gray-400">
-            RS An Ni’mah menghadirkan layanan kesehatan terpadu yang didukung oleh tenaga medis berkompeten, <br></br> fasilitas modern, serta komitmen untuk memberikan perawatan terbaik bagi setiap pasien.
+            Rumah Sakit Umum AN NI`MAH menghadirkan layanan kesehatan terpadu yang didukung oleh tenaga medis yang kompeten, <br></br> fasilitas modern dan komitmen untuk memberikan perawatan terbaik bagi setiap pasien.
           </p>
         </div>
 
