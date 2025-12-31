@@ -53,7 +53,7 @@ const Carousel: React.FC<CarouselProps> = () => {
         <div className="container pb-8 sm:pb-0">
           <Slider {...settings}>
             {carouselData.map((data) => (
-              <div key={data.id}>
+              <div key={data.id} className="px-3 sm:px-6">
                 {/* <div className="grid grid-cols-1 sm:grid-cols-2"> */}
                 <div>
                   
@@ -100,7 +100,7 @@ const Carousel: React.FC<CarouselProps> = () => {
                       <img
                         src={data.image}
                         alt={data.title}
-                        className="w-full h-[300px] sm:h-[450px] sm:w-full object-contain mx-auto"
+                        className="w-full h-auto sm:h-auto sm:w-full object-contain mx-auto"
                       />
                     </div>
                   {/* </div> */}

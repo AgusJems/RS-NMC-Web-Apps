@@ -63,7 +63,7 @@ const SupportPage: React.FC = () => {
 
                     <div
                       data-aos="fade-up"
-                      className="text-sm sm:text-md text-gray-500 tracking-wide leading-5 mb-4 text-justify"
+                      className="text-sm sm:text-lg text-gray-500 tracking-wide leading-5 mb-4 text-justify"
                       dangerouslySetInnerHTML={{ __html: item.deskripsi }}
                     />
                   </div>

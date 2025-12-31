@@ -24,7 +24,7 @@ const FloatingWA = () => {
       <span
         className="hidden md:block text-sm font-semibold animate-slideFade"
       >
-        Reservasi Sekarang
+        Daftar Sekarang
       </span>
 
       {/* Animasi dengan Tailwind */}

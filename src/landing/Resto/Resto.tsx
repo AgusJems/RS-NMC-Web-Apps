@@ -17,8 +17,8 @@ const Resto: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const handleResto = () => {
-    const message = "Halo admin, saya ingin bertanya mengenai layanan.";
-    const waUrl = `https://wa.me/6281227086943?text=${encodeURIComponent(
+    const message = "Halo admin, saya ingin bertanya mengenai menu dan layanan Resto Rumah Sakit.";
+    const waUrl = `https://wa.me/6285135968526?text=${encodeURIComponent(
       message
     )}`;
     window.open(waUrl, "_blank");
