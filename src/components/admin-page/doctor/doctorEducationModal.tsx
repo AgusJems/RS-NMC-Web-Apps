@@ -43,8 +43,8 @@ export default function DoctorEducationModal({
   const [form, setForm] = useState({
     universitas: "",
     prodi: "",
-    tahun_mulai: "",
-    tahun_selesai: "",
+    tahun_mulai: null as number | null,
+    tahun_selesai: null as number | null,
   });
 
   useEffect(() => {
@@ -71,8 +71,8 @@ export default function DoctorEducationModal({
     setForm({
       universitas: "",
       prodi: "",
-      tahun_mulai: "",
-      tahun_selesai: "",
+      tahun_mulai: null,
+      tahun_selesai: null,
     });
 
     fetchEducation();
@@ -83,8 +83,8 @@ export default function DoctorEducationModal({
     setForm({
       universitas: item.universitas,
       prodi: item.prodi,
-      tahun_mulai: item.tahun_mulai.toString(),
-      tahun_selesai: item.tahun_selesai.toString(),
+      tahun_mulai: item.tahun_mulai ?? null,
+      tahun_selesai: item.tahun_selesai ?? null,
     });
     setEditOpen(true);
   };
@@ -251,9 +251,9 @@ export default function DoctorEducationModal({
               <Label>Tahun Mulai</Label>
               <Input
                 type="number"
-                value={form.tahun_mulai}
+                value={form.tahun_mulai ?? ""}
                 onChange={(e) =>
-                  setForm({ ...form, tahun_mulai: e.target.value })
+                  setForm({ ...form, tahun_mulai: e.target.value ? Number(e.target.value) : null })
                 }
               />
             </div>
@@ -262,9 +262,9 @@ export default function DoctorEducationModal({
               <Label>Tahun Selesai</Label>
               <Input
                 type="number"
-                value={form.tahun_selesai}
+                value={form.tahun_selesai ?? ""}
                 onChange={(e) =>
-                  setForm({ ...form, tahun_selesai: e.target.value })
+                  setForm({ ...form, tahun_selesai: e.target.value ? Number(e.target.value) : null })
                 }
               />
             </div>
@@ -322,9 +322,9 @@ export default function DoctorEducationModal({
               <Label>Tahun Mulai</Label>
               <Input
                 type="number"
-                value={form.tahun_mulai}
+                value={form.tahun_mulai ?? ""}
                 onChange={(e) =>
-                  setForm({ ...form, tahun_mulai: e.target.value })
+                  setForm({ ...form, tahun_mulai: e.target.value ? Number(e.target.value) : null })
                 }
               />
             </div>
@@ -333,9 +333,9 @@ export default function DoctorEducationModal({
               <Label>Tahun Selesai</Label>
               <Input
                 type="number"
-                value={form.tahun_selesai}
+                value={form.tahun_selesai ?? ""}
                 onChange={(e) =>
-                  setForm({ ...form, tahun_selesai: e.target.value })
+                  setForm({ ...form, tahun_selesai: e.target.value ? Number(e.target.value) : null })
                 }
               />
             </div>
