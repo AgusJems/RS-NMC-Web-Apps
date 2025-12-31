@@ -3,7 +3,7 @@ import React from "react";
 const Contact: React.FC = () => {
   const handleReservation = () => {
     const message = "Halo admin, saya ingin bertanya mengenai layanan.";
-    const waUrl = `https://wa.me/6281227086943?text=${encodeURIComponent(
+    const waUrl = `https://wa.me/628112922444?text=${encodeURIComponent(
       message
     )}`;
     window.open(waUrl, "_blank");
@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
               data-aos="fade-up"
               className="text-2xl sm:text-4xl font-semibold font-sans"
             >
-              RESERVASI PELAYANAN KAMI SEKARANG
+              DAFTAR PELAYANAN KAMI SEKARANG
             </h1>
             <p data-aos="fade-up" className="text-sm text-white">
               Rumah sakit adalah bagian integral dari suatu organisasi sosial

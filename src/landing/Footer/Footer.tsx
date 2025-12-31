@@ -21,10 +21,6 @@ const ContactUs = [
     title: "Visi & Misi",
     link: "visi-misi",
   },
-  {
-    title: "Blog",
-    link: "/#blog",
-  },
 ];
 
 const Service = [
@@ -47,6 +43,10 @@ const Service = [
 ];
 
 const Footer: React.FC = () => {
+  const message = "Halo admin, saya ingin bertanya mengenai layanan.";
+  const waAmbulanceUrl = `https://wa.me/628112666841?text=${encodeURIComponent(message)}`;
+  const waCallCenterUrl = `https://wa.me/628112922444?text=${encodeURIComponent(message)}`;
+
   return (
     <div className="bg-black text-white justify-items-center">
       <div className="container">
@@ -82,9 +82,10 @@ const Footer: React.FC = () => {
                   <a href="https://www.google.com/maps/place/RSU+An+Ni'mah/@-7.5180652,109.0596968,17z/data=!3m1!4b1!4m6!3m5!1s0x2e65658e05cf188b:0xda6cc3063704668a!8m2!3d-7.5180652!4d109.0622717!16s%2Fg%2F11b6pwr_9h?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D">
                     <FaLocationArrow className='mt-1.5' />
                   </a>
-                  <p className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 200 text-sm sm:text-sm md:text-base">
+                  <a href="https://www.google.com/maps/place/RSU+An+Ni'mah/@-7.5180652,109.0596968,17z/data=!3m1!4b1!4m6!3m5!1s0x2e65658e05cf188b:0xda6cc3063704668a!8m2!3d-7.5180652!4d109.0622717!16s%2Fg%2F11b6pwr_9h?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D"
+                   className="cursor-pointer hover:text-yellow-400 hover:translate-x-1 duration-300 text-gray-200 200 text-sm sm:text-sm md:text-base">
                     Jl. Raya Wangon-Ci, Klapagading, Kec. Wangon, Kabupaten Banyumas, Jawa Tengah 53176
-                  </p>
+                  </a>
                 </div>
               </div>
             </div>
@@ -98,23 +99,23 @@ const Footer: React.FC = () => {
 
               <div className="flex items-center gap-4 mt-3">
                 <FaAmbulance />
-                <p className="cursor-pointer hover:text-yellow-400 duration-300 text-gray-200 text-sm">
-                  Ambulans (0811 2922 444)
-                </p>
+                <a href={waAmbulanceUrl} className="cursor-pointer hover:text-yellow-400 duration-300 text-gray-200 text-sm">
+                  Instalasi Gawat Darurat (IGD)
+                </a>
               </div>
 
               <div className="flex items-center gap-4 mt-3">
                 <FaPhoneVolume />
-                <p className="cursor-pointer hover:text-yellow-400 duration-300 text-gray-200 text-sm">
-                  Pusat Panggilan (0811 2922 444)
-                </p>
+                <a href={waCallCenterUrl} className="cursor-pointer hover:text-yellow-400 duration-300 text-gray-200 text-sm">
+                  Pusat Panggilan
+                </a>
               </div>
 
               <div className="flex items-center gap-4 mt-3">
                 <FaWhatsapp />
-                <p className="cursor-pointer hover:text-yellow-400 duration-300 text-gray-200 text-sm">
+                <a href={waCallCenterUrl} className="cursor-pointer hover:text-yellow-400 duration-300 text-gray-200 text-sm">
                   Whatsapp (0811 2922 444)
-                </p>
+                </a>
               </div>
 
               <div className="flex items-center gap-4 mt-3">

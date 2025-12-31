@@ -11,7 +11,7 @@ interface NewsItem {
   deskripsi: string;
   image: string;
   tanggal: string;
-  jenis_nama?: string; // dari backend
+  jenis_nama?: string;
 }
 
 const tabs = ["Promo Spesial", "Berita Terbaru", "Tips Kesehatan"];
@@ -138,7 +138,7 @@ const NewsPage: React.FC = () => {
         {visibleCount < tabData.length && (
           <div className="flex justify-center mt-8">
             <button
-              onClick={() => setVisibleCount((prev) => prev + 4)}
+              onClick={() => setVisibleCount(tabData.length)}
               className="bg-gradient-to-r from-gdtwo to-gdone text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-md rounded-full hover:scale-105 duration-200"
             >
               Lebih Banyak ..
