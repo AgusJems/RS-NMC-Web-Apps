@@ -95,7 +95,7 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
 
           <Route element={<LandingLayout />}>
-            <Route path="/landing" element={<HomeLanding />} />
+            <Route path="/" element={<HomeLanding />} />
             <Route path="/profile/story" element={<StoryPage />} />
             <Route path="/profile/visi-misi" element={<VisionMissionPage />} />
             <Route
