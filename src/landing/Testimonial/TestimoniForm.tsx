@@ -52,7 +52,7 @@ const TestimoniForm: React.FC = () => {
           "Terima kasih, testimoni Anda telah dikirim 😊"
         );
 
-        navigate("/landing");
+        navigate("/");
 
         // Reset form
         setForm({

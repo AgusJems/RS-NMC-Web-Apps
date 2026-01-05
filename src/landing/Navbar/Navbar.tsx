@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-screen-xl mx-auto px-4 py-2 md:py-0">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/landing">
+          <a href="/">
             <img src={Logo} alt="Logo" className="w-[150px] h-[70px]" />
           </a>
 
