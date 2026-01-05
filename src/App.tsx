@@ -61,7 +61,7 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Navigate to="/landing" replace />} />
+          <Route path="/" element={<Navigate to="/" replace />} />
           {/* Dashboard Layout */}
           <Route
             element={
