@@ -11,7 +11,7 @@ export interface NavLink {
 }
 
 export const NavLinks: NavLink[] = [
-  { id: 1, name: "Beranda", link: "/landing" },
+  { id: 1, name: "Beranda", link: "/" },
   {
     id: 2,
     name: "Profil",

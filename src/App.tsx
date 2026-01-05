@@ -39,9 +39,7 @@ import Carousel from "./pages/Carousel/Carousel";
 // start Resto
 import Resto from "./pages/Resto/Resto";
 import RestoPage from "./landing/Resto/Resto";
-// End Resto
-
-import { Navigate } from "react-router-dom";
+// End RestoS
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Simrs from "./landing/Simrs/Simrs";
 import Story from "./pages/Story/Story";
@@ -61,7 +59,6 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Navigate to="/" replace />} />
           {/* Dashboard Layout */}
           <Route
             element={
@@ -95,7 +92,7 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
 
           <Route element={<LandingLayout />}>
-            <Route path="/" element={<HomeLanding />} />
+            <Route index element={<HomeLanding />} />
             <Route path="/profile/story" element={<StoryPage />} />
             <Route path="/profile/visi-misi" element={<VisionMissionPage />} />
             <Route
