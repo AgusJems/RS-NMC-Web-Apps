@@ -25,27 +25,37 @@ const FileInput: FC<FileInputProps> = ({ className = "", onChange }) => {
       img.src = reader.result as string;
 
       img.onload = () => {
-
         const MAX_WIDTH = 1200;
-        const dpr = window.devicePixelRatio || 1;
 
+        // 1. Hindari penggunaan DPR untuk upload gambar ke server
+        // Menggunakan DPR > 1 membuat canvas terlalu besar dan bikin blur saat scaling
         const targetWidth = Math.min(img.width, MAX_WIDTH);
         const scale = targetWidth / img.width;
         const targetHeight = img.height * scale;
 
         const canvas = document.createElement("canvas");
-        canvas.width = targetWidth * dpr;
-        canvas.height = targetHeight * dpr;
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
 
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        ctx.scale(dpr, dpr);
+        // 2. Membersihkan canvas (penting untuk PNG transparan)
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = "high";
 
         ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
-        const resizedBase64 = canvas.toDataURL("image/jpeg", 0.85);
+
+        // 3. FIX: Gunakan format dinamis atau WebP
+        // WebP mendukung transparansi dan ukurannya jauh lebih kecil dari PNG
+        const outputFormat =
+          file.type === "image/png" ? "image/png" : "image/jpeg";
+
+        // Jika browser mendukung WebP, itu pilihan terbaik (kecil & transparan)
+        const resizedBase64 = canvas.toDataURL(outputFormat, 0.9);
+
         onChange(resizedBase64);
       };
     };
