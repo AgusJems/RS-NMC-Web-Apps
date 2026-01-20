@@ -49,7 +49,7 @@ const Carousel: React.FC<CarouselProps> = () => {
 
   return (
     <div style={bgStyle} className="h-[350px] sm:h-[750px]">
-      <div className="dark:bg-dark/60 bg-white/10 backdrop-blur-sm dark:text-white duration-300 h-[350px] sm:h-[750px] flex justify-center items-center">
+      <div className="dark:bg-dark/30 bg-white/10 dark:text-white duration-300 h-[350px] sm:h-[750px] flex justify-center items-center">
         <div className="container pb-8 sm:pb-0">
           <Slider {...settings}>
             {carouselData.map((data) => (
@@ -95,7 +95,7 @@ const Carousel: React.FC<CarouselProps> = () => {
                     <div
                       data-aos="zoom-in"
                       data-aos-once="true"
-                      className="relative z-10 rounded-xl overflow-hidden shadow-lg"
+                      className="relative z-10 rounded-xl overflow-hidden"
                     >
                       <img
                         src={data.image}
