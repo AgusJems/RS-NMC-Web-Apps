@@ -2,6 +2,7 @@ import React from "react";
 // import { FaUserCircle } from "react-icons/fa";
 import { HiChevronDown } from "react-icons/hi";
 import { NavLinks, NavLink } from "../../landing/Navbar/data/navLinks";
+import Logo from "../../../public/images/logo/logo.svg";
 
 interface ResponsiveMenuProps {
   showMenu: boolean;
@@ -20,7 +21,7 @@ const ResponsiveMenu: React.FC<ResponsiveMenuProps> = ({
     <div
       className={`${
         showMenu ? "left-0" : "-left-[100%]"
-      } fixed bottom-0 top-0 z-20 flex h-screen w-[75%] flex-col justify-between bg-white dark:bg-dark dark:text-white px-8 pb-6 pt-16 text-black duration-300 transition-all ease-in-out md:hidden rounded-r-xl shadow-md`}
+      } fixed bottom-0 top-0 z-20 flex h-screen w-[75%] flex-col justify-between bg-white dark:bg-dark dark:text-white px-8 pb-6 pt-10 text-black duration-300 transition-all ease-in-out md:hidden rounded-r-xl shadow-md`}
     >
       <div>
         {/* User Info */}
@@ -32,8 +33,12 @@ const ResponsiveMenu: React.FC<ResponsiveMenuProps> = ({
           </div>
         </div> */}
 
+        <a href="/">
+          <img src={Logo} alt="Logo" className="w-[150px] h-[70px]" />
+        </a>
+
         {/* Navigation */}
-        <nav className="mt-12">
+        <nav className="mt-8">
           <ul>
             {NavLinks.map(({ id, name, link, submenu }: NavLink) => (
               <li key={id} className="py-2">
@@ -83,8 +88,17 @@ const ResponsiveMenu: React.FC<ResponsiveMenuProps> = ({
 
       {/* Footer */}
       <div className="mt-auto pt-6 border-t border-gray-300 dark:border-gray-700">
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          created by agus
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          Created by{" "}
+            <a
+              href="https://www.linkedin.com/in/agus-safrudin-b11a8b37b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-green-300 transition"
+            >
+              agus
+            </a>{" "}
+            ©2026
         </p>
       </div>
     </div>
