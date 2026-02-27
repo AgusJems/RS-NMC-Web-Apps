@@ -169,7 +169,7 @@ const Footer: React.FC = () => {
         {/* Bottom text */}
         <div className="text-center py-10 border-t-2 border-gray-300/50 text-white">
           <div className="text-lg font-semibold mb-1">
-            RSU AN NI`MAH
+            RSU An Ni'mah
           </div>
 
           {/* <div className="text-[8px] sm:text-xs opacity-80">
