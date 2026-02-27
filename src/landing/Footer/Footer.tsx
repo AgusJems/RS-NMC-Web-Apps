@@ -169,10 +169,10 @@ const Footer: React.FC = () => {
         {/* Bottom text */}
         <div className="text-center py-10 border-t-2 border-gray-300/50 text-white">
           <div className="text-lg font-semibold mb-1">
-            Rumah Sakit Umum AN NI`MAH
+            RSU AN NI`MAH
           </div>
 
-          <div className="text-[8px] sm:text-xs opacity-80">
+          {/* <div className="text-[8px] sm:text-xs opacity-80">
             Created by{" "}
             <a
               href="https://www.linkedin.com/in/agus-safrudin-b11a8b37b/"
@@ -183,7 +183,7 @@ const Footer: React.FC = () => {
               agus
             </a>{" "}
             ©2026 | All Rights Reserved
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
