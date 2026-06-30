@@ -4,11 +4,21 @@ const newsService = {
   getAllNews: async () => {
     try {
       const query = `
-                SELECT b.*, j.nama AS jenis_nama, j.kode AS jenis_kode
-                FROM berita b
-                LEFT JOIN jenis_berita j ON j.id = b.jenis_id
-                ORDER BY b.id DESC
-            `;
+        SELECT 
+          b.id,
+          b.jenis_id,
+          b.nama_berita,
+          b.deskripsi,
+          b.image,
+          b.created_at,
+          b.status,
+          j.nama AS jenis_nama,
+          j.kode AS jenis_kode
+        FROM berita b
+        LEFT JOIN jenis_berita j ON j.id = b.jenis_id
+        ORDER BY b.id DESC
+        LIMIT 30
+      `;
       return await pool.query(query);
     } catch (error) {
       console.error("Error fetching news:", error);
@@ -19,12 +29,21 @@ const newsService = {
   getActiveNews: async () => {
     try {
       const query = `
-                SELECT b.*, j.nama AS jenis_nama
-                FROM berita b
-                LEFT JOIN jenis_berita j ON j.id = b.jenis_id
-                WHERE b.status = 1
-                ORDER BY b.id DESC
-            `;
+        SELECT 
+          b.id,
+          b.jenis_id,
+          b.nama_berita,
+          b.deskripsi,
+          b.image,
+          b.created_at,
+          b.status,
+          j.nama AS jenis_nama
+        FROM berita b
+        LEFT JOIN jenis_berita j ON j.id = b.jenis_id
+        WHERE b.status = 1
+        ORDER BY b.id DESC
+        LIMIT 6
+      `;
       return await pool.query(query);
     } catch (error) {
       console.error("Error fetching active news:", error);
