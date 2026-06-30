@@ -1,4 +1,8 @@
+const origin = import.meta.env.DEV
+  ? import.meta.env.VITE_API_URL
+  : window.location.origin;
+
 export const appSetting = {
-  apiUrl: import.meta.env.VITE_API_URL,
-  appUrl: import.meta.env.VITE_APP_URL,
+  apiUrl: origin,
+  appUrl: window.location.origin,
 };
