@@ -3,10 +3,18 @@ import pool from "../../../config/db.js";
 const dokterService = {
   getAllDokter: async () => {
     const query = `
-      SELECT d.*, p.nama_poli
+      SELECT 
+        d.id,
+        d.nama,
+        d.spesialis,
+        d.profile,
+        d.image,
+        d.poli_id,
+        p.nama_poli
       FROM dokter d
       LEFT JOIN poli p ON p.id = d.poli_id
       ORDER BY d.id DESC
+      LIMIT 20
     `;
     return await pool.query(query);
   },
