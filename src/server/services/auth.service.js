@@ -3,7 +3,9 @@ import pool from "../../../config/db.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || '***DIHAPUS***';
+// Start JWT Secret Dari Env
+const JWT_SECRET = process.env.JWT_SECRET || process.env.SECRET_KEY;
+// End JWT Secret Dari Env
 
 class AuthService {
 

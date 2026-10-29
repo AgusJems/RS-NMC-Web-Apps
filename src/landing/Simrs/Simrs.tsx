@@ -18,7 +18,9 @@ const SimrsData = [
     name: "SIMRS",
     description: "Akses Sistem Informasi Manajemen Rumah Sakit (SIMRS) untuk mendukung pelayanan medis, administrasi, dan manajemen secara terintegrasi dan efisien.",
     button: "Buka Aplikasi SIMRS",
-    link: "http://***DIHAPUS***/live/simrs/index.php/app/auth/login",
+    // Start SIMRS URL Dari Env
+    link: import.meta.env.VITE_SIMRS_URL || "/simrs",
+    // End SIMRS URL Dari Env
     aosDelay: "300",
   },
   {
